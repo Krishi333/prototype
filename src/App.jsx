@@ -1,13 +1,13 @@
 import Message from "./Message";
 import ListGroup from "./components/ListGroup";
-
+// testing 
 function App() {
   return (
     <div>
       <Message />
       <ListGroup
         title="Cities"
-        items={["London", "Doncaster", "Sheffield", "Liverpool", "Manchester"]}
+        items={["London", "Doncaster", "Sheffield", "Guildford", "Manchester"]}
         onSelectItem={(item) => console.log("You picked:", item)}
       />
     </div>
