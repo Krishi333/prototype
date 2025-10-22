@@ -10,7 +10,6 @@ function App() {
         items={["London", "Doncaster", "Sheffield", "Guildford", "Manchester"]}
         onSelectItem={(item) => console.log("You picked:", item)}
       />
-      
     </div>
   );
 }
