@@ -62,5 +62,5 @@ export default function ListGroup({ items, onSelectItem, title }) {
 ListGroup.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSelectItem: PropTypes.func,
-  title: PropTypes.string,
+  title: PropTypes.string, 
 };
