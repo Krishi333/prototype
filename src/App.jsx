@@ -7,7 +7,7 @@ function App() {
       <Message />
       <ListGroup
         title="Cities"
-        items={["London", "Doncaster", "Sheffield", "Guildford", "Manchester"]}
+        items={["London", "Doncaster", "Sheffield", "Guildford"]}
         onSelectItem={(item) => console.log("You picked:", item)}
       />
     </div>
