@@ -17,7 +17,7 @@
             .testing {
                 display: flex;
                 flex-direction: column;
-                padding: 3vh 3vw;
+                padding: var(--small-Gap) var(--medium-Gap);
                 gap: var(--medium-Gap);
                 flex-grow: 0;
                 overflow-x: auto;
@@ -73,6 +73,7 @@
                 text-align: center;
                 color: var(--text-muted);
                 font-size: 1rem;
+                user-select: none;
             } 
             .advancedView:hover, .changeView:hover, .topicResults:hover  {
                 border-color: var(--border-hover-color);
@@ -201,51 +202,6 @@
         <script>
             // basically needs to be so that if you click the topic it will go to the page and also send infomation on which topic was selected
         </script>
-        <script>
-            // making it so clicking the change view will change the flex display of them
-            let topicResultsContain = document.querySelector(".topicResultContainer");
-            let topicResults = document.querySelectorAll(".topicResults");
-            let currentViewMode = 1;
-            function changeViewWrap(){ 
-
-                switch (currentViewMode) {
-                    case 1:
-                        currentViewMode = 2;
-                        topicResultsContain.style.flexWrap = "wrap";
-                        topicResultsContain.style.flexDirection = "row";
-                        topicResults.forEach(child => {
-                            child.style.flex = "0 0 calc(50% - var(--small-Gap))";
-                            child.style.height = "10rem";
-                            
-                        });
-                        break;
-                    case 2: 
-                        currentViewMode = 3;
-                        topicResultsContain.style.flexWrap = "wrap";
-                        topicResultsContain.style.flexDirection = "row";
-                        topicResults.forEach(child => {
-                            child.style.flex = "0 0 calc(25% - var(--small-Gap))";
-                            child.style.height = "10rem";
-
-                        });
-                        break;
-                    case 3: 
-                        currentViewMode = 1
-                        topicResultsContain.style.flexWrap = "nowrap";
-                        topicResultsContain.style.flexDirection = "column";
-                        topicResults.forEach(child => {
-                            child.style.height = "5rem";
-
-                        });
-
-                        break;
-                    case _:
-                        console.log("error, in switch view");
-                }
-            }
-            
-            let changeView = document.querySelector(".changeView");
-            changeView.addEventListener("click",changeViewWrap)
-        </script>
+        <script src="topicChangeView.js"></script>
     </body>
 </html> 
