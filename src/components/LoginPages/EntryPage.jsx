@@ -1,10 +1,8 @@
 import LoginFormContainer from "./LoginPageFeatures/LoginFormContainer";
 import "./LoginPage.css";
-import design from "./tempDesign.jpg";
-import logo from "./logo.png";
 import { useState } from "react";
 import LoginButton from "./LoginPageFeatures/LoginButton";
-
+import design from "../../assets/tempDesign.jpg";
 
 function EntryPage() {
 
