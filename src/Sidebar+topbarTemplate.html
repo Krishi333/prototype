@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Topic</title>
+        <meta name="viewport" content="width:device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <script src="https://kit.fontawesome.com/48d4d99c08.js" crossorigin="anonymous"></script> <!--importing icons-->
+
+        <style>
+            :root{
+                --text: hsl(65 5% 95%);
+                --text-muted: hsl(65 5% 70%);
+
+                --bg-dark: hsl(65 5% 0%);
+                --bg: hsl(65 5% 5%);
+                --bg-light: hsl(65 5% 10%);
+                --bg-super-light: hsl(65 5% 15%);
+            }
+            *{
+                box-sizing: border-box;
+                margin: 0;
+
+                /*this is for debugging*/
+                /*outline: 1px solid red !important;*/ 
+            }
+            body{
+                height: 100vh;
+                width: 100%;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                padding: 3vh 3vw;
+                gap: 3vh;
+                background-color: var(--bg-dark);
+            }
+            .card {
+                background-color: var(--bg);
+                border-radius: 1rem;
+                border: 0.15rem gray solid;
+            }
+            .topbar{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .topbar-Text{
+                color: var(--text);
+                margin: 3vmin;
+                font-size: 2.5vmin;
+            }
+            .sidebar{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-direction: column;
+                width: 7%;
+                text-decoration: none;
+            }
+            .sidebar:hover{
+                width: 15%;
+            }
+            .sidebar a {
+                color: var(--text-muted);
+                margin: 3vmin;
+                font-size: 2.5vmin;
+                text-decoration: none;
+
+            }
+            .sidebar a:hover{
+                color: var(--text);
+            }
+            .mainStuff{
+                display: flex;
+                justify-content: space-between;
+                gap: 3vh;
+                height: 100%;
+            }
+            .testing{
+                width: 100%; /* basically with the sidebar 7% and the gap, the 100% will fill in all remaining space. */
+            }
+        </style>
+    </head>
+    <body>
+        <header class="topbar card">
+            <h1 class="topbar-Text">Topics</h1>
+            <h1 class="topbar-Text">Make-It-All Productivity & Knowledge System </h1>
+        </header>
+        <div class="mainStuff">
+            <nav class="sidebar card"> <!--https://fontawesome.com to get the icons and find new ones-->
+                <a href="#" title="Home"><i class="fa-solid fa-house"></i></a> <!--home-->
+                <a href="#" title="Projects"><i class="fa-solid fa-folder-open"></i></a> <!--projects-->
+                <a href="#" title="Tasks"><i class="fa-solid fa-clipboard"></i></a> <!--tasks-->
+                <a href="#" title="Todo Lists"><i class="fa-solid fa-list-check"></i></a> <!--todo-->
+                <a href="#" title="Topics"><i class="fa-solid fa-file-pen"></i></a> <!--topics-->
+                <a href="#" title="Profile"><i class="fa-solid fa-user"></i></a> <!--profile-->
+                <a href="#" title="Settings"><i class="fa-solid fa-gear"></i></a> <!--settings-->
+                <a href="#" title="Sign Out"><i class="fa-solid fa-right-from-bracket"></i></a> <!--sign out-->
+            </nav>
+            <main class="testing card">
+                <p>test 2</p>
+            </main>
+        </div>
+        <script>
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarChildren = sidebar.children;
+            function addText() {
+                for (let i =0; i< sidebarChildren.length; i++) {
+                    let child = sidebarChildren[i];
+                    let addition = child.getAttribute("title");
+                    let icon = child.querySelector("i");
+                    if (!child.querySelector(".childText")) {
+                        let textContainer = document.createElement("span");
+                        textContainer.className = "childText";
+                        textContainer.textContent = "  " + addition;
+                        icon.after(textContainer);
+                    }
+                }
+            }
+            function removeText(){
+                for (let i = 0; i<sidebarChildren.length; i++){
+                    let child = sidebarChildren[i];
+                    let textContainer = child.querySelector(".childText");
+                    if (textContainer) {
+                        textContainer.remove();
+                    }
+                }
+            }
+            sidebar.addEventListener("mouseenter", addText);
+            sidebar.addEventListener("mouseleave", removeText);
+        </script>
+    </body>
+</html>
