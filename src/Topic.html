@@ -153,13 +153,13 @@
                     </div>
                 </div>
                 <div class="topicResultContainer">
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name1</p></div>
+                    <div class="topicResults"><p>Topic Name2</p></div>
+                    <div class="topicResults"><p>Topic Name3</p></div>
+                    <div class="topicResults"><p>Topic Name4</p></div>
+                    <div class="topicResults"><p>Topic Name5</p></div>
+                    <div class="topicResults"><p>Topic Name6</p></div>
+                    <div class="topicResults"><p>Topic Name7</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
@@ -215,6 +215,8 @@
                         topicResultsContain.style.flexDirection = "row";
                         topicResults.forEach(child => {
                             child.style.flex = "0 0 calc(50% - var(--small-Gap))";
+                            child.style.height = "10rem";
+                            
                         });
                         break;
                     case 2: 
@@ -223,12 +225,19 @@
                         topicResultsContain.style.flexDirection = "row";
                         topicResults.forEach(child => {
                             child.style.flex = "0 0 calc(25% - var(--small-Gap))";
+                            child.style.height = "10rem";
+
                         });
                         break;
                     case 3: 
                         currentViewMode = 1
                         topicResultsContain.style.flexWrap = "nowrap";
                         topicResultsContain.style.flexDirection = "column";
+                        topicResults.forEach(child => {
+                            child.style.height = "5rem";
+
+                        });
+
                         break;
                     case _:
                         console.log("error, in switch view");
