@@ -17,7 +17,8 @@
     gap: var(--small-Gap);
     padding: var(--small-Gap) var(--medium-Gap);
     background-color: var(--bg-light);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-m);
+    border: none;
 
 }
 .searchBottomPart{
@@ -34,7 +35,12 @@
     padding: var(--small-Gap);
     width: 100%;
     color: var(--text);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: var(--shadow-s);
 }
+
 .searchContainer input{
     flex: 1;
     font-size: 1rem;
@@ -64,6 +70,8 @@
     border-color: var(--primary);
     color: var(--text);
     cursor: pointer;
+    box-shadow: var(--shadow-m);
+
 }
 .changeView{
     flex-grow: 2;
@@ -80,7 +88,6 @@
     /* firefox control of scrollbar */
     scrollbar-width: thin;
     scrollbar-color: var(--text-muted) transparent;
-    box-shadow: var(--shadow);
 
 
 }
@@ -92,6 +99,7 @@
     border-radius: 1rem;
     border: var(--border-size) var(--border-color) var(--border-style); 
     text-align: center;
+    box-shadow: var(--shadow-s);
 }
 .topicResults a{
     color: var(--text-muted);

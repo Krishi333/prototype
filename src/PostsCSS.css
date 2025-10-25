@@ -4,10 +4,13 @@
     color: var(--text);
     flex-shrink: 0;
     text-decoration: none;
+    box-shadow: var(--shadow-m);
+
 }
 .backButton:hover{
     border-color: var(--primary);
     cursor: pointer;
+    box-shadow: var(--shadow-l);
 }
 .topicTitle {
     flex: 1;
