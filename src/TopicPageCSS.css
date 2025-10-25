@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: var(--small-Gap);
     padding: var(--small-Gap) var(--medium-Gap);
-    background-color: var(--bg-light);
+    background-color: var(--bg);
     box-shadow: var(--shadow-m);
     border: none;
 
@@ -45,7 +45,7 @@
     flex: 1;
     font-size: 1rem;
     border-radius: 0.5rem;
-    background-color: var(--bg-super-light);
+    background-color: var(--bg-light);
     color: var(--text);
     border: var(--border-size) var(--border-color) var(--border-style);
     border-top: none;
@@ -94,7 +94,7 @@
 .topicResults{
     flex-shrink: 0;
     height: 5rem;
-    background-color: var(--bg-light);
+    background-color: var(--bg);
     color: var(--text-muted);
     border-radius: 1rem;
     border: var(--border-size) var(--border-color) var(--border-style); 

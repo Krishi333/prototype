@@ -2,9 +2,9 @@
 
 
     --bg-dark: oklch(0.1 0.005 74);
-    --bg: oklch(0.15 0.005 74);
-    --bg-light: oklch(0.20 0.005 74);
-    --bg-super-light: oklch(0.3 0.005 74);
+    --bg: oklch(0.20 0.005 74);
+    --bg-light: oklch(0.30 0.005 74);
+    /*--bg-super-light: oklch(0.3 0.005 74);*/
 
     --text: oklch(0.96 0.01 74);
     --text-muted: oklch(0.76 0.01 74);
@@ -166,7 +166,10 @@ body{
     min-height: 0;
     flex-grow: 0;
     padding: var(--small-Gap) var(--medium-Gap);
-    box-shadow: var(--shadow-m);
+    /*box-shadow: var(--shadow-m);*/
+
+    background-color: inherit;
+    border: none; /*testing this out*/
     
 }
 a{
