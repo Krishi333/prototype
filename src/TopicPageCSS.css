@@ -1,3 +1,4 @@
+/* note: this applies to both the Topic page, and the Posts Page as the actual requirements were super similar*/
 .testing {
     display: flex;
     flex-direction: column;

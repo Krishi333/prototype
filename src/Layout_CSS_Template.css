@@ -9,6 +9,7 @@
     --border-color: gray; /*temp*/
     --border-size: 0.15rem; /*temp*/
     --border-style: solid; /*temp*/
+    --tiny-Gap: 0.5rem;
     --small-Gap: 1rem;
     --medium-Gap: 1.5rem;
     --large-Gap: 2rem;
