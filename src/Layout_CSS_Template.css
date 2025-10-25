@@ -12,7 +12,7 @@
     margin: 0;
 
     /*this is for debugging*/
-    /*outline: 1px solid red !important;*/ 
+    /*outline: 1px solid red !important;*/
 }
 body{
     height: 100vh;
@@ -26,6 +26,8 @@ body{
 }
 .card {
     background-color: var(--bg);
+}
+.UIborder, .card{
     border-radius: 1rem;
     border: 0.15rem gray solid; /*temp while i work out border color */
 }
