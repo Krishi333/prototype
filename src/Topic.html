@@ -85,9 +85,7 @@
                 flex-grow: 2;
             } 
             .topicResultContainer {
-                /*background-color: var(--bg-light);*/
                 flex-grow: 1; /*this is flex for it being a flex item*/
-                /*min-height: 200px;*/
                 overflow-x: hidden;
                 overflow-y: auto;
                 /* below is for the flexbox stuff*/
@@ -98,6 +96,7 @@
                 /* firefox control of scrollbar */
                 scrollbar-width: thin;
                 scrollbar-color: var(--text-muted) transparent;
+
             }
             .topicResults{
                 flex-shrink: 0;
@@ -162,6 +161,38 @@
                     <div class="topicResults"><p>Topic Name</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name</p></div>
 
                 </div>
             </main>
@@ -169,6 +200,43 @@
         <script src="sideBarExpand.js"></script>
         <script>
             // basically needs to be so that if you click the topic it will go to the page and also send infomation on which topic was selected
+        </script>
+        <script>
+            // making it so clicking the change view will change the flex display of them
+            let topicResultsContain = document.querySelector(".topicResultContainer");
+            let topicResults = document.querySelectorAll(".topicResults");
+            let currentViewMode = 1;
+            function changeViewWrap(){ 
+
+                switch (currentViewMode) {
+                    case 1:
+                        currentViewMode = 2;
+                        topicResultsContain.style.flexWrap = "wrap";
+                        topicResultsContain.style.flexDirection = "row";
+                        topicResults.forEach(child => {
+                            child.style.flex = "0 0 calc(50% - var(--small-Gap))";
+                        });
+                        break;
+                    case 2: 
+                        currentViewMode = 3;
+                        topicResultsContain.style.flexWrap = "wrap";
+                        topicResultsContain.style.flexDirection = "row";
+                        topicResults.forEach(child => {
+                            child.style.flex = "0 0 calc(25% - var(--small-Gap))";
+                        });
+                        break;
+                    case 3: 
+                        currentViewMode = 1
+                        topicResultsContain.style.flexWrap = "nowrap";
+                        topicResultsContain.style.flexDirection = "column";
+                        break;
+                    case _:
+                        console.log("error, in switch view");
+                }
+            }
+            
+            let changeView = document.querySelector(".changeView");
+            changeView.addEventListener("click",changeViewWrap)
         </script>
     </body>
 </html> 
