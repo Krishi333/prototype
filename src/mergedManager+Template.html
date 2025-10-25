@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Topic</title>
+        <meta name="viewport" content="width:device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <script src="https://kit.fontawesome.com/48d4d99c08.js" crossorigin="anonymous"></script> <!--importing icons-->
+        <link rel="stylesheet" href="mergedManager+TemplateCSS.css">
+
+    </head>
+    <body>
+        <header class="topbar card">
+            <h1 class="topbar-Text">Employees & Team Overview</h1>
+            <h1 class="topbar-Text">Make-It-All Productivity & Knowledge System </h1>
+        </header>
+        <div class="mainStuff">
+            <nav class="sidebar card"> <!--https://fontawesome.com to get the icons and find new ones-->
+                <a href="#" title="Home"><i class="fa-solid fa-house"></i></a> <!--home-->
+                <a href="#" title="Projects"><i class="fa-solid fa-folder-open"></i></a> <!--projects-->
+                <a href="#" title="Tasks"><i class="fa-solid fa-clipboard"></i></a> <!--tasks-->
+                <a href="#" title="Todo Lists"><i class="fa-solid fa-list-check"></i></a> <!--todo-->
+                <a href="Topic.html" title="Topics"><i class="fa-solid fa-file-pen"></i></a> <!--topics-->
+                <a href="#" title="Profile"><i class="fa-solid fa-user"></i></a> <!--profile-->
+                <a href="#" title="Settings"><i class="fa-solid fa-gear"></i></a> <!--settings-->
+                <a href="#" title="Sign Out"><i class="fa-solid fa-right-from-bracket"></i></a> <!--sign out-->
+            </nav>
+            <main class="testing card">
+                <!--<button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+                    🌙
+                </button> merger conflict -->
+
+                <!--<div class="container">
+                     Left Sidebar Navigation 
+                    <nav class="sidebar">
+                        <div class="sidebar-top-section">
+                            <div class="nav-icon profile-icon active" onclick="navigateTo('profile')" title="Profile"></div>
+                            <div class="nav-icon tasks-icon" onclick="navigateTo('tasks')" title="Tasks"></div>
+                            <div class="nav-icon employees-icon" onclick="navigateTo('employees')" title="Employees"></div>
+                        </div>
+                        
+                        <div class="sidebar-bottom-spacer"></div>
+                        
+                        <div class="nav-icon settings-icon" onclick="navigateTo('settings')" title="Settings">
+                            <img src="Screaming-beaver.jpg" alt="Settings" class="icon-image" />
+                        </div>
+                    </nav> merger conflict -->
+
+                    <!-- Main Content Area -->
+                    <main class="main-content">
+                        <div class="header">
+                            <div class="sort-container">
+                                <select class="sort-select" id="sortSelect" onchange="sortEmployees()">
+                                    <option value="name">Sort by Name</option>
+                                    <option value="tasks">Sort by Tasks</option>
+                                    <option value="team">Sort by Team</option>
+                                </select>
+                            </div>
+                        </div> 
+
+                        <!-- Employees Grid -->
+                        <div class="employees-grid" id="employeesGrid">
+                            <!-- Employee cards r in the JavaScript section-->
+                        </div>
+                    </main>
+
+                <!-- Edit Supervisor Modal -->
+                <div class="modal-overlay" id="supervisorModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Edit Supervisor Note</h2>
+                            <button class="close-modal" onclick="closeModal('supervisorModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="supervisorForm">
+                                <div class="form-group">
+                                    <label class="form-label" for="supervisorNote">Supervisor Comment</label>
+                                    <textarea class="form-textarea" id="supervisorNote" placeholder="Enter supervisor comment..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('supervisorModal')">Cancel</button>
+                            <button class="btn btn-primary" onclick="saveSupervisorNote()">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View Details Modal -->
+                <div class="modal-overlay" id="viewDetailsModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="viewTitle">Employee Details</h2>
+                            <button class="close-modal" onclick="closeModal('viewDetailsModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="employeeDetailsContent">
+                                <!-- Contents r in the JavaScript section-->
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Task Progress</span>
+                                    <span id="progressPercentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assign Task Modal -->
+                <div class="modal-overlay" id="assignTaskModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Assign New Task</h2>
+                            <button class="close-modal" onclick="closeModal('assignTaskModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="taskForm">
+                                <div class="form-group">
+                                    <label class="form-label" for="taskName">Task Name</label>
+                                    <input type="text" class="form-input" id="taskName" placeholder="Enter task name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Priority</label>
+                                    <div class="priority-buttons">
+                                        <button type="button" class="priority-btn priority-red" onclick="setPriority('red')">
+                                            🔥 High
+                                        </button>
+                                        <button type="button" class="priority-btn priority-yellow" onclick="setPriority('yellow')">
+                                            ⚠️ Medium
+                                        </button>
+                                        <button type="button" class="priority-btn priority-green active" onclick="setPriority('green')">
+                                            ✅ Low
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="taskPriority" value="green">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Dates</label>
+                                    <div class="date-inputs">
+                                        <div>
+                                            <label class="form-label" for="startDate">Start Date</label>
+                                            <input type="date" class="form-input" id="startDate">
+                                        </div>
+                                        <div>
+                                            <label class="form-label" for="endDate">End Date</label>
+                                            <input type="date" class="form-input" id="endDate">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="employeeSelect">Assigned Employees</label>
+                                    <div class="employee-list" id="employeeList">
+                                        <!-- Contents r in the JavaScript section-->
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Tags</label>
+                                    <div class="employee-tags" id="taskTags"></div>
+                                    <div class="add-section" onclick="addTagInput()">
+                                        ➕ Add Tag
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Description</label>
+                                    <div class="add-section" onclick="toggleDescription()">
+                                        📝 Edit Description
+                                    </div>
+                                    <textarea class="form-textarea" id="taskDescription" style="display: none;" placeholder="Enter task description..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('assignTaskModal')">Cancel</button>
+                            <button class="btn btn-primary" onclick="saveTask()">Done</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="sideBarExpand.js"></script>
+        <script src="Manager_Dashboard_EmployeeJS.js"></script>
+
+    </body>
+</html>
