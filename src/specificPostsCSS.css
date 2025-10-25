@@ -30,3 +30,15 @@
     min-height: 2.5rem;
     height: auto;
 }
+.removeStyle{
+    background-color: var(--gradient);
+    border: none;
+    box-shadow: none;
+}
+.removeStyle:hover{
+    background-color: var(--gradient-hover);
+}
+.enhanceStyle{
+    box-shadow: var(--shadow-m);
+    border: var(--border-card);
+}

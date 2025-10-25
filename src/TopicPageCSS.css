@@ -17,7 +17,7 @@
     gap: var(--small-Gap);
     padding: var(--small-Gap) var(--medium-Gap);
     background-color: var(--gradient);
-    box-shadow: var(--shadow-m);
+    box-shadow: var(--shadow-s);
     border: none;
 
 }
@@ -35,8 +35,8 @@
     padding: var(--small-Gap);
     width: 100%;
     color: var(--text);
-
     box-shadow: var(--shadow-s);
+
 }
 
 
@@ -58,7 +58,7 @@
 }
 .advancedView, .changeView{
     flex-grow: 1;
-    background-color: var(--bg-light);
+    background-color: var(--gradient);
     padding: 0.5rem;
     text-align: center;
     color: var(--text-muted);
@@ -70,11 +70,13 @@
     color: var(--text);
     cursor: pointer;
     box-shadow: var(--shadow-m);
+    background-color: var(--gradient-hover);
 
 }
 .changeView{
     flex-grow: 2;
 } 
+
 .topicResultContainer {
     flex-grow: 1; /*this is flex for it being a flex item*/
     overflow-x: hidden;
