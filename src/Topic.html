@@ -22,7 +22,8 @@
                 flex-grow: 0;
             }
             .topicResultContainer{
-                height: 100%;
+                flex: 1;
+                min-height: 0;
                 background-color: inherit;
                 display: flex;
             }
@@ -53,9 +54,13 @@
             .searchContainer input{
                 flex: 1;
                 font-size: 1rem;
+                border-radius: 0.5rem;
+                background-color: var(--bg-super-light);
+                color: var(--text);
             }
             .searchContainer i{
                 font-size: 1.2rem;
+                color: var(--text);
             }
             .advancedView, .changeView{
                 flex-grow: 1;
@@ -138,5 +143,8 @@
             </main>
         </div>
         <script src="sideBarExpand.js"></script>
+        <script>
+            // basically needs to be so that if you click the topic it will go to the page and also send infomation on which topic was selected
+        </script>
     </body>
 </html> 

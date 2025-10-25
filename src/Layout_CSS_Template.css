@@ -12,7 +12,7 @@
     margin: 0;
 
     /*this is for debugging*/
-    /*outline: 1px solid red !important;*/
+    outline: 1px solid red !important;
 }
 body{
     height: 100vh;
@@ -67,8 +67,12 @@ body{
     display: flex;
     justify-content: space-between;
     gap: 3vh;
-    height: 100%;
+    flex: 1;
+    min-height: 0;
 }
 .testing{
     width: 100%; /* basically with the sidebar 7% and the gap, the 100% will fill in all remaining space. */
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
