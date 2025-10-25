@@ -6,13 +6,19 @@
     --bg: hsl(65 5% 5%);
     --bg-light: hsl(65 5% 10%);
     --bg-super-light: hsl(65 5% 15%);
+    --border-color: gray; /*temp*/
+    --border-size: 0.15rem; /*temp*/
+    --border-style: solid; /*temp*/
+    --small-Gap: 1rem;
+    --medium-Gap: 1.5rem;
+    --large-Gap: 2rem;
 }
 *{
     box-sizing: border-box;
     margin: 0;
 
     /*this is for debugging*/
-    outline: 1px solid red !important;
+    /*outline: 1px solid red !important;*/
 }
 body{
     height: 100vh;
@@ -29,7 +35,7 @@ body{
 }
 .UIborder, .card{
     border-radius: 1rem;
-    border: 0.15rem gray solid; /*temp while i work out border color */
+    border: var(--border-size) var(--border-color) var(--border-style); /*temp while i work out border color */
 }
 .topbar{
     width: 100%;
