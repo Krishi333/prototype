@@ -17,6 +17,8 @@
     gap: var(--small-Gap);
     padding: var(--small-Gap) var(--medium-Gap);
     background-color: var(--bg-light);
+    box-shadow: var(--shadow);
+
 }
 .searchBottomPart{
     display: flex;
@@ -78,6 +80,8 @@
     /* firefox control of scrollbar */
     scrollbar-width: thin;
     scrollbar-color: var(--text-muted) transparent;
+    box-shadow: var(--shadow);
+
 
 }
 .topicResults{
