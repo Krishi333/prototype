@@ -7,33 +7,25 @@
         <script src="https://kit.fontawesome.com/48d4d99c08.js" crossorigin="anonymous"></script> <!--importing icons-->
         <link rel="stylesheet" href="Layout_CSS_Template.css">
         <style>
-            /* the variables:
-            --text: hsl(65 5% 95%);
-            --text-muted: hsl(65 5% 70%);
-            --bg-dark: hsl(65 5% 0%);
-            --bg: hsl(65 5% 5%);
-            --bg-light: hsl(65 5% 10%);
-            --bg-super-light: hsl(65 5% 15%);*/
+
             .testing {
                 display: flex;
                 flex-direction: column;
-                padding: var(--small-Gap) var(--medium-Gap);
                 gap: var(--medium-Gap);
-                flex-grow: 0;
                 overflow-x: auto;
             }
             .topicResultContainer{
+                display: flex;
                 flex: 1;
                 min-height: 0;
                 background-color: inherit;
-                display: flex;
             }
             .topicSearchContainer{
-                background-color: var(--bg-light);
                 display: flex;
                 flex-direction: column;
-                padding: var(--small-Gap) var(--medium-Gap);
                 gap: var(--small-Gap);
+                padding: var(--small-Gap) var(--medium-Gap);
+                background-color: var(--bg-light);
             }
             .searchBottomPart{
                 display: flex;
@@ -43,13 +35,12 @@
             }
             .searchContainer{
                 display: flex;
-                color: var(--text);
-                width: 100%;
+                flex-shrink: 0;
                 align-items: center;
                 gap: var(--small-Gap);
                 padding: var(--small-Gap);
-                flex-shrink: 0;
-                
+                width: 100%;
+                color: var(--text);
             }
             .searchContainer input{
                 flex: 1;
@@ -57,7 +48,6 @@
                 border-radius: 0.5rem;
                 background-color: var(--bg-super-light);
                 color: var(--text);
-                /*border: var(--border-size) var(--border-color) var(--border-style);*/
                 border: 0 0.15rem 0 0.15rem gray solid;
             }
 
@@ -79,9 +69,7 @@
                 border-color: var(--border-hover-color);
                 color: var(--text);
                 cursor: pointer;
-               
             }
-  
             .changeView{
                 flex-grow: 2;
             } 
@@ -115,8 +103,6 @@
             .topicResultContainer::-webkit-scrollbar-track{
                 background: transparent;
             }
-   
-
         </style>
     </head>
     <body>
@@ -161,10 +147,10 @@
                     <div class="topicResults"><p>Topic Name5</p></div>
                     <div class="topicResults"><p>Topic Name6</p></div>
                     <div class="topicResults"><p>Topic Name7</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
-                    <div class="topicResults"><p>Topic Name</p></div>
+                    <div class="topicResults"><p>Topic Name8</p></div>
+                    <div class="topicResults"><p>Topic Name9</p></div>
+                    <div class="topicResults"><p>Topic Name10</p></div>
+                    <div class="topicResults"><p>Topic Name11</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
                     <div class="topicResults"><p>Topic Name</p></div>
