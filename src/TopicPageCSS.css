@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: var(--small-Gap);
     padding: var(--small-Gap) var(--medium-Gap);
-    background-color: var(--bg);
+    background-color: var(--gradient);
     box-shadow: var(--shadow-m);
     border: none;
 
@@ -35,10 +35,11 @@
     padding: var(--small-Gap);
     width: 100%;
     color: var(--text);
-    border-top: none;
-    border-left: none;
-    border-right: none;
+
     box-shadow: var(--shadow-s);
+}
+.search {
+    background-color:
 }
 
 .searchContainer input{
@@ -94,7 +95,7 @@
 .topicResults{
     flex-shrink: 0;
     height: 5rem;
-    background-color: var(--bg);
+    background-color: var(--gradient);
     color: var(--text-muted);
     border-radius: 1rem;
     border: var(--border-size) var(--border-color) var(--border-style); 
