@@ -1,10 +1,7 @@
 :root{
-
-
     --bg-dark: oklch(0.1 0.005 74);
     --bg: oklch(0.20 0.005 74);
     --bg-light: oklch(0.30 0.005 74);
-    /*--bg-super-light: oklch(0.3 0.005 74);*/
 
     --text: oklch(0.96 0.01 74);
     --text-muted: oklch(0.76 0.01 74);
@@ -22,9 +19,10 @@
     --success: oklch(0.7 0.05 160);
     --info: oklch(0.7 0.05 260);
 
+    --border-size: 0.015rem; 
+    --border-style: solid; 
 
-    --border-size: 0.015rem; /*temp*/
-    --border-style: solid; /*temp*/
+    --border-card: var(--border-style) var(--border-size) var(--border-color);
 
     --tiny-Gap: 0.5rem;
     --small-Gap: 1rem;
@@ -36,11 +34,8 @@
 
     --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
     --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
-
-    --border-card: var(--border-style) var(--border-size) var(--border-color);
-
-
 }
+
 /*@media (prefers-color-scheme: light){
     :root{
     --bg-dark: oklch(0.88 0.005 74);
@@ -65,6 +60,7 @@
     --info: oklch(0.5 0.05 260);
     }
 } */
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -72,6 +68,7 @@
     /*this is for debugging*/
     /*outline: 1px solid red !important;*/
 }
+
 body{
     height: 100vh;
     width: 100%;
@@ -82,14 +79,16 @@ body{
     gap: 3vh;
     background-color: var(--bg-dark);
 }
+
 .card {
     background-color: var(--gradient);
 }
+
 .UIborder, .card{
     border-radius: 1rem;
-    /*border: var(--border-size) var(--border-color) var(--border-style);*/ /*temp while i work out border color */
     border: var(--border-card);
 }
+
 .topbar{
     width: 100%;
     display: flex;
@@ -98,17 +97,19 @@ body{
     cursor: default;
     box-shadow: var(--shadow-m);
 }
+
 .topbar:hover{
     box-shadow: var(--shadow-l);
 }
 
 .topbar-Text{
     color: var(--text);
-    margin: 3vmin;
+    margin: var(--small-Gap);
     font-size: clamp(16px, 2.5vw, 28px);
     user-select: none;
     text-align: center;
 }
+
 .sidebar{
     display: flex;
     justify-content: space-evenly;
@@ -119,14 +120,15 @@ body{
     user-select: none;
     transition: width 0.5s;
     box-shadow: var(--shadow-m);
-
 }
+
 .sidebar:hover{
     width: 15%;
     align-items: flex-start;
     transition: width 0.5s;
     box-shadow: var(--shadow-l);
 }
+
 .childText {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
@@ -136,38 +138,37 @@ body{
         opacity: 1;
     }
 }
+
 .sidebar a {
     color: var(--text-muted);
-    margin: 3vmin;
+    margin: var(--small-Gap);
     font-size: clamp(12px, 2vw, 18px);
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--tiny-Gap);
     white-space: nowrap;
-
 }
+
+.sidebar a:hover{
+    color: var(--primary);
+}
+
 .sidebar a i{
     min-width: 1rem;
     text-align: center;
 }
-.sidebar a:hover{
-    color: var(--primary);
-    /* padding: 0.3rem;
-    border: var(--border-size) var(--primary) var(--border-style);
-    border-radius: 1rem; */
 
-}
 .mainStuff{
     display: flex;
     justify-content: space-between;
-    gap: 3vh;
+    gap: var(--small-Gap);
     flex: 1;
     min-height: 0;
     overflow: auto;
     min-height: 25rem;
-    
 }
+
 .testing{
     width: 100%; /* basically with the sidebar 7% and the gap, the 100% will fill in all remaining space. */
     display: flex;
@@ -180,8 +181,8 @@ body{
     background-color: inherit;
     border: none; /*testing this out*/
     overflow: auto;
-    
 }
+
 a{
     text-decoration: none;
 }
