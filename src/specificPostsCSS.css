@@ -13,6 +13,7 @@
     scrollbar-width: thin;
     scrollbar-color: var(--text-muted) transparent;
 }
+
 .postDescription p{ /*remember to add breakpoints with media queries later*/
     font-size: 1.2rem;    
     text-align: justify; 
@@ -20,24 +21,30 @@
     line-height: 1.7;      
     margin: var(--tiny-Gap) var(--tiny-Gap) 0 var(--tiny-Gap);
 }
+
 .postDescription::-webkit-scrollbar {
     width: 0.1rem;
 }
+
 .postDescription::-webkit-scrollbar-track{
     background: transparent;
 }
+
 .topicResults {
     min-height: 2.5rem;
     height: auto;
 }
+
 .removeStyle{
     background-color: var(--gradient);
     border: none;
     box-shadow: none;
 }
+
 .removeStyle:hover{
     background-color: var(--gradient-hover);
 }
+
 .enhanceStyle{
     box-shadow: var(--shadow-m);
     border: var(--border-card);
