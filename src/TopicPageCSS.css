@@ -46,7 +46,7 @@
     border-radius: 0.5rem;
     background-color: var(--bg-light);
     color: var(--text);
-    border: var(--border-size) var(--border-color) var(--border-style);
+    border: var(--border-card);
     border-top: none;
     border-left: none; /* for some reason it didnt like me using 0 for the border shorthand property */
 }
@@ -96,7 +96,7 @@
     background-color: var(--gradient);
     color: var(--text-muted);
     border-radius: 1rem;
-    border: var(--border-size) var(--border-color) var(--border-style); 
+    border: var(--border-card);
     text-align: center;
     box-shadow: var(--shadow-s);
 }

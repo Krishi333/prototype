@@ -4,7 +4,7 @@
     background-color: var(--gradient);
     color: var(--text-muted);
     border-radius: 1rem;
-    border: var(--border-size) var(--border-color) var(--border-style); 
+    border: var(--border-card);
     text-align: center;
     margin-bottom: var(--small-Gap);
     overflow-x: hidden;

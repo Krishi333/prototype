@@ -37,6 +37,8 @@
     --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
     --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
 
+    --border-card: var(--border-style) var(--border-size) var(--border-color);
+
 
 }
 /*@media (prefers-color-scheme: light){
@@ -85,7 +87,8 @@ body{
 }
 .UIborder, .card{
     border-radius: 1rem;
-    border: var(--border-size) var(--border-color) var(--border-style); /*temp while i work out border color */
+    /*border: var(--border-size) var(--border-color) var(--border-style);*/ /*temp while i work out border color */
+    border: var(--border-card);
 }
 .topbar{
     width: 100%;
