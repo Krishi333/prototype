@@ -1,14 +1,29 @@
 
 function RegisterInputBars({onCreate}) {
+
+    function register(formData){
+        // Checks if user has entered passwords that match - if they do they are brought back to the login screen, else they remain on register
+        const username = formData.get("username");
+        const password = formData.get("password");
+        const confirmPassword = formData.get("confirmPassword");
+        if (password != confirmPassword) {
+            console.log("Passwords did not match");
+        } else {
+            onCreate();
+        }
+        
+    }
+
     return (
         <>
             <h1>Register</h1>
             <p/>
-            <form>
+            <form action={register}>
                 <label className="form-label">Username: </label>
                 <input 
                     type="email"
                     className="form-control"
+                    name="username"
                     placeholder="user@make-it-all.com"
                 >
                 </input>
@@ -16,6 +31,7 @@ function RegisterInputBars({onCreate}) {
                 <label className="form-label">Password: </label>
                 <input 
                     type="password"
+                    name="password"
                     className="form-control"
                 >  
                 </input>
@@ -25,6 +41,7 @@ function RegisterInputBars({onCreate}) {
                 <label className="form-label">Confirm Password: </label>
                 <input 
                     type="password"
+                    name="confirmPassword"
                     className="form-control"
                 >  
                 </input>
@@ -32,7 +49,6 @@ function RegisterInputBars({onCreate}) {
                 <button
                     type="submit"
                     className="btn, btn-primary"
-                    onClick={onCreate}
                 >
                 Create Account
                 </button>

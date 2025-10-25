@@ -5,6 +5,7 @@ function LoginInputBars({onRegister}) {
     function login(formData) {
         const username = formData.get("username");
         const password =formData.get("password");
+        // Hard coded username and password for now
         if (username == "team23@make-it-all.com" && password == "test1234") {
             console.log("Logged in");
         }
