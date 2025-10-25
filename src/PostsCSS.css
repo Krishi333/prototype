@@ -6,7 +6,7 @@
     text-decoration: none;
 }
 .backButton:hover{
-    border-color: var(--border-hover-color);
+    border-color: var(--primary);
     cursor: pointer;
 }
 .topicTitle {

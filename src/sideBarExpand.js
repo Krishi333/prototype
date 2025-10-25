@@ -22,5 +22,9 @@ function removeText(){
         }
     }
 }
+/*sidebar.addEventListener("mouseenter", function(){
+    sidebar.addEventListener("transitionend", addText, {once: true});
+});
+sidebar.addEventListener("mouseleave", removeText);*/
 sidebar.addEventListener("mouseenter", addText);
 sidebar.addEventListener("mouseleave", removeText);

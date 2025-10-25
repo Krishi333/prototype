@@ -39,7 +39,9 @@
     border-radius: 0.5rem;
     background-color: var(--bg-super-light);
     color: var(--text);
-    border: 0 0.15rem 0 0.15rem gray solid;
+    border: var(--border-size) var(--border-color) var(--border-style);
+    border-top: none;
+    border-left: none; /* for some reason it didnt like me using 0 for the border shorthand property */
 }
 
 .searchContainer i{
@@ -57,7 +59,7 @@
     user-select: none;
 } 
 .advancedView:hover, .changeView:hover, .topicResults:hover  {
-    border-color: var(--border-hover-color);
+    border-color: var(--primary);
     color: var(--text);
     cursor: pointer;
 }
