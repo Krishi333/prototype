@@ -92,9 +92,8 @@
     /* firefox control of scrollbar */
     scrollbar-width: thin;
     scrollbar-color: var(--text-muted) transparent;
-
-
 }
+
 .topicResults{
     flex-shrink: 0;
     height: 5rem;
