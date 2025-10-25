@@ -1,0 +1,95 @@
+.testing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--medium-Gap);
+    overflow-x: auto;
+}
+.topicResultContainer{
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    background-color: inherit;
+}
+.topicSearchContainer{
+    display: flex;
+    flex-direction: column;
+    gap: var(--small-Gap);
+    padding: var(--small-Gap) var(--medium-Gap);
+    background-color: var(--bg-light);
+}
+.searchBottomPart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--small-Gap);
+}
+.searchContainer{
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--small-Gap);
+    padding: var(--small-Gap);
+    width: 100%;
+    color: var(--text);
+}
+.searchContainer input{
+    flex: 1;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-super-light);
+    color: var(--text);
+    border: 0 0.15rem 0 0.15rem gray solid;
+}
+
+.searchContainer i{
+    font-size: 1.2rem;
+    color: var(--text);
+    text-align: center;
+}
+.advancedView, .changeView{
+    flex-grow: 1;
+    background-color: var(--bg-light);
+    padding: 0.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    user-select: none;
+} 
+.advancedView:hover, .changeView:hover, .topicResults:hover  {
+    border-color: var(--border-hover-color);
+    color: var(--text);
+    cursor: pointer;
+}
+.changeView{
+    flex-grow: 2;
+} 
+.topicResultContainer {
+    flex-grow: 1; /*this is flex for it being a flex item*/
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* below is for the flexbox stuff*/
+    display: flex;
+    flex-direction: column;
+    gap: var(--small-Gap);
+    min-height: 10rem;
+    /* firefox control of scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-muted) transparent;
+
+}
+.topicResults{
+    flex-shrink: 0;
+    height: 5rem;
+    background-color: var(--bg-light);
+    color: var(--text-muted);
+    border-radius: 1rem;
+    border: var(--border-size) var(--border-color) var(--border-style); 
+    text-align: center;
+}
+/* for chrome*/
+.topicResultContainer::-webkit-scrollbar {
+    width: 0.1rem;
+}
+.topicResultContainer::-webkit-scrollbar-track{
+    background: transparent;
+}
