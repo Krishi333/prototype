@@ -86,6 +86,9 @@
     border: var(--border-size) var(--border-color) var(--border-style); 
     text-align: center;
 }
+.topicResults a{
+    color: var(--text-muted);
+}
 /* for chrome*/
 .topicResultContainer::-webkit-scrollbar {
     width: 0.1rem;
