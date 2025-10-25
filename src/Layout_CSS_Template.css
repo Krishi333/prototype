@@ -12,6 +12,7 @@
     --small-Gap: 1rem;
     --medium-Gap: 1.5rem;
     --large-Gap: 2rem;
+    --border-hover-color: hsl(30 90% 50%);
 }
 *{
     box-sizing: border-box;
@@ -42,11 +43,13 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: default;
 }
 .topbar-Text{
     color: var(--text);
     margin: 3vmin;
     font-size: 2.5vmin;
+    user-select: none;
 }
 .sidebar{
     display: flex;
@@ -55,6 +58,8 @@ body{
     flex-direction: column;
     width: 7%;
     text-decoration: none;
+    user-select: none;
+
 }
 .sidebar:hover{
     width: 15%;
