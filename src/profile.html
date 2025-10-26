@@ -58,6 +58,20 @@
             .logOutArea h1{
                 color: var(--text);
             }
+            .profileDetails{
+                flex-grow: 1;
+            }
+            .profileTable {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .profileTable td{
+                border-bottom: var(--border-card);
+                color: var(--text-muted);
+                font-size: clamp(12px, 1.5vw, 18px);
+                text-align: center;
+                padding: var(--tiny-Gap);
+            }
         </style>
     </head>
     <body>
@@ -83,11 +97,33 @@
                         <p class="profileUserName">example_User_Name</p>
                     </div>
                     <div class="profileDetails">
-                        <p>hi!</p>
-                        <table>
+                        <table class="profileTable">
+                            <tr>
+                                <td>Name:</td>
+                                <td>Example Name</td>
+                            </tr>
                             <tr>
                                 <td>Email:</td>
                                 <td>ExampleEmail@gmail.com</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Role:</td>
+                                <td>Supervisor</td>
+                            </tr>
+                            <tr>
+                                <td>Tasks in charge:</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    More Info:
+                                </td>
+                                <td>
+
+                                </td>
                             </tr>
                         </table>
                     </div>
