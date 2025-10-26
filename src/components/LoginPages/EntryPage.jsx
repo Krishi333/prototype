@@ -45,9 +45,7 @@ function EntryPage() {
                                 onClick={() => setIsEntryLogin(!isEntryLoginPage)}>
 
                             {isEntryLoginPage ? switchToRegister : switchToLogin}
-                        </button>
-                            {/* <LoginButton buttonLabel={isEntryLoginPage ? switchToRegister : switchToLogin} id="registerButton" type="button" onClick={() => setIsEntryLogin(!isEntryLoginPage)}/> */}
-                        
+                        </button>                        
                     </div>
                 </div>
             </div>

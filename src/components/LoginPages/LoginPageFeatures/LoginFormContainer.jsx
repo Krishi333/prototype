@@ -1,5 +1,3 @@
-// contains things to be added to a form so email, password etc
-
 import LoginFormFields from "./LoginFormFields";
 import LoginButton from "./LoginButton";
 // import { useRef } from 'react';
@@ -7,8 +5,8 @@ import LoginButton from "./LoginButton";
 function LoginFormContainer(props){
     let validAccount = [{email: "manager@mia.com", password: "manager123"},
                         {email: "employee@mia.com", password: "employee123"}];
+    // should prob move validAccounts outisde 
 
-              
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -18,6 +16,7 @@ function LoginFormContainer(props){
         //     console.log({key, value});
         // };
         console.log({email, password});
+        checkValidAccount(email, password); //revise callback functions
     };
 
     const handleRegisterSubmit = (e) => {
@@ -28,6 +27,26 @@ function LoginFormContainer(props){
         const password = formData.get("password");
         const confirmPassword = formData.get("confirmPassword");
         console.log({fullName, email, password, confirmPassword});
+        checkPasswordMatch(password, confirmPassword);
+    };
+
+    const checkValidAccount = (email, password) => {
+        for (let i = 0; i < validAccount.length; i++){
+            if (email === validAccount[i].email && password === validAccount[i].password){
+                console.log("Logged in");
+                return true;
+            }
+        }
+        console.log("Can't log in");
+        return false;
+    };
+
+    const checkPasswordMatch = (password, confirmPassword) => {
+        if (password === confirmPassword){
+            console.log("Passwords match");
+            return true;
+        }
+        console.log("Passwords don't match");
     };
 
 
@@ -45,9 +64,7 @@ function LoginFormContainer(props){
                                         name={field.name}
                                         />)}
                     <LoginButton buttonLabel="Login" id="loginButton" />
-                    {/* <button className="btn btn-dark w-100 py-1 my-1 rounded" id="loginButton" type="submit">Login</button> */}
                 </form>
-                {/* <LoginButton buttonLabel="Register" id="registerButton"/> */}
             </>
         );
     }
