@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Topic</title>
+        <meta name="viewport" content="width:device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <script src="https://kit.fontawesome.com/48d4d99c08.js" crossorigin="anonymous"></script> <!--importing icons-->
+        <link rel="stylesheet" href="Layout_CSS_Template.css">
+        <style>
+            .testing {
+                display: flex;
+                flex-direction: column;
+                gap: var(--small-Gap);
+            }
+            .mainProfile {
+                flex-grow: 8;
+                flex-shrink: 1;
+                background-color: var(--bg);
+                border-radius: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: var(--medium-Gap);
+            }
+            .imageAndUserContainer{
+                flex-flow: 0 0 10%;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                align-items: center;
+                justify-content: space-around;
+                gap: var(--small-Gap);
+            }
+            .imageAndUserContainer img{
+                max-height: 10rem;
+                max-width: 10rem;
+                border-radius: 50%
+            }
+            .imageAndUserContainer p{
+                color: var(--text);
+                text-align: center;
+                font-size: 1.2rem;
+            }
+            .logOutArea {
+                flex-grow: 1;
+                flex-shrink: 0;
+                background-color: var(--bg-light);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.5rem;
+                transition: transform 0.1s linear;
+
+            }
+            .logOutArea:hover{
+                transform: translate(0.05rem, -0.1rem);
+                transition: transform 0.1s linear;
+            }
+            .logOutArea h1{
+                color: var(--text);
+            }
+        </style>
+    </head>
+    <body>
+        <header class="topbar card">
+            <h1 class="topbar-Text">Profile</h1>
+            <h1 class="topbar-Text">Make-It-All Productivity & Knowledge System </h1>
+        </header>
+        <div class="mainStuff">
+            <nav class="sidebar card"> <!--https://fontawesome.com to get the icons and find new ones-->
+                <a href="#" title="Home"><i class="fa-solid fa-house"></i></a> <!--home-->
+                <a href="#" title="Projects"><i class="fa-solid fa-folder-open"></i></a> <!--projects-->
+                <a href="#" title="Tasks"><i class="fa-solid fa-clipboard"></i></a> <!--tasks-->
+                <a href="#" title="Todo Lists"><i class="fa-solid fa-list-check"></i></a> <!--todo-->
+                <a href="Topic.html" title="Topics"><i class="fa-solid fa-file-pen"></i></a> <!--topics-->
+                <a href="#" title="Profile"><i class="fa-solid fa-user"></i></a> <!--profile-->
+                <a href="#" title="Settings"><i class="fa-solid fa-gear"></i></a> <!--settings-->
+                <a href="#" title="Sign Out"><i class="fa-solid fa-right-from-bracket"></i></a> <!--sign out-->
+            </nav>
+            <main class="testing card">
+                <div class="mainProfile">
+                    <div class="imageAndUserContainer">
+                        <img class="profileImage" src="../Screaming-beaver.jpg">
+                        <p class="profileUserName">example_User_Name</p>
+                    </div>
+                    <div class="profileDetails">
+                        <p>hi!</p>
+                        <table>
+                            <tr>
+                                <td>Email:</td>
+                                <td>ExampleEmail@gmail.com</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="logOutArea">
+                    <h1>Log Out</h1>
+                </div>
+            </main>
+        </div>
+        <script src="sideBarExpand.js"></script>
+    </body>
+</html>
