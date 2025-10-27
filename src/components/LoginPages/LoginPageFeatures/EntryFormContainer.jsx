@@ -6,8 +6,8 @@ function EntryFormContainer(props){
 
 
     // test data - should prob be moved outisde this
-    let validAccount = [{email: "manager@mia.com", password: "manager123"},
-                        {email: "employee@mia.com", password: "employee123"}];
+    let validAccount = [{email: "manager@make-it-all.com", password: "manager123"},
+                        {email: "employee@make-it-all.com", password: "employee123"}];
 
     const [error, setError] = useState("");
 

@@ -15,7 +15,7 @@ function EntryPage() {
 
     const loginTitle = "Login";
     const loginHeading = "Welcome Back! Please sign in.";
-    const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
+    const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value), pattern:"[a-z0-9._%+-]+@[make-it-all.com]", title:"Please use your work email address."},
                        {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)}];
 
     const registerTitle = "Register";
