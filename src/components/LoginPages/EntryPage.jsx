@@ -1,10 +1,8 @@
 import LoginFormContainer from "./LoginPageFeatures/LoginFormContainer";
 import "./LoginPage.css";
-import design from "./tempDesign.jpg";
-import logo from "./logo.png";
 import { useState } from "react";
 import LoginButton from "./LoginPageFeatures/LoginButton";
-
+import design from "../../assets/tempDesign.jpg";
 
 function EntryPage() {
 
@@ -22,6 +20,11 @@ function EntryPage() {
                         {id: "password", label: "Password", type: "password", name: "password"},
                         {id: "confirmPassword", label: "Confirm Password", type: "password", name: "confirmPassword"}];
 
+    const switchToRegister = "Register here.";
+    const switchToLogin = "Login here.";
+    const switchToRegisterQuestion = "Don't have an account?";
+    const switchToLoginQuestion = "Already have an account?";
+
     const login = <LoginFormContainer isEntryLoginPage={true} textField={loginTextFields}/>;
     const register = <LoginFormContainer isEntryLoginPage={false} textField={registerTextFields}/>;
     
@@ -33,7 +36,17 @@ function EntryPage() {
                     <h1 className="mb-2">{isEntryLoginPage ? loginTitle : registerTitle}</h1>
                     <h6 className="my-1">{isEntryLoginPage ? loginSubtitle : registerSubtitle}</h6>
                     {isEntryLoginPage ? login : register}
-                    <LoginButton buttonLabel="Register" id="registerButton" type="button" onClick={() => setIsEntryLogin(!isEntryLoginPage)}/>
+                    <div className="mt-2">
+                        {isEntryLoginPage ? switchToRegisterQuestion : switchToLoginQuestion}
+                        
+
+                        <button className="btn btn-link " 
+                                type="button" 
+                                onClick={() => setIsEntryLogin(!isEntryLoginPage)}>
+
+                            {isEntryLoginPage ? switchToRegister : switchToLogin}
+                        </button>                        
+                    </div>
                 </div>
             </div>
         </>

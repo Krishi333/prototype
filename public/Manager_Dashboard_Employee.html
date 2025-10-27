@@ -1,0 +1,851 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees & Team Overview</title>
+    <link rel="stylesheet" href="Manager_Dashboard_EmployeeCSS.css">
+</head>
+<body>
+    <!-- Dark Mode Toggle button -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+        🌙
+    </button>
+
+    <div class="container">
+        <!-- Left Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-top-section">
+                <div class="nav-icon profile-icon active" onclick="navigateTo('profile')" title="Profile"></div>
+                <div class="nav-icon tasks-icon" onclick="navigateTo('tasks')" title="Tasks"></div>
+                <div class="nav-icon employees-icon" onclick="navigateTo('employees')" title="Employees"></div>
+            </div>
+            
+            <div class="sidebar-bottom-spacer"></div>
+            
+            <div class="nav-icon settings-icon" onclick="navigateTo('settings')" title="Settings">
+                <img src="Screaming-beaver.jpg" alt="Settings" class="icon-image" />
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Employees & Team Overview</h1>
+                <div class="sort-container">
+                    <select class="sort-select" id="sortSelect" onchange="sortEmployees()">
+                        <option value="name">Sort by Name</option>
+                        <option value="tasks">Sort by Tasks</option>
+                        <option value="team">Sort by Team</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Employees Grid -->
+            <div class="employees-grid" id="employeesGrid">
+                <!-- Employee cards r in the JavaScript section-->
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Supervisor Modal -->
+    <div class="modal-overlay" id="supervisorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Supervisor Note</h2>
+                <button class="close-modal" onclick="closeModal('supervisorModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="supervisorForm">
+                    <div class="form-group">
+                        <label class="form-label" for="supervisorNote">Supervisor Comment</label>
+                        <textarea class="form-textarea" id="supervisorNote" placeholder="Enter supervisor comment..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('supervisorModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveSupervisorNote()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Details Modal -->
+    <div class="modal-overlay" id="viewDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="viewTitle">Employee Details</h2>
+                <button class="close-modal" onclick="closeModal('viewDetailsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="employeeDetailsContent">
+                    <!-- Contents r in the JavaScript section-->
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Task Progress</span>
+                        <span id="progressPercentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assign Task Modal -->
+    <div class="modal-overlay" id="assignTaskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Assign New Task</h2>
+                <button class="close-modal" onclick="closeModal('assignTaskModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label class="form-label" for="taskName">Task Name</label>
+                        <input type="text" class="form-input" id="taskName" placeholder="Enter task name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Priority</label>
+                        <div class="priority-buttons">
+                            <button type="button" class="priority-btn priority-red" onclick="setPriority('red')">
+                                🔥 High
+                            </button>
+                            <button type="button" class="priority-btn priority-yellow" onclick="setPriority('yellow')">
+                                ⚠️ Medium
+                            </button>
+                            <button type="button" class="priority-btn priority-green active" onclick="setPriority('green')">
+                                ✅ Low
+                            </button>
+                        </div>
+                        <input type="hidden" id="taskPriority" value="green">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Dates</label>
+                        <div class="date-inputs">
+                            <div>
+                                <label class="form-label" for="startDate">Start Date</label>
+                                <input type="date" class="form-input" id="startDate">
+                            </div>
+                            <div>
+                                <label class="form-label" for="endDate">End Date</label>
+                                <input type="date" class="form-input" id="endDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="employeeSelect">Assigned Employees</label>
+                        <div class="employee-list" id="employeeList">
+                            <!-- Contents r in the JavaScript section-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tags</label>
+                        <div class="employee-tags" id="taskTags"></div>
+                        <div class="add-section" onclick="addTagInput()">
+                            ➕ Add Tag
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <div class="add-section" onclick="toggleDescription()">
+                            📝 Edit Description
+                        </div>
+                        <textarea class="form-textarea" id="taskDescription" style="display: none;" placeholder="Enter task description..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('assignTaskModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveTask()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Employee data
+        const employeesData = [
+            {
+                id: 1,
+                name: "Rachel Green",
+                team: "Team A",
+                avatar: "Screaming-beaver.jpg",
+                tasksPending: 3,
+                tasks: [
+                    { text: "Send notification to employee", action: "notification" },
+                    { text: "View tasks overview", action: "view" },
+                    { text: "Remind them to hurry up", action: "remind" }
+                ],
+                supervisor: "Let supervisor view the tasks",
+                progress: 65
+            },
+            {
+                id: 2,
+                name: "Monica Geller",
+                team: "Team B",
+                avatar: "Screaming-beaver.jpg",
+                tasksPending: 1,
+                tasks: [
+                    { text: "Complete project documentation", action: "notification" }
+                ],
+                supervisor: "Monitor progress closely",
+                progress: 80
+            },
+            {
+                id: 3,
+                name: "Phoebe Buffay-Hannigan",
+                team: "Team A",
+                avatar: "Screaming-beaver.jpg",
+                tasksPending: 5,
+                tasks: [
+                    { text: "Review code changes", action: "view" },
+                    { text: "Update client requirements", action: "remind" },
+                    { text: "Schedule team meeting", action: "notification" },
+                    { text: "Test new features", action: "view" },
+                ],
+                supervisor: "Needs immediate attention",
+                progress: 45
+            },
+            {
+                id: 4,
+                name: "Joey Tribbiani",
+                team: "Team C",
+                avatar: "Screaming-beaver.jpg",
+                tasksPending: 2,
+                tasks: [
+                    { text: "Prepare quarterly report", action: "notification" },
+                    { text: "Analyze sales data", action: "view" }
+                ],
+                supervisor: "Review with manager",
+                progress: 90
+            },
+            {
+                id: 5,
+                name: "Chandler Bing",
+                team: "Team B",
+                avatar: "Screaming-beaver.jpg",
+                tasksPending: 4,
+                tasks: [
+                    { text: "Fix production bug", action: "remind" },
+                    { text: "Deploy hotfix", action: "notification" },
+                    { text: "Update documentation", action: "view" },
+                ],
+                supervisor: "Critical issues pending",
+                progress: 30
+            },
+            {
+                id: 6,
+                name: "Ross Geller",
+                team: "Team A",
+                avatar: '<img src="Screaming-beaver.jpg"/>',
+                tasksPending: 0,
+                tasks: [],
+                supervisor: "All tasks completed",
+                progress: 100
+            }
+        ];
+
+        let currentEmployees = [...employeesData];
+        let currentSort = 'name';
+        let currentEditingEmployee = null;
+        let selectedEmployees = [];
+        let taskTags = [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderEmployees();
+            updateActiveNav('employees');
+            populateEmployeeList();
+            updateTheme();
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const body = document.documentElement;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateTheme();
+            
+            // Update sort dropdown arrow color
+            updateSortDropdownArrow();
+        }
+
+        function updateTheme() {
+            const toggle = document.querySelector('.dark-mode-toggle');
+            toggle.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+        }
+
+        function updateSortDropdownArrow() {
+            const select = document.querySelector('.sort-select');
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const arrowColor = isDark ? 'd1d5db' : '6b7280';
+            select.style.backgroundImage = `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23${arrowColor}' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`;
+        }
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        // Navigation functions
+        function navigateTo(section) {
+            updateActiveNav(section);
+            const pageTitle = document.querySelector('.page-title');
+            const sortContainer = document.querySelector('.sort-container');
+            const titles = {
+                'profile': 'User Profile',
+                'tasks': 'Task Management',
+                'employees': 'Employees & Team Overview',
+                'settings': 'Settings'
+            };
+            pageTitle.textContent = titles[section] || 'Dashboard';
+
+            // Show n hide sort container based on the section
+            if (section === 'employees') {
+                if (sortContainer) {
+                    sortContainer.style.display = 'block';
+                }
+                renderEmployees();
+            } else if (section === 'settings') {
+                if (sortContainer) {
+                    sortContainer.style.display = 'none';
+                }
+                handleSettings();
+            } else {
+                if (sortContainer) {
+                    sortContainer.style.display = 'none';
+                }
+            }
+        }
+
+    function handleSettings() {
+        const pageTitle = document.querySelector('.page-title');
+        pageTitle.textContent = 'Settings';
+        
+        // Hide the sort container cuz theres nothing to sort for settings
+        const sortContainer = document.querySelector('.sort-container');
+        if (sortContainer) {
+            sortContainer.style.display = 'none';
+        }
+        
+        const grid = document.getElementById('employeesGrid');
+        grid.innerHTML = `
+            <div style="padding: 40px 20px; text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                <div style="margin-bottom: 30px; padding: 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color);">
+                    <h3 style="color: var(--text-primary); margin-bottom: 15px; font-size: 24px;">⚙️ Application Settings</h3>
+                    <p style="margin-bottom: 20px;">Configure your preferences and appearance options.</p>
+                    
+                    <div style="text-align: left; margin-top: 20px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 15px;">Theme Options</h4>
+                        <button class="btn btn-primary" onclick="toggleDarkMode()" style="width: 100%; justify-content: center; margin-bottom: 10px; padding: 12px;">
+                            ${document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️ Switch to Light Mode' : '🌙 Switch to Dark Mode'}
+                        </button>
+                        <p style="font-size: 12px; opacity: 0.8; text-align: center;">
+                            Current theme: ${document.documentElement.getAttribute('data-theme') === 'dark' ? 'Dark Mode' : 'Light Mode'}
+                        </p>
+                    </div>
+                    
+                    <div style="text-align: left; margin-top: 20px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 15px;">Quick Actions</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;">
+                            <button class="btn btn-secondary" style="padding: 10px; height: 100%;">
+                                📧 Email Export
+                            </button>
+                            <button class="btn btn-secondary" style="padding: 10px; height: 100%;">
+                                📊 Reports
+                            </button>
+                            <button class="btn btn-secondary" style="padding: 10px; height: 100%;">
+                                🔒 Privacy
+                            </button>
+                            <button class="btn btn-secondary" style="padding: 10px; height: 100%;">
+                                ℹ️ Help
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+        function updateActiveNav(section) {
+            document.querySelectorAll('.nav-icon').forEach(icon => {
+                icon.classList.remove('active');
+            });
+            
+            const activeIcon = document.querySelector(`[onclick="navigateTo('${section}')"]`);
+            if (activeIcon) {
+                activeIcon.classList.add('active');
+            }
+        }
+
+        // Render employees function
+        function renderEmployees() {
+            const grid = document.getElementById('employeesGrid');
+            grid.innerHTML = '';
+
+            currentEmployees.forEach(employee => {
+                const card = createEmployeeCard(employee);
+                grid.appendChild(card);
+            });
+        }
+
+        function createEmployeeCard(employee) {
+            const card = document.createElement('div');
+            card.className = 'employee-card';
+            
+            let tasksHtml = '';
+            employee.tasks.forEach(task => {
+                const iconClass = `task-icon ${task.action}-icon`;
+                tasksHtml += `
+                    <div class="task-item">
+                        <span class="task-text">${task.text}</span>
+                        <div class="${iconClass}" onclick="handleTaskAction('${task.action}', ${employee.id})" title="${getActionTitle(task.action)}"></div>
+                    </div>
+                `;
+            });
+
+            const supervisorText = employee.supervisor || 'No supervisor notes';
+            const firstLetter = employee.name.charAt(0).toUpperCase();
+
+            card.innerHTML = `
+                <div class="employee-header">
+                    <div class="avatar" onclick="expandAvatar(this, '${firstLetter}', ${employee.id})" title="Click to expand avatar">
+                        ${firstLetter}
+                    </div>
+                    <div class="employee-info">
+                        <h3>${employee.name}</h3>
+                        <p>Team: ${employee.team} • <span class="tasks-count">${employee.tasksPending} tasks pending</span></p>
+                    </div>
+                </div>
+                
+                <div class="tasks-section">
+                    ${tasksHtml || '<p style="color: var(--text-secondary); font-style: italic;">No pending tasks</p>'}
+                </div>
+                
+                <div class="supervisor-section">
+                    <p class="supervisor-text"><strong>Supervisor:</strong> ${supervisorText}</p>
+                    <div class="edit-icon" onclick="editSupervisor(${employee.id})" title="Edit supervisor note"></div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="viewEmployee(${employee.id})">
+                        👁️ View Details
+                    </button>
+                    <button class="btn btn-secondary" onclick="assignTask(${employee.id})">
+                        ➕ Assign Task
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Edit Supervisor Note
+        function editSupervisor(employeeId) {
+            currentEditingEmployee = currentEmployees.find(e => e.id === employeeId);
+            if (currentEditingEmployee) {
+                document.getElementById('supervisorNote').value = currentEditingEmployee.supervisor || '';
+                document.getElementById('supervisorModal').classList.add('active');
+            }
+        }
+
+        function saveSupervisorNote() {
+            if (currentEditingEmployee) {
+                currentEditingEmployee.supervisor = document.getElementById('supervisorNote').value;
+                renderEmployees();
+                closeModal('supervisorModal');
+                showNotification('Supervisor note updated successfully!');
+            }
+        }
+
+        function viewEmployee(id) {
+            const employee = currentEmployees.find(e => e.id === id);
+            if (employee) {
+                document.getElementById('viewTitle').textContent = `${employee.name} - Details`;
+                document.getElementById('progressPercentage').textContent = `${employee.progress}%`;
+                document.getElementById('progressFill').style.width = `${employee.progress}%`;
+                
+                const firstLetter = employee.name.charAt(0).toUpperCase();
+                const detailsContent = `
+                    <div class="form-group">
+                        <label class="form-label">Avatar</label>
+                        <div class="avatar" onclick="expandAvatar(this, '${firstLetter}', ${employee.id})" style="width: 80px; height: 80px; font-size: 32px; margin: 10px 0;" title="Click to expand avatar">
+                            ${firstLetter}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <p style="font-weight: 500; color: var(--text-primary);">${employee.name}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Team</label>
+                        <p style="color: var(--text-secondary);">${employee.team}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tasks Pending</label>
+                        <p style="color: var(--text-secondary);">${employee.tasksPending}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Supervisor Note</label>
+                        <p style="color: var(--text-secondary); font-style: italic;">${employee.supervisor || 'No notes'}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Active Tasks</label>
+                        <ul style="color: var(--text-secondary); padding-left: 20px;">
+                            ${employee.tasks.map(task => `<li>${task.text}</li>`).join('') || '<li>No active tasks</li>'}
+                        </ul>
+                    </div>
+                `;
+                
+                document.getElementById('employeeDetailsContent').innerHTML = detailsContent;
+                document.getElementById('viewDetailsModal').classList.add('active');
+            }
+        }
+
+        // Assign Task Modal
+        function assignTask(employeeId) {
+            const employee = currentEmployees.find(e => e.id === employeeId);
+            if (employee) {
+                // Pre-select the current employee
+                selectedEmployees = [employee];
+                updateEmployeeSelection();
+                
+                // Reset form
+                document.getElementById('taskName').value = '';
+                document.getElementById('startDate').value = '';
+                document.getElementById('endDate').value = '';
+                document.getElementById('taskDescription').value = '';
+                document.getElementById('taskDescription').style.display = 'none';
+                taskTags = [];
+                updateTagsDisplay();
+                setPriority('green');
+                
+                document.getElementById('assignTaskModal').classList.add('active');
+            }
+        }
+
+        // Populate employee selection list
+        function populateEmployeeList() {
+            const employeeList = document.getElementById('employeeList');
+            employeeList.innerHTML = '';
+            
+            currentEmployees.forEach(emp => {
+                const item = document.createElement('div');
+                item.className = 'employee-item';
+                item.innerHTML = `
+                    <input type="checkbox" id="emp_${emp.id}" ${selectedEmployees.some(e => e.id === emp.id) ? 'checked' : ''}>
+                    <label for="emp_${emp.id}" style="flex: 1; cursor: pointer; margin: 0;">
+                        <div style="font-weight: 500; color: var(--text-primary);">${emp.name}</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">${emp.team}</div>
+                    </label>
+                `;
+                item.onclick = (e) => {
+                    if (e.target.type !== 'checkbox') {
+                        const checkbox = item.querySelector('input[type="checkbox"]');
+                        checkbox.checked = !checkbox.checked;
+                        updateEmployeeSelection();
+                    }
+                };
+                
+                item.querySelector('input[type="checkbox"]').onchange = updateEmployeeSelection;
+                employeeList.appendChild(item);
+            });
+        }
+
+        function updateEmployeeSelection() {
+            selectedEmployees = [];
+            document.querySelectorAll('#employeeList input[type="checkbox"]:checked').forEach(checkbox => {
+                const empId = parseInt(checkbox.id.split('_')[1]);
+                const employee = currentEmployees.find(e => e.id === empId);
+                if (employee) {
+                    selectedEmployees.push(employee);
+                }
+            });
+        }
+
+        // Priority selection
+        function setPriority(priority) {
+            document.getElementById('taskPriority').value = priority;
+            
+            document.querySelectorAll('.priority-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.querySelector(`.priority-${priority}`).classList.add('active');
+        }
+
+        // Tags stuff (will be linked to the knowledge page later on)
+        function addTagInput() {
+            const tagInput = document.createElement('input');
+            tagInput.type = 'text';
+            tagInput.className = 'form-input';
+            tagInput.placeholder = 'Enter tag name';
+            tagInput.style.marginTop = '10px';
+            
+            const container = document.querySelector('#assignTaskModal .form-group');
+            const existingInput = container.querySelector('input[placeholder="Enter tag name"]');
+            
+            if (!existingInput) {
+                container.appendChild(tagInput);
+                tagInput.focus();
+                
+                tagInput.onkeypress = (e) => {
+                    if (e.key === 'Enter' && tagInput.value.trim()) {
+                        taskTags.push(tagInput.value.trim());
+                        updateTagsDisplay();
+                        tagInput.remove();
+                    }
+                };
+                
+                tagInput.onblur = () => {
+                    if (tagInput.value.trim()) {
+                        taskTags.push(tagInput.value.trim());
+                        updateTagsDisplay();
+                    }
+                    tagInput.remove();
+                };
+            }
+        }
+
+        function updateTagsDisplay() {
+            const tagsContainer = document.getElementById('taskTags');
+            tagsContainer.innerHTML = '';
+            
+            taskTags.forEach((tag, index) => {
+                const tagElement = document.createElement('div');
+                tagElement.className = 'tag';
+                tagElement.innerHTML = `
+                    ${tag}
+                    <button class="tag-remove" onclick="removeTag(${index})">&times;</button>
+                `;
+                tagsContainer.appendChild(tagElement);
+            });
+        }
+
+        function removeTag(index) {
+            taskTags.splice(index, 1);
+            updateTagsDisplay();
+        }
+
+        // Description toggle
+        function toggleDescription() {
+            const description = document.getElementById('taskDescription');
+            const isVisible = description.style.display !== 'none';
+            
+            description.style.display = isVisible ? 'none' : 'block';
+            if (!isVisible) {
+                description.focus();
+            }
+        }
+
+        // Save task
+        function saveTask() {
+            const taskData = {
+                name: document.getElementById('taskName').value,
+                priority: document.getElementById('taskPriority').value,
+                startDate: document.getElementById('startDate').value,
+                endDate: document.getElementById('endDate').value,
+                description: document.getElementById('taskDescription').value,
+                employees: selectedEmployees.map(e => ({ id: e.id, name: e.name })),
+                tags: [...taskTags],
+                progress: 0,
+                createdAt: new Date().toISOString()
+            };
+
+            if (!taskData.name) {
+                showNotification('Please enter a task name!', 'error');
+                return;
+            }
+
+            // Add task to selected employees
+            selectedEmployees.forEach(employee => {
+                const empIndex = currentEmployees.findIndex(e => e.id === employee.id);
+                if (empIndex !== -1) {
+                    if (!currentEmployees[empIndex].tasks) {
+                        currentEmployees[empIndex].tasks = [];
+                    }
+                    currentEmployees[empIndex].tasks.push({
+                        text: taskData.name,
+                        action: 'view',
+                        priority: taskData.priority,
+                        progress: taskData.progress
+                    });
+                    currentEmployees[empIndex].tasksPending += 1;
+                }
+            });
+
+            renderEmployees();
+            closeModal('assignTaskModal');
+            showNotification(`Task "${taskData.name}" assigned to ${selectedEmployees.length} employee(s)!`);
+            
+            // Reset form
+            document.getElementById('taskForm').reset();
+            selectedEmployees = [];
+            taskTags = [];
+            setPriority('green');
+            updateTagsDisplay();
+            document.getElementById('taskDescription').style.display = 'none';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('active');
+            }
+        });
+
+        // Sorting functionality
+        function sortEmployees() {
+            const sortValue = document.getElementById('sortSelect').value;
+            currentSort = sortValue;
+            
+            switch(sortValue) {
+                case 'name':
+                    currentEmployees.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'tasks':
+                    currentEmployees.sort((a, b) => b.tasksPending - a.tasksPending);
+                    break;
+                case 'team':
+                    currentEmployees.sort((a, b) => a.team.localeCompare(b.team));
+                    break;
+            }
+            
+            renderEmployees();
+        }
+
+        // Task action handler
+        function handleTaskAction(action, employeeId) {
+            const actions = {
+                'notification': 'Notification sent!',
+                'view': 'Task details opened',
+                'remind': 'Reminder sent to employee',
+            };
+            
+            const message = actions[action] || 'Action completed';
+            showNotification(message, employeeId);
+        }
+
+        // Get action title
+        function getActionTitle(action) {
+            const titles = {
+                'notification': 'Send notification',
+                'view': 'View details',
+                'remind': 'Send reminder',
+            };
+            return titles[action] || 'Perform action';
+        }
+
+        // Show notif
+        function showNotification(message, employeeId = null) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.backgroundColor = employeeId ? 'var(--warning-color)' : 'var(--success-color)';
+            notification.style.color = employeeId ? '#000' : 'white';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Trigger animation
+            setTimeout(() => notification.classList.add('show'), 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add click effects to cards
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.employee-card')) {
+                e.target.closest('.employee-card').style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    e.target.closest('.employee-card').style.transform = '';
+                }, 150);
+            }
+        });
+
+        // Update sort dropdown arrow on theme change
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('sort-select')) {
+                updateSortDropdownArrow();
+            }
+        });
+
+        // Avatar expansion function
+        function expandAvatar(avatarElement, firstLetter, employeeId) {
+            // Close any existing expanded avatar
+            document.querySelectorAll('.avatar.expanded').forEach(el => {
+                el.classList.remove('expanded');
+                setTimeout(() => el.remove(), 300);
+            });
+            
+            // Create expanded avatar overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 2400;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            `;
+            
+            const expandedAvatar = document.createElement('div');
+            expandedAvatar.className = 'avatar expanded';
+            expandedAvatar.innerHTML = `
+                <div class="avatar-close" onclick="event.stopPropagation(); closeExpandedAvatar()">&times;</div>
+                ${firstLetter}
+            `;
+            
+            overlay.appendChild(expandedAvatar);
+            document.body.appendChild(overlay);
+            
+            // Close on overlay click
+            overlay.onclick = () => closeExpandedAvatar();
+            
+            // Store reference for closing
+            expandedAvatar.dataset.employeeId = employeeId;
+        }
+
+        // Close expanded avatar
+        function closeExpandedAvatar() {
+            const expanded = document.querySelector('.avatar.expanded');
+            const overlay = expanded?.parentElement;
+            
+            if (expanded && overlay) {
+                expanded.classList.remove('expanded');
+                setTimeout(() => {
+                    overlay.remove();
+                }, 300);
+            }
+        }
+
+        // Close expanded avatar on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeExpandedAvatar();
+            }
+        });
+    </script>
+</body>
+</html>
