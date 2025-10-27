@@ -1,0 +1,119 @@
+/* note: this applies to both the Topic page, and the Posts Page as the actual requirements were super similar*/
+.testing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--medium-Gap);
+    overflow-x: auto;
+}
+
+.topicResultContainer{
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    background-color: inherit;
+}
+
+.topicSearchContainer{
+    display: flex;
+    flex-direction: column;
+    gap: var(--small-Gap);
+    padding: var(--small-Gap) var(--medium-Gap);
+    background-color: var(--gradient);
+    box-shadow: var(--shadow-s);
+    border: none;
+}
+
+.searchBottomPart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--small-Gap);
+}
+
+.searchContainer{
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--small-Gap);
+    padding: var(--small-Gap);
+    width: 100%;
+    color: var(--text);
+    box-shadow: var(--shadow-s);
+}
+
+.searchContainer input{
+    flex: 1;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-light);
+    color: var(--text);
+    border: var(--border-card);
+    border-top: none;
+    border-left: none; /* for some reason it didnt like me using 0 for the border shorthand property */
+}
+
+.searchContainer i{
+    font-size: 1.2rem;
+    color: var(--text);
+    text-align: center;
+}
+
+.advancedView, .changeView{
+    flex-grow: 1;
+    background-color: var(--gradient);
+    padding: var(--tiny-Gap);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    user-select: none;
+} 
+
+.advancedView:hover, .changeView:hover, .topicResults:hover  {
+    border-color: var(--primary);
+    color: var(--text);
+    cursor: pointer;
+    box-shadow: var(--shadow-m);
+    background-color: var(--gradient-hover);
+}
+
+.changeView{
+    flex-grow: 2;
+} 
+
+.topicResultContainer {
+    flex-grow: 1; /*this is flex for it being a flex item*/
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* below is for the flexbox stuff*/
+    display: flex;
+    flex-direction: column;
+    gap: var(--small-Gap);
+    min-height: 10rem;
+    /* firefox control of scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-muted) transparent;
+}
+
+.topicResults{
+    flex-shrink: 0;
+    height: 5rem;
+    background-color: var(--gradient);
+    color: var(--text-muted);
+    border-radius: 1rem;
+    border: var(--border-card);
+    text-align: center;
+    box-shadow: var(--shadow-s);
+}
+
+.topicResults a{
+    color: var(--text-muted);
+}
+
+/* for chrome*/
+.topicResultContainer::-webkit-scrollbar {
+    width: 0.1rem;
+}
+
+.topicResultContainer::-webkit-scrollbar-track{
+    background: transparent;
+}
