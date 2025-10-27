@@ -12,6 +12,8 @@ function EntryFormFields(props){
                 name={props.name}
                 value={props.value}
                 onChange={props.onChange}
+                pattern={props.pattern}
+                title={props.title}
                 required
             />
             <label htmlFor ={props.id}>{props.label}</label>

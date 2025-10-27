@@ -1,6 +1,6 @@
 import EntryFormFields from "./EntryFormFields";
 import EntryButton from "./EntryButton";
-// import { useRef } from 'react';
+import { useState } from 'react';
 
 function EntryFormContainer(props){
 
@@ -8,6 +8,8 @@ function EntryFormContainer(props){
     // test data - should prob be moved outisde this
     let validAccount = [{email: "manager@mia.com", password: "manager123"},
                         {email: "employee@mia.com", password: "employee123"}];
+
+    const [error, setError] = useState("");
 
     // handleLoginSubmit gets data from login form and checks if it is an existing account
     const handleLoginSubmit = (e) => {
@@ -27,11 +29,12 @@ function EntryFormContainer(props){
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const fullName = formData.get("fullName");
+        const firstName = formData.get("firstName");
+        const lastName = formData.get("lastName");
         const email = formData.get("emailAddress");
         const password = formData.get("password");
         const confirmPassword = formData.get("confirmPassword");
-        console.log({fullName, email, password, confirmPassword});
+        console.log({firstName, lastName, email, password, confirmPassword});
         checkPasswordMatch(password, confirmPassword);
     };
 
@@ -44,7 +47,9 @@ function EntryFormContainer(props){
             }
         }
         console.log("Can't log in");
+        setError("Account not found, try again.");
         return false;
+
     };
 
     // checks if password and confirm password match
@@ -72,8 +77,11 @@ function EntryFormContainer(props){
                                 name={field.name}
                                 value={field.value}
                                 onChange={field.onChange}
+                                pattern={field.pattern}
+                                title={field.title}
                                 />)}
             <EntryButton buttonLabel={props.isEntryLoginPage ? "Login" : "Register"} />
+            <div>{error}</div>
         </form>
     );
  

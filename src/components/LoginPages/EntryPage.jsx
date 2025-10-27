@@ -7,19 +7,22 @@ function EntryPage() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const [isEntryLoginPage, setIsEntryLogin] = useState(true);
 
     const loginTitle = "Login";
-    const loginSubtitle = "Welcome Back! Please sign in.";
+    const loginHeading = "Welcome Back! Please sign in.";
     const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
                        {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)}];
 
     const registerTitle = "Register";
-    const registerSubtitle = "Welcome! Please sign up.";
-    const registerTextFields = [{id: "fullName", label: "Full Name", type: "text", name: "fullName", value:name, onChange: (e) => setName(e.target.value)},
+    const registerHeading = "Welcome! Please sign up.";
+    const registerTextFields = [
+                        {id: "firstName", label: "First Name", type: "text", name: "firstName", value:firstName, onChange: (e) => setFirstName(e.target.value), pattern:"[A-Za-z]+", title:"First name should only contain letters."},
+                        {id: "lastName", label: "Last Name", type: "text", name: "lastName", value:lastName, onChange: (e) => setLastName(e.target.value), pattern:"[A-Za-z]+", title:"First name should only contain letters."},
                         {id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
                         {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)},
                         {id: "confirmPassword", label: "Confirm Password", type: "password", name: "confirmPassword", value:confirmPassword, onChange: (e) => setConfirmPassword(e.target.value)}];
@@ -38,7 +41,7 @@ function EntryPage() {
             <div className="split right">
                 <div className="login-content-container">
                     <h1 className="mb-2">{isEntryLoginPage ? loginTitle : registerTitle}</h1>
-                    <h6 className="my-1">{isEntryLoginPage ? loginSubtitle : registerSubtitle}</h6>
+                    <h6 className="my-1">{isEntryLoginPage ? loginHeading : registerHeading }</h6>
                     {isEntryLoginPage ? login : register}
                     <div className="mt-2">
                         {isEntryLoginPage ? switchToRegisterQuestion : switchToLoginQuestion}
