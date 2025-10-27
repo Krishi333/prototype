@@ -1,10 +1,12 @@
 import LoginFormContainer from "./LoginPageFeatures/LoginFormContainer";
 import "./LoginPage.css";
 import { useState } from "react";
-import LoginButton from "./LoginPageFeatures/LoginButton";
 import design from "../../assets/tempDesign.jpg";
 
 function EntryPage() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const [isEntryLoginPage, setIsEntryLogin] = useState(true);
 

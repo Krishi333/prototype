@@ -1,12 +1,15 @@
 import LoginFormFields from "./LoginFormFields";
 import LoginButton from "./LoginButton";
-// import { useRef } from 'react';
+import { useRef } from 'react';
 
 function LoginFormContainer(props){
+
+
+    // test data - should prob be moved outisde this
     let validAccount = [{email: "manager@mia.com", password: "manager123"},
                         {email: "employee@mia.com", password: "employee123"}];
-    // should prob move validAccounts outisde 
 
+    // handleLoginSubmit gets data from login form and checks if it is an existing account
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -19,6 +22,8 @@ function LoginFormContainer(props){
         checkValidAccount(email, password); //revise callback functions
     };
 
+    // handleRegisterSubmit gets data from register form and checks if password match
+    // NEED TO ADD MORE VALIDATION
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -30,6 +35,7 @@ function LoginFormContainer(props){
         checkPasswordMatch(password, confirmPassword);
     };
 
+    // checks if the email and password match an existing account
     const checkValidAccount = (email, password) => {
         for (let i = 0; i < validAccount.length; i++){
             if (email === validAccount[i].email && password === validAccount[i].password){
@@ -41,6 +47,7 @@ function LoginFormContainer(props){
         return false;
     };
 
+    // checks if password and confirm password match
     const checkPasswordMatch = (password, confirmPassword) => {
         if (password === confirmPassword){
             console.log("Passwords match");
@@ -49,41 +56,24 @@ function LoginFormContainer(props){
         console.log("Passwords don't match");
     };
 
-
     const textFields = props.textField;
 
-    if (props.isEntryLoginPage){                                                     
-        return (
-            <>
-                <form onSubmit={handleLoginSubmit}>
-                    {textFields.map(field => <LoginFormFields className="loginFormText" 
-                                        key={field.id}
-                                        id={field.id} 
-                                        label={field.label}
-                                        type={field.type}
-                                        name={field.name}
-                                        />)}
-                    <LoginButton buttonLabel="Login" id="loginButton" />
-                </form>
-            </>
-        );
-    }
-    else {
-        return (
-            <>
-                <form onSubmit={handleRegisterSubmit}>
-                    {textFields.map(field => <LoginFormFields className="loginFormText" 
-                                        key={field.id}
-                                        id={field.id} 
-                                        label={field.label}
-                                        type={field.type}
-                                        name={field.name}
-                                        />)}
-                    <LoginButton buttonLabel="Register" id="registerButton"/>
-                </form>
-            </>
-        ); 
-    }
+
+    
+
+    return (
+        <form onSubmit={props.isEntryLoginPage ? handleLoginSubmit : handleRegisterSubmit}>
+            {/* render form text fields  */}
+            {textFields.map(field => <LoginFormFields  
+                                key={field.id}
+                                label={field.label}
+                                type={field.type}
+                                name={field.name}
+                                />)}
+            <LoginButton buttonLabel={props.isEntryLoginPage ? "Login" : "Register"} />
+        </form>
+    );
+ 
 
 };
 
