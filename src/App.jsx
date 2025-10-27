@@ -20,7 +20,6 @@ function App() {
         onSelectItem={(item) => console.log("You picked:", item)}
       /> */}
       <EntryPage />
-      <main>WELCOME!!!!!!!!!!!!!!!!</main>
       
     </div>
   );
