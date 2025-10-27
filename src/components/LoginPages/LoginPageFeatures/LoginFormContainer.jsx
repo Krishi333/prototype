@@ -16,7 +16,12 @@ function LoginFormContainer(props){
         //     console.log({key, value});
         // };
         console.log({email, password});
-        checkValidAccount(email, password); //revise callback functions
+        const ok = checkValidAccount(email, password); //revise callback functions
+        if (ok && typeof props.onLoginSuccess === "function"){
+            // determine simple role by email; adjust as needed
+            const role = email === "manager@mia.com" ? "manager" : "employee";
+            props.onLoginSuccess(role);
+        }
     };
 
     const handleRegisterSubmit = (e) => {
