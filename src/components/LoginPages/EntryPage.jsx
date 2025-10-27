@@ -1,5 +1,5 @@
-import LoginFormContainer from "./LoginPageFeatures/LoginFormContainer";
-import "./LoginPage.css";
+import EntryFormContainer from "./LoginPageFeatures/EntryFormContainer";
+import "./EntryPageStyle.css";
 import { useState } from "react";
 import design from "../../assets/tempDesign.jpg";
 
@@ -26,11 +26,11 @@ function EntryPage() {
 
     const switchToRegister = "Register here.";
     const switchToLogin = "Login here.";
-    const switchToRegisterQuestion = "Don't have an account?";
-    const switchToLoginQuestion = "Already have an account?";
+    const switchToRegisterQuestion = "Don't have an account? ";
+    const switchToLoginQuestion = "Already have an account? ";
 
-    const login = <LoginFormContainer isEntryLoginPage={true} textField={loginTextFields}/>;
-    const register = <LoginFormContainer isEntryLoginPage={false} textField={registerTextFields}/>;
+    const login = <EntryFormContainer isEntryLoginPage={true} textField={loginTextFields}/>;
+    const register = <EntryFormContainer isEntryLoginPage={false} textField={registerTextFields}/>;
     
     return (
         <>
@@ -44,7 +44,7 @@ function EntryPage() {
                         {isEntryLoginPage ? switchToRegisterQuestion : switchToLoginQuestion}
                         
 
-                        <button className="btn btn-link " 
+                        <button className="btn btn-link p-0 m-0 align-baseline" 
                                 type="button" 
                                 onClick={() => {setIsEntryLogin(!isEntryLoginPage) ; setEmail(""); setPassword("")}}>
 

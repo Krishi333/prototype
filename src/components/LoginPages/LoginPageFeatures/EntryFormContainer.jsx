@@ -1,8 +1,8 @@
-import LoginFormFields from "./LoginFormFields";
-import LoginButton from "./LoginButton";
-import { useRef } from 'react';
+import EntryFormFields from "./EntryFormFields";
+import EntryButton from "./EntryButton";
+// import { useRef } from 'react';
 
-function LoginFormContainer(props){
+function EntryFormContainer(props){
 
 
     // test data - should prob be moved outisde this
@@ -64,7 +64,7 @@ function LoginFormContainer(props){
     return (
         <form onSubmit={props.isEntryLoginPage ? handleLoginSubmit : handleRegisterSubmit}>
             {/* render form text fields  */}
-            {textFields.map(field => <LoginFormFields  
+            {textFields.map(field => <EntryFormFields  
                                 key={field.id}
                                 id={field.id}
                                 label={field.label}
@@ -73,11 +73,11 @@ function LoginFormContainer(props){
                                 value={field.value}
                                 onChange={field.onChange}
                                 />)}
-            <LoginButton buttonLabel={props.isEntryLoginPage ? "Login" : "Register"} />
+            <EntryButton buttonLabel={props.isEntryLoginPage ? "Login" : "Register"} />
         </form>
     );
  
 
 };
 
-export default LoginFormContainer;
+export default EntryFormContainer;

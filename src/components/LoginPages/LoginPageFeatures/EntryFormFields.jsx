@@ -1,7 +1,7 @@
 // add fields - the code for it
 
 
-function LoginFormFields(props){
+function EntryFormFields(props){
     return (
         <div className="form-floating">
             <input
@@ -20,4 +20,4 @@ function LoginFormFields(props){
 };
 
 
-export default LoginFormFields;
+export default EntryFormFields;
