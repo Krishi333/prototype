@@ -66,9 +66,12 @@ function LoginFormContainer(props){
             {/* render form text fields  */}
             {textFields.map(field => <LoginFormFields  
                                 key={field.id}
+                                id={field.id}
                                 label={field.label}
                                 type={field.type}
                                 name={field.name}
+                                value={field.value}
+                                onChange={field.onChange}
                                 />)}
             <LoginButton buttonLabel={props.isEntryLoginPage ? "Login" : "Register"} />
         </form>

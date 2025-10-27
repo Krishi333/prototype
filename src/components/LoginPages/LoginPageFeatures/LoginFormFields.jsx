@@ -5,10 +5,13 @@ function LoginFormFields(props){
     return (
         <div className="form-floating">
             <input
-                type={props.type} // type of input
+                id={props.id}
+                type={props.type} 
                 className="form-control w-100 mx-0 my-2 rounded m-auto"
-                placeholder= {props.label}  //whats written in 
+                placeholder= {props.label}
                 name={props.name}
+                value={props.value}
+                onChange={props.onChange}
                 required
             />
             <label htmlFor ={props.id}>{props.label}</label>

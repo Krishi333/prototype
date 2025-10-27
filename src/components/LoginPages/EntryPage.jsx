@@ -7,20 +7,22 @@ function EntryPage() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const [isEntryLoginPage, setIsEntryLogin] = useState(true);
 
     const loginTitle = "Login";
     const loginSubtitle = "Welcome Back! Please sign in.";
-    const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress"},
-                       {id: "password", label: "Password", type: "password", name: "password"}];
+    const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
+                       {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)}];
 
     const registerTitle = "Register";
     const registerSubtitle = "Welcome! Please sign up.";
-    const registerTextFields = [{id: "fullName", label: "Full Name", type: "text", name: "fullName"},
-                        {id: "email", label: "Email", type: "email", name: "emailAddress"},
-                        {id: "password", label: "Password", type: "password", name: "password"},
-                        {id: "confirmPassword", label: "Confirm Password", type: "password", name: "confirmPassword"}];
+    const registerTextFields = [{id: "fullName", label: "Full Name", type: "text", name: "fullName", value:name, onChange: (e) => setName(e.target.value)},
+                        {id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
+                        {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)},
+                        {id: "confirmPassword", label: "Confirm Password", type: "password", name: "confirmPassword", value:confirmPassword, onChange: (e) => setConfirmPassword(e.target.value)}];
 
     const switchToRegister = "Register here.";
     const switchToLogin = "Login here.";
@@ -44,7 +46,7 @@ function EntryPage() {
 
                         <button className="btn btn-link " 
                                 type="button" 
-                                onClick={() => setIsEntryLogin(!isEntryLoginPage)}>
+                                onClick={() => {setIsEntryLogin(!isEntryLoginPage) ; setEmail(""); setPassword("")}}>
 
                             {isEntryLoginPage ? switchToRegister : switchToLogin}
                         </button>                        
