@@ -1,32 +1,55 @@
 
-
+import Tasks from "./Tasks";
 
 function Dates () {
 
     return (
         <div style={{display: 'inline-flex', width: "93.29%"}}>
-            {/* <button type="button" className="btn btn-warning" style={{width: '13%', height: '150px', marginLeft: '1%'}}>Monday 27th</button>
-            <button type="button" className="btn btn-warning" style={{width: '13%', height: '150px'}}>Tuesday 28th</button>
-            <button type="button" className="btn btn-warning" style={{width: '13%', height: '150px'}}>Wednesday 29th</button>
-            <button type="button" className="btn btn-warning" style={{width: '13%', height: '150px'}}>Thursday 30th</button>
-            <button type="button" className="btn btn-warning" style={{width: '13%', height: '150px'}}>Friday 31st</button>
-            <button type="button" className="btn btn-warning" style={{width: '13%', height: '150px'}}>Saturday 1st</button>
-            <button type="button" className="btn btn-warning" style={{width: '13%', height: '150px',
-                 marginRight: '1%'}}>Sunday 2nd</button> */}
+            <div className="border rounded border-secondary" style={{width: '13%', height: '100%', marginLeft: '1%', textAlign: 'center'}}>
+                <p className="fw-bold">Monday 27th</p>
+                <Tasks taskName="Task 1"/>
+                <Tasks taskName="Task 2"/>
+                <Tasks taskName="Task 3"/>
+                <Tasks taskName="Task 4"/>
+                <Tasks taskName="Task 5"/>
+                <Tasks taskName="Task 6"/>
+            </div>
+            <div className="border rounded border-secondary" style={{width: '13%', height: '100%', textAlign: 'center'}}>
+                <p className="fw-bold">Tuesday 28th</p>
+                <Tasks taskName="Task 1"/>
+                <Tasks taskName="Task 2"/>
+                <Tasks taskName="Task 3"/>
+                <Tasks taskName="Task 4"/>
+            </div>
+            <div className="border rounded border-secondary" style={{width: '13%', height: '100%', textAlign: 'center'}}>
+                <p className="fw-bold">Wednesday 29th</p>
+                <Tasks taskName="Task 1"/>
+            </div>
+            <div className="border rounded border-secondary" style={{width: '13%', height: '100%', textAlign: 'center'}}>
+                <p className="fw-bold">Thursday 30th</p>
+                <Tasks taskName="Task 1"/>
+                <Tasks taskName="Task 2"/>
+                <Tasks taskName="Task 3"/>
+                <Tasks taskName="Task 4"/>
+                <Tasks taskName="Task 5"/>
+            </div>
+            <div className="border rounded border-secondary" style={{width: '13%', height: '100%', textAlign: 'center'}}>
+                <p className="fw-bold">Friday 31st</p>
+                <Tasks taskName="Task 1"/>
+                <Tasks taskName="Task 2"/>
 
-            <p/>
-            <p className="border rounded border-secondary"style={{width: '13%', height: '150px', marginLeft: '1%', textAlign: 'center'}}>Monday 27th</p>
-            <p className="border rounded border-secondary"style={{width: '13%', height: '150px', textAlign: 'center'}}>Tuesday 28th</p>
-            <p className="border rounded border-secondary"style={{width: '13%', height: '150px', textAlign: 'center'}}>Wednesday 29th</p>
-            <p className="border rounded border-secondary"style={{width: '13%', height: '150px', textAlign: 'center'}}>Thursday 30th</p>
-            <p className="border rounded border-secondary"style={{width: '13%', height: '150px', textAlign: 'center'}}>Friday 31st</p>
-            <p className="border rounded border-secondary"style={{width: '13%', height: '150px', textAlign: 'center'}}>Saturday 1st</p>
-            <p className="border rounded border-secondary"style={{width: '13%', height: '150px', marginRight: '1%', textAlign: 'center'}}>Sunday 2nd</p>
-
-
-
-
-
+            </div>
+            <div className="border rounded border-secondary" style={{width: '13%', height: '100%', textAlign: 'center'}}>
+                <p className="fw-bold">Saturday 1st</p>
+                <Tasks taskName="Task 1"/>
+                <Tasks taskName="Task 2"/>
+                <Tasks taskName="Task 3"/>
+                <Tasks taskName="Task 4"/>
+            </div>
+            <div className="border rounded border-secondary" style={{width: '13%', height: '100%', textAlign: 'center'}}>
+                <p className="fw-bold">Sunday 2nd</p>
+                <Tasks taskName="Task 1"/>
+            </div>
         </div>
     )
 }
