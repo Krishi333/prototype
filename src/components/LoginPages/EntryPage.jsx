@@ -2,8 +2,26 @@ import EntryFormContainer from "./LoginPageFeatures/EntryFormContainer";
 import "./EntryPageStyle.css";
 import { useState } from "react";
 import design from "../../assets/tempDesign.jpg";
+import ColourModeButton from "./LoginPageFeatures/ColourModeButton";
 
 function EntryPage() {
+
+    const darkSymbol = "🌙";
+    const lightSymbol = "☀️";
+
+    const [colourSymbol, setColourSymbol] = useState(lightSymbol);
+    const [colourTheme, setColourTheme] = useState("light");
+
+    const switchColourTheme = () => {
+        if (colourSymbol === lightSymbol){
+            setColourSymbol(darkSymbol);
+            setColourTheme("dark");
+        } else {
+            setColourSymbol(lightSymbol);
+            setColourTheme("light");
+        }
+    }
+
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -31,14 +49,15 @@ function EntryPage() {
     const register = <EntryFormContainer isEntryLoginPage={false} textField={registerTextFields}/>;
     
     return (
-        <>
+        <div data-theme={colourTheme}>
+            <ColourModeButton colourThemeSymbol= {colourSymbol} colourTheme={switchColourTheme}/>
             <img src={design} alt="Welcome" className="split left" ></img>
             <div className="split right">
                 <div className="login-content-container">
-                    <h1 className="mb-2"><b>Make It All</b></h1>
-                    <h6 className="my-1">{isEntryLoginPage ? loginHeading : registerHeading }</h6>
+                    <h1 className="mb-2 text"><b>Make It All</b></h1>
+                    <h6 className="my-1 text">{isEntryLoginPage ? loginHeading : registerHeading }</h6>
                     {isEntryLoginPage ? login : register}
-                    <div className="mt-2">
+                    <div className="mt-2 text">
                         {isEntryLoginPage ? switchToRegisterQuestion : switchToLoginQuestion}
                         
 
@@ -47,11 +66,11 @@ function EntryPage() {
                                 onClick={() => {setIsEntryLogin(!isEntryLoginPage) ; setEmail(""); setPassword("")}}>
 
                             {isEntryLoginPage ? switchToRegister : switchToLogin}
-                        </button>                        
+                        </button>                       
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
