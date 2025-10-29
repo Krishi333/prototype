@@ -1,7 +1,7 @@
 import EntryFormContainer from "./LoginPageFeatures/EntryFormContainer";
 import "./EntryPageStyle.css";
 import { useState } from "react";
-import design from "../../assets/tempDesign.jpg";
+import design from "../../assets/tempDesign3.jpg";
 import ColourModeButton from "./LoginPageFeatures/ColourModeButton";
 
 function EntryPage() {
@@ -51,7 +51,7 @@ function EntryPage() {
     return (
         <div data-theme={colourTheme}>
             <ColourModeButton colourThemeSymbol= {colourSymbol} colourTheme={switchColourTheme}/>
-            <img src={design} alt="Welcome" className="split left" ></img>
+            <div className="split left"><img src={design} alt="Welcome" ></img></div>
             <div className="split right">
                 <div className="login-content-container">
                     <h1 className="mb-2 text"><b>Make It All</b></h1>
