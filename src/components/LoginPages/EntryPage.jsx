@@ -1,7 +1,7 @@
 import EntryFormContainer from "./LoginPageFeatures/EntryFormContainer";
 import "./EntryPageStyle.css";
 import { useState } from "react";
-import design from "../../assets/tempDesign3.jpg";
+import design from "../../assets/tempDesign4.jpg";
 import ColourModeButton from "./LoginPageFeatures/ColourModeButton";
 
 function EntryPage() {
@@ -9,15 +9,15 @@ function EntryPage() {
     const darkSymbol = "🌙";
     const lightSymbol = "☀️";
 
-    const [colourSymbol, setColourSymbol] = useState(lightSymbol);
+    const [colourSymbol, setColourSymbol] = useState(darkSymbol);
     const [colourTheme, setColourTheme] = useState("light");
 
     const switchColourTheme = () => {
-        if (colourSymbol === lightSymbol){
-            setColourSymbol(darkSymbol);
+        if (colourTheme === "light"){
+            setColourSymbol(lightSymbol);
             setColourTheme("dark");
         } else {
-            setColourSymbol(lightSymbol);
+            setColourSymbol(darkSymbol);
             setColourTheme("light");
         }
     }
