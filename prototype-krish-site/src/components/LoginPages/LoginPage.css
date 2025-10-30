@@ -24,3 +24,19 @@
 .login-content-container {
   width: 70%;
 }
+
+/* Back button box styling for registration page */
+.back-button-box {
+  display: inline-block;
+  border: 1px solid #e6e6e6;
+  background: #fafafa;
+  padding: 6px 8px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.back-button {
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+}

@@ -20,7 +20,7 @@ function LoginPage() {
                 <div className="login-content-container">
                     <h1 className="mb-2">{title}</h1>
                     <h6 className="my-1">{subtitle}</h6>
-                    <LoginFormContainer isLogin={true} textField={loginTextFields}/>
+                    <LoginFormContainer isEntryLoginPage={true} textField={loginTextFields}/>
                     {/* <img src={logo} alt="make-it-all-logo" className="logo w-100" ></img> */}
                     {/* <LoginContentContainer title="Log In" extraInfo="Welcome Back! Please sign in."isLogin={true}/> */}
                 </div>

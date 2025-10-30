@@ -25,6 +25,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import LoginFormContainer from "./components/LoginPages/LoginPageFeatures/LoginFormContainer";
+import RegistrationPage from "./components/LoginPages/RegistrationPage";
 
 function App() {
   // minimal fields for the login form
@@ -32,6 +33,7 @@ function App() {
     { id: "email", label: "Email Address", type: "email", name: "emailAddress" },
     { id: "password", label: "Password", type: "password", name: "password" },
   ];
+
   const [loggedIn, setLoggedIn] = useState(false);
   const [role, setRole] = useState(null);
 
@@ -62,10 +64,28 @@ function App() {
     );
   }
 
+  // Unauthenticated: simple local view toggle (no react-router) for now.
+  const [view, setView] = useState("login"); // 'login' or 'register'
+
   return (
-    <div className="App" style={{ padding: 20 }}>
-      <h2>Login</h2>
-      <LoginFormContainer textField={loginFields} isEntryLoginPage={true} onLoginSuccess={handleLoginSuccess} />
+    <div>
+      {view === "login" && (
+        <div className="App" style={{ padding: 20 }}>
+          <h2>Login</h2>
+          <LoginFormContainer textField={loginFields} isEntryLoginPage={true} onLoginSuccess={handleLoginSuccess} />
+          <div style={{ marginTop: 12 }}>
+            <button type="button" onClick={() => setView("register")} className="btn btn-link">
+              Create an account
+            </button>
+          </div>
+        </div>
+      )}
+
+      {view === "register" && (
+        <div style={{ padding: 20 }}>
+          <RegistrationPage onBack={() => setView("login")} />
+        </div>
+      )}
     </div>
   );
 }
