@@ -15,9 +15,6 @@ function EntryFormContainer(props){
         const formData = new FormData(e.currentTarget);
         const email = formData.get("emailAddress");
         const password = formData.get("password");
-        // for (let [key, value] of formData.entries()) {
-        //     console.log({key, value});
-        // };
         console.log({email, password});
         checkValidAccount(email, password);
     };
@@ -32,7 +29,11 @@ function EntryFormContainer(props){
         const password = formData.get("password");
         const confirmPassword = formData.get("confirmPassword");
         console.log({firstName, lastName, email, password, confirmPassword});
-        checkPasswordMatch(password, confirmPassword);
+        if (checkPasswordMatch(password, confirmPassword)){
+            console.log("Registered successfully");
+            validAccount.push({email: email, password: password});
+        }
+
     };
 
     // checks if the email and password match an existing account

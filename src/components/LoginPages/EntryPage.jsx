@@ -2,6 +2,8 @@ import EntryFormContainer from "./LoginPageFeatures/EntryFormContainer";
 import "./EntryPageStyle.css";
 import { useState } from "react";
 import design from "../../assets/tempDesign4.jpg";
+import logo from "../../assets/logo2.png";
+
 import ColourModeButton from "./LoginPageFeatures/ColourModeButton";
 
 function EntryPage() {
@@ -28,11 +30,13 @@ function EntryPage() {
 
     const [isEntryLoginPage, setIsEntryLogin] = useState(true);
 
-    const loginHeading = "Welcome Back! Please sign in.";
+    const loginHeading = "Login";
+    const loginSubheading = "Welcome Back! Please sign in.";
     const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
                        {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)}];
 
-    const registerHeading = "Welcome! Please sign up.";
+    const registerHeading = "Register";
+    const registerSubheading = "Welcome! Please sign up.";
     const registerTextFields = [
                         {id: "firstName", label: "First Name", type: "text", name: "firstName"},
                         {id: "lastName", label: "Last Name", type: "text", name: "lastName"},
@@ -51,11 +55,14 @@ function EntryPage() {
     return (
         <div data-theme={colourTheme}>
             <ColourModeButton colourThemeSymbol= {colourSymbol} colourTheme={switchColourTheme}/>
-            <div className="split left"><img src={design} alt="Welcome" ></img></div>
+            <img src={logo} alt="Make It All Logo" className="logo"/>
+            <div className="split left">
+                <img src={design} alt="Welcome" className="design"></img>
+            </div>
             <div className="split right">
                 <div className="login-content-container">
-                    <h1 className="mb-2 text"><b>Make It All</b></h1>
-                    <h6 className="my-1 text">{isEntryLoginPage ? loginHeading : registerHeading }</h6>
+                    <h1 className="mb-2 text"><b>{isEntryLoginPage ? loginHeading : registerHeading }</b></h1>
+                    <h6 className="my-1 text">{isEntryLoginPage ? loginSubheading : registerSubheading }</h6>
                     {isEntryLoginPage ? login : register}
                     <div className="mt-2 text">
                         {isEntryLoginPage ? switchToRegisterQuestion : switchToLoginQuestion}
