@@ -24,8 +24,7 @@
 
 import React, { useState } from "react";
 import "./App.css";
-import LoginFormContainer from "./components/LoginPages/LoginPageFeatures/LoginFormContainer";
-import RegistrationPage from "./components/LoginPages/RegistrationPage";
+import EntryPage from "./components/LoginPages/EntryPage";
 
 function App() {
   // minimal fields for the login form
@@ -64,28 +63,10 @@ function App() {
     );
   }
 
-  // Unauthenticated: simple local view toggle (no react-router) for now.
-  const [view, setView] = useState("login"); // 'login' or 'register'
-
+  // Unauthenticated: render the detailed EntryPage (login/register combined)
   return (
     <div>
-      {view === "login" && (
-        <div className="App" style={{ padding: 20 }}>
-          <h2>Login</h2>
-          <LoginFormContainer textField={loginFields} isEntryLoginPage={true} onLoginSuccess={handleLoginSuccess} />
-          <div style={{ marginTop: 12 }}>
-            <button type="button" onClick={() => setView("register")} className="btn btn-link">
-              Create an account
-            </button>
-          </div>
-        </div>
-      )}
-
-      {view === "register" && (
-        <div style={{ padding: 20 }}>
-          <RegistrationPage onBack={() => setView("login")} />
-        </div>
-      )}
+      <EntryPage onLoginSuccess={handleLoginSuccess} />
     </div>
   );
 }

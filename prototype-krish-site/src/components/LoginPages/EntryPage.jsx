@@ -1,55 +1,104 @@
-import LoginFormContainer from "./LoginPageFeatures/LoginFormContainer";
-import "./LoginPage.css";
+import EntryFormContainer from "./LoginPageFeatures/EntryFormContainer";
+import "./EntryPageStyle.css";
 import { useState } from "react";
-import LoginButton from "./LoginPageFeatures/LoginButton";
-import design from "../../assets/tempDesign.jpg";
+import design from "../../assets/tempDesign4.jpg";
+import logo from "../../assets/logo2.png";
 
-function EntryPage() {
+import ColourModeButton from "./LoginPageFeatures/ColourModeButton";
+
+function EntryPage({ onLoginSuccess }) {
+
+    const darkSymbol = "🌙";
+    const lightSymbol = "☀️";
+
+    const [colourSymbol, setColourSymbol] = useState(darkSymbol);
+    const [colourTheme, setColourTheme] = useState("light");
+    const [error, setError] = useState('');
+
+    const switchColourTheme = () => {
+        if (colourTheme === "light"){
+            setColourSymbol(lightSymbol);
+            setColourTheme("dark");
+        } else {
+            setColourSymbol(darkSymbol);
+            setColourTheme("light");
+        }
+    }
+
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const [isEntryLoginPage, setIsEntryLogin] = useState(true);
 
-    const loginTitle = "Login";
-    const loginSubtitle = "Welcome Back! Please sign in.";
-    const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress"},
-                       {id: "password", label: "Password", type: "password", name: "password"}];
+    const handleError = (errorMessage) => {
+        setError(errorMessage);
+    };
 
-    const registerTitle = "Register";
-    const registerSubtitle = "Welcome! Please sign up.";
-    const registerTextFields = [{id: "fullName", label: "Full Name", type: "text", name: "fullName"},
-                        {id: "email", label: "Email", type: "email", name: "emailAddress"},
-                        {id: "password", label: "Password", type: "password", name: "password"},
+    const loginHeading = "Login";
+    const loginSubheading = "Welcome Back! Please sign in.";
+    const loginTextFields = [{id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
+                       {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)}];
+
+    const registerHeading = "Register";
+    const registerSubheading = "Welcome! Please sign up.";
+    const registerTextFields = [
+                        {id: "firstName", label: "First Name", type: "text", name: "firstName"},
+                        {id: "lastName", label: "Last Name", type: "text", name: "lastName"},
+                        {id: "email", label: "Email", type: "email", name: "emailAddress", value:email, onChange: (e) => setEmail(e.target.value)},
+                        {id: "password", label: "Password", type: "password", name: "password", value:password, onChange: (e) => setPassword(e.target.value)},
                         {id: "confirmPassword", label: "Confirm Password", type: "password", name: "confirmPassword"}];
 
     const switchToRegister = "Register here.";
     const switchToLogin = "Login here.";
-    const switchToRegisterQuestion = "Don't have an account?";
-    const switchToLoginQuestion = "Already have an account?";
+    const switchToRegisterQuestion = "Don't have an account? ";
+    const switchToLoginQuestion = "Already have an account? ";
 
-    const login = <LoginFormContainer isEntryLoginPage={true} textField={loginTextFields}/>;
-    const register = <LoginFormContainer isEntryLoginPage={false} textField={registerTextFields}/>;
+    const login = <EntryFormContainer 
+        isEntryLoginPage={true} 
+        textField={loginTextFields} 
+        onLoginSuccess={onLoginSuccess}
+        onError={handleError}
+    />;
+
+    const register = <EntryFormContainer 
+        isEntryLoginPage={false} 
+        textField={registerTextFields}
+        onLoginSuccess={onLoginSuccess}
+        onError={handleError}
+    />;
     
     return (
-        <>
-            <img src={design} alt="Welcome" className="split left" ></img>
+        <div data-theme={colourTheme}>
+            <ColourModeButton colourThemeSymbol= {colourSymbol} colourTheme={switchColourTheme}/>
+            <img src={logo} alt="Make It All Logo" className="logo"/>
+            <div className="split left">
+                <img src={design} alt="Welcome" className="design"></img>
+            </div>
             <div className="split right">
                 <div className="login-content-container">
-                    <h1 className="mb-2">{isEntryLoginPage ? loginTitle : registerTitle}</h1>
-                    <h6 className="my-1">{isEntryLoginPage ? loginSubtitle : registerSubtitle}</h6>
+                    <h1 className="mb-2 text"><b>{isEntryLoginPage ? loginHeading : registerHeading }</b></h1>
+                    <h6 className="my-1 text">{isEntryLoginPage ? loginSubheading : registerSubheading }</h6>
+                    {error && <div className="alert alert-danger">{error}</div>}
                     {isEntryLoginPage ? login : register}
-                    <div className="mt-2">
+                    <div className="mt-2 text">
                         {isEntryLoginPage ? switchToRegisterQuestion : switchToLoginQuestion}
                         
 
-                        <button className="btn btn-link " 
+                        <button className="btn btn-link p-0 m-0 align-baseline" 
                                 type="button" 
-                                onClick={() => setIsEntryLogin(!isEntryLoginPage)}>
-
+                                onClick={() => {
+                                    setIsEntryLogin(!isEntryLoginPage);
+                                    setEmail("");
+                                    setPassword("");
+                                    setError("");
+                                }}>
                             {isEntryLoginPage ? switchToRegister : switchToLogin}
-                        </button>                        
+                        </button>                       
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
