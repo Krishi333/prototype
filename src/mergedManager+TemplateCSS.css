@@ -23,7 +23,7 @@
 
     --highlight: oklch(0.5 0.01 74);
 
-    --border-color: oklch(0.4 0.01 74); /* Merger conflict */
+    /*--border-color: oklch(0.4 0.01 74);*/ /* Merger conflict */
     --border-muted: oklch(0.3 0.01 74);
 
     --primary: oklch(0.76 0.1 74);
@@ -37,7 +37,7 @@
     --border-size: 0.015rem; 
     --border-style: solid; 
 
-    --border-card: var(--border-style) var(--border-size) var(--border-color);
+    /*--border-card: var(--border-style) var(--border-size) var(--border-color);*/
 
     --tiny-Gap: 0.5rem;
     --small-Gap: 1rem;
@@ -52,7 +52,7 @@
 
     /* temp taking on my color scheme, can be switched either way */
 
-    --primary-color: var(--primary);
+    /*--primary-color: var(--primary);
     --primary-hover: #218838;
     --secondary-color: var(--secondary);
     --secondary-hover: #545b62;
@@ -64,7 +64,40 @@
     --text-primary: var(--text);
     --text-secondary: var(--text-muted);
     --shadow: var(--shadow-m);
-    --shadow-hover: 0 4px 20px rgba(0,0,0,0.15);
+    --shadow-hover: 0 4px 20px rgba(0,0,0,0.15); */
+
+    /* temp taking on Ryans color scheme, can be switched either way */
+    --primary-color: #4ade80;
+    --primary-hover: #22c55e;
+    --secondary-color: #9ca3af;
+    --secondary-hover: #6b7280;
+    --success-color: #4ade80;
+    --warning-color: #facc15;
+    --danger-color: #f87171;
+    --light-bg: #1f2937;
+    --card-bg: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --border-color: #4b5563;
+    --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    --shadow-hover: 0 4px 20px rgba(0,0,0,0.4);
+
+    --primary: var(--primary-color);
+    --secondary: var(--secondary-color);
+    --success: var(--success-color);
+    --warning: var(--warning-color);
+    --danger: var(--danger-color);
+    --bg: var(--light-bg);
+    --gradient: var(--light-bg);
+    --bg-light: var(--card-bg);
+    --text: var(--text-primary);
+    --text-muted: var(--text-secondary);
+    --border-card: var(--border-style) var(--border-size) var(--border-color);
+    --shadow-s: var(--shadow);
+    --shadow-m: var(--shadow);
+    --shadow-l: var(--shadow);
+
+
 }
 /* Dark Mode Variables */
 [data-theme="dark"] {
