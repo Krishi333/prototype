@@ -132,6 +132,7 @@
         .profile-icon::before { content: '👤'; }
         .tasks-icon::before { content: '📋'; }
         .employees-icon::before { content: '👥'; }
+        .calendar-icon::before { content: '📅'; }
 
         /* Main Content */
         .main-content {

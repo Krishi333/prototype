@@ -19,6 +19,7 @@
                 <div class="nav-icon profile-icon active" onclick="navigateTo('profile')" title="Profile"></div>
                 <div class="nav-icon tasks-icon" onclick="navigateTo('tasks')" title="Tasks"></div>
                 <div class="nav-icon employees-icon" onclick="navigateTo('employees')" title="Employees"></div>
+                <div class="nav-icon calendar-icon" onclick="navigateTo('calendar')" title="Calendar"></div>
             </div>
             
             <div class="sidebar-bottom-spacer"></div>
@@ -305,7 +306,8 @@
                 'profile': 'User Profile',
                 'tasks': 'Task Management',
                 'employees': 'Employees & Team Overview',
-                'settings': 'Settings'
+                'settings': 'Settings',
+                'calendar': 'Calendar'
             };
             pageTitle.textContent = titles[section] || 'Dashboard';
 
