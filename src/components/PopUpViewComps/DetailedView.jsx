@@ -4,20 +4,27 @@ import ProjectName from "./ProjectName"
 import Timescale from "./Timescale"
 import Employees from "./Employees"
 import Tags from "./Tags"
+import Description from "./Description"
 
 
 function DetailedView({onClickDone}) {
     return (
-        <div>
-            Task Name <span className="btn btn-warning">Edit</span> 
+        <div style={{marginLeft: "5%", marginRight: "5%", marginTop: "2%"}}>
+            <p style={{textAlign: "center"}}>Task 1 <span style={{marginLeft: "2%", backgroundColor: "orange"}}className="btn">Edit</span></p>
+            <Description/>
+            <br/>
             <Priority/>
+            <p/>
             <ProjectName/>
+            <p/>
             <Timescale/>
+            <br/>
             <Employees/>
+            <br/>
             <Tags/>
             <br/>
-            <button type="button" className="btn" style={{backgroundColor: "lightGreen", marginLeft: '5%'}} onClick={onClickDone}>Done</button>
-            <button type="button" className="btn" style={{backgroundColor: "red", float: 'right', marginRight: '5%'}} onClick={onClickDone}>Cancel</button>
+            <button type="button" className="btn" style={{backgroundColor: "lightGreen"}} onClick={onClickDone}>Done</button>
+            <button type="button" className="btn" style={{backgroundColor: "red", float: 'right'}} onClick={onClickDone}>Cancel</button>
         </div>
     )
 }

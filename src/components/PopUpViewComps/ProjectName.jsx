@@ -1,7 +1,7 @@
 
 function ProjectName () {
     return (
-        <div style={{display: "inline-flex", height: "max-content"}}>
+        <div style={{display: "inline-flex", height: "min-content"}}>
             <p>Project Name: </p>
             <select className="form-select" aria-label="Default select option" defaultValue="Project A" style={{width: "max-content", marginLeft: 50}}>
                 <option value="0">Project A</option>
