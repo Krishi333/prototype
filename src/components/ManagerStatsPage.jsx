@@ -45,12 +45,12 @@ function ManagerStatsPage(){
                 </div>
             </div>
 
-            <div class="conatinerHorizontal halfContainer">
-                <div class="employeeTaskDistribution box" >
-                    <div class="selector">
-                        <h3 class="title">Task Distribution</h3>
-                        <div class="sort-container ">
-                            <select class="sort-select" id="filterTask">
+            <div className="conatinerHorizontal halfContainer">
+                <div className="employeeTaskDistribution box" >
+                    <div className="selector">
+                        <h3 className="title">Task Distribution</h3>
+                        <div className="sort-container ">
+                            <select className="sort-select" id="filterTask">
                                 <option value="taskNumber">No. of Tasks</option>
                                 <option value="taskTime">Time of Tasks</option>
                             </select>
@@ -230,6 +230,31 @@ function ManagerStatsPage(){
                                 </tbody>
                             </table>
                             <p>Most Common Tag: tag1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="conatinerHorizontal halfContainer">
+                    <div className="box" style={{height:"250px"}}>
+                        <div>
+                            <h4>Overall Data</h4>
+                            <div className="tableConatiner">
+                                <table id="overallEmployeeTable" style={{height:"200px", width:"800px"}}></table>
+                            </div>
+                        </div>
+                    </div>
+                <div className="conatinerVertical twenty" style={{marginBottom:"0px"}}>
+                    <div className="box" style={{height:"100px"}}>
+                        <div>
+                            Highest Priority Task  
+                            <h3>Task 3</h3>
+                        </div>
+                    </div>
+                    <div className="box" style={{height:"100px"}}>
+                        <div>
+                            Lowest Priority Task
+                            <h3>Task 5</h3>
                         </div>
                     </div>
                 </div>
