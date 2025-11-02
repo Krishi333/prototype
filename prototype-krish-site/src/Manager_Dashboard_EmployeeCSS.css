@@ -1,0 +1,263 @@
+:root{
+  --primary:#3b82f6;
+  --primary-600:#2563eb;
+  --accent:#7c3aed;
+  --muted:#6b7280;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --glass: rgba(255,255,255,0.6);
+  --text:#0f172a;
+  --subtext:#475569;
+  --border: #e6eef8;
+  --soft-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  --soft-shadow-hover: 0 10px 28px rgba(16,24,40,0.08);
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --page-padding: 28px;
+}
+
+[data-theme="dark"]{
+  --primary:#60a5fa;
+  --primary-600:#3b82f6;
+  --accent:#a78bfa;
+  --muted:#9ca3af;
+  --success:#34d399;
+  --warning:#fbbf24;
+  --danger:#fb7185;
+  --bg:#0b1220;
+  --card:#0f1724;
+  --glass: rgba(255,255,255,0.03);
+  --text:#e6eef8;
+  --subtext:#b6c2d6;
+  --border:#132034;
+  --soft-shadow: 0 8px 20px rgba(2,6,23,0.6);
+  --soft-shadow-hover: 0 14px 34px rgba(2,6,23,0.7);
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --page-padding: 28px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body,#root{height:100%;background:var(--bg);color:var(--text);font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+body{padding-left:var(--page-padding);padding-right:var(--page-padding);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+.page-wrap{min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding-top:18px;padding-bottom:32px}
+.container{width:100%;max-width:1280px;display:flex;gap:28px;align-items:flex-start}
+
+/* Header area (top left logout button shown in screenshot) */
+.topbar{position:fixed;left:var(--page-padding);right:var(--page-padding);top:12px;display:flex;justify-content:flex-start;z-index:60}
+.logout-btn{background:#ef4444;color:#fff;padding:8px 14px;border-radius:8px;border:none;cursor:pointer;box-shadow:var(--soft-shadow);font-weight:600}
+.logout-btn:hover{transform:translateY(-1px);box-shadow:var(--soft-shadow-hover)}
+
+/* Sidebar */
+.manager-root {
+  min-height: 100vh;
+  display: flex;
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 72px;
+  background: #333333;
+  color: white;
+  border-radius: 0;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.main-content {
+  margin-left: 72px;
+  padding: 20px;
+  flex: 1;
+}
+
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  background: #444444;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-icon:hover {
+  background: #555555;
+}
+
+.sidebar-top-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-bottom-spacer {
+  flex: 1;
+}
+.nav-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--subtext);cursor:pointer;border:1px solid transparent;transition:all .18s}
+.nav-icon:hover{transform:translateY(-4px);color:var(--text);border-color:rgba(0,0,0,0.05)}
+.nav-icon.active{background:linear-gradient(180deg,var(--primary),var(--primary-600));color:#fff;box-shadow:0 8px 22px rgba(59,130,246,0.14)}
+
+/* main content */
+.main{flex:1;min-width:0}
+.header{display:flex;align-items:center;justify-content:space-between;padding:6px 0 20px 0}
+.page-title{font-size:32px;font-weight:700;color:var(--text);letter-spacing:-0.2px}
+.sort-container{display:flex;align-items:center;gap:12px}
+.sort-select{appearance:none;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;box-shadow:0 2px 8px rgba(16,24,40,0.03)}
+.sort-select:focus{outline:none;box-shadow:0 6px 20px rgba(59,130,246,0.06);border-color:var(--primary)}
+.header .meta{color:var(--subtext);font-weight:600}
+
+/* employees grid */
+.employees-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
+
+/* card style */
+.employee-card{background:var(--card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--soft-shadow);transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column;gap:12px;min-height:260px}
+.employee-card:hover{transform:translateY(-6px);box-shadow:var(--soft-shadow-hover)}
+
+.employee-header{display:flex;align-items:center;gap:14px}
+.avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:22px;flex:0 0 56px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+.employee-info h3{margin:0;font-size:20px;font-weight:700;color:var(--text)}
+.employee-info p{margin:4px 0 0;color:var(--subtext);font-size:13px}
+.tasks-count{color:var(--warning);font-weight:700;margin-left:6px}
+
+/* tasks list */
+.tasks-section{background:linear-gradient(180deg,var(--glass),transparent);padding:12px;border-radius:10px;border:1px solid var(--border);max-height:220px;overflow:auto}
+.task-item{display:flex;align-items:center;justify-content:space-between;padding:10px;background:rgba(0,0,0,0.03);border-radius:8px;margin-bottom:10px}
+.task-text{color:var(--text);font-size:14px}
+.task-action{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.task-action.notification-icon{background:linear-gradient(135deg,#fff2cc,#ffe8a1);color:#7a4b00}
+.task-action.view-icon{background:linear-gradient(135deg,#e6f4ff,#d7eeff);color:#035388}
+.task-action.remind-icon{background:linear-gradient(135deg,#ffeef0,#ffdfe6);color:#9b1234}
+
+/* supervisor area */
+.supervisor-section{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg,var(--glass),transparent);border:1px solid var(--border)}
+.supervisor-text{color:var(--subtext);font-size:14px}
+.edit-icon{cursor:pointer;color:var(--muted)}
+
+/* action buttons */
+.action-buttons{display:flex;gap:10px}
+.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+.btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-600));color:#fff;box-shadow:0 8px 20px rgba(59,130,246,0.12)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-secondary{background:linear-gradient(90deg,#f1f5f9,#e6eef8);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{transform:translateY(-2px)}
+
+/* modals */
+.modal-overlay{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:80}
+.modal-overlay.active{display:flex}
+.modal-content{width:100%;max-width:840px;border-radius:12px;background:var(--card);padding:18px;box-shadow:var(--soft-shadow);max-height:calc(100vh - 120px);overflow:auto}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.modal-title{font-weight:700;color:var(--text)}
+.close-modal{background:transparent;border:none;font-size:20px;cursor:pointer;color:var(--subtext)}
+
+/* assign form */
+.form-group{margin-bottom:12px}
+.form-label{display:block;font-weight:600;color:var(--subtext);margin-bottom:6px}
+.form-input,.form-textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
+.form-textarea{min-height:100px;resize:vertical}
+
+/* small components */
+.employee-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:rgba(0,0,0,0.04);padding:6px 8px;border-radius:8px;color:var(--subtext);font-weight:600}
+
+/* Emoji icon inside nav icons */
+.icon-emoji{font-size:18px;line-height:1;display:inline-block}
+
+/* notifications */
+.notification{position:fixed;right:28px;top:88px;padding:12px 16px;border-radius:10px;color:#fff;z-index:90;box-shadow:var(--soft-shadow)}
+.notification.success{background:var(--success)}
+.notification.warning{background:var(--warning);color:#000}
+
+/* images and avatar handling */
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+.nav-icon .icon-image{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.sidebar img{width:100%;height:auto;object-fit:cover;border-radius:8px}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+/* responsive */
+@media (max-width:1000px){
+  .container{gap:18px}
+  .sidebar{width:60px;padding:14px}
+  .employees-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+  .page-title{font-size:26px}
+  .logout-btn{padding:8px 12px}
+}
+
+@media (max-width:720px){
+  body{padding-left:16px;padding-right:16px}
+  .container{flex-direction:column;align-items:stretch}
+  .sidebar{order:2;width:100%;display:flex;flex-direction:row;justify-content:center;padding:12px;border-radius:10px}
+  .main{order:1}
+  .employees-grid{grid-template-columns:1fr}
+  .page-title{text-align:left}
+  .topbar{left:16px;right:16px}
+  .logout-btn{position:static}
+}
+
+
+/* restore fuller main width and nicer grid */
+body{padding-left:16px!important;padding-right:16px!important}
+.container{max-width:1400px;gap:20px;align-items:flex-start;justify-content:flex-start}
+.sidebar{margin-left:0;flex:0 0 76px;width:76px}
+.main{flex:1;min-width:0;width:auto}
+.employees-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;padding:20px;align-items:start}
+.employee-card{min-height:220px}
+.tasks-section{max-height:260px}
+
+/* ensure header/topbar doesn't push content */
+.topbar{left:16px;right:16px}
+
+/* smaller screens tweaks */
+@media (max-width:1000px){
+  body{padding-left:12px!important;padding-right:12px!important}
+  .container{flex-direction:column;max-width:100%;gap:12px}
+  .sidebar{width:100%;flex-direction:row;padding:10px;order:2;border-radius:10px}
+  .main{order:1;padding:12px}
+  .employees-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+}
+
+
+/* paste at end of Manager_Dashboard_EmployeeCSS.css */
+html,body,#root{height:100% !important}
+body{padding-left:16px !important;padding-right:16px !important}
+.container{max-width:1400px !important;display:flex !important;gap:20px !important;align-items:flex-start !important;justify-content:flex-start !important;padding-top:8px !important;padding-bottom:24px !important}
+.sidebar{width:76px !important;margin-left:0 !important;flex:0 0 76px !important}
+.main{flex:1 !important;min-width:0 !important;width:auto !important}
+.employees-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr)) !important;gap:24px !important;padding:20px !important}
+.employee-card{min-height:220px !important}
+.tasks-section{max-height:260px !important}
+.topbar{left:16px !important;right:16px !important}
+
+/* Scoped overrides to ensure dashboard styles win over Bootstrap where needed */
+.manager-root .sidebar {
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  height: 100vh !important;
+  z-index: 1200 !important;
+}
+
+.manager-root .main {
+  margin-left: 96px !important; /* leave room for 76px sidebar + padding */
+}
+
+.manager-root .calendar-overlay { z-index: 2500 !important; }
+.manager-root .notification { right: 28px !important; top: 110px !important; }

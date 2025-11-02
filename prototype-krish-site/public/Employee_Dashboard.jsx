@@ -1,3 +1,0 @@
-/*Hello krish
-
-i hate myself*/
