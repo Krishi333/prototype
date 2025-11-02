@@ -189,7 +189,7 @@ import "./Manager_Dashboard_EmployeeCSS.css";
 const initialEmployees = [
   {
     id: 1,
-    name: "Rachel Green",
+    name: "Heeseung Lee",
     team: "Team A",
     avatar: "Screaming-beaver.jpg",
     tasksPending: 3,
@@ -247,7 +247,6 @@ function ManagerDashboard() {
     () => localStorage.getItem("theme") === "dark"
   );
   const [employees, setEmployees] = useState(initialEmployees);
-  const [sortBy, setSortBy] = useState("name");
 
   // Modal state
   const [taskModalOpen, setTaskModalOpen] = useState(false);
@@ -274,11 +273,7 @@ function ManagerDashboard() {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-  useEffect(() => {
-    // apply sort whenever employees or sortBy changes
-    sortEmployees(sortBy);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortBy]);
+  
 
   function toggleDarkMode() {
     setDarkMode((d) => !d);
@@ -289,25 +284,7 @@ function ManagerDashboard() {
     setTimeout(() => setNotification(null), 3000);
   }
 
-  function sortEmployees(by) {
-    setEmployees((prev) => {
-      const copy = [...prev];
-      switch (by) {
-        case "name":
-          copy.sort((a, b) => a.name.localeCompare(b.name));
-          break;
-        case "tasks":
-          copy.sort((a, b) => (b.tasksPending || 0) - (a.tasksPending || 0));
-          break;
-        case "team":
-          copy.sort((a, b) => a.team.localeCompare(b.team));
-          break;
-        default:
-          break;
-      }
-      return copy;
-    });
-  }
+  // Sorting removed per user request (employees are shown in their original order)
 
   function handleNav(view) {
     setCurrentView(view);
@@ -504,24 +481,17 @@ function ManagerDashboard() {
               {currentView === "employees" ? "Employees & Team Overview" : currentView.charAt(0).toUpperCase() + currentView.slice(1)}
             </h1>
 
-            {currentView === "employees" && (
-              <div className="sort-container">
-                <select
-                  className="sort-select"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                >
-                  <option value="name">Sort by Name</option>
-                  <option value="tasks">Sort by Tasks</option>
-                  <option value="team">Sort by Team</option>
-                </select>
-              </div>
-            )}
+            {/* sorting/filter UI removed per user request */}
           </div>
 
           {/* Views */}
           {currentView === "calendar" ? (
-            <Calendar />
+            <div className="calendar-overlay" onClick={(e) => { if (e.target === e.currentTarget) handleNav("employees"); }}>
+              <div className="calendar-modal">
+                <button className="close-modal" onClick={() => handleNav("employees")}>&times;</button>
+                <Calendar />
+              </div>
+            </div>
           ) : currentView === "employees" ? (
             <div className="employees-grid" id="employeesGrid">
               {employees.map(renderEmployeeCard)}

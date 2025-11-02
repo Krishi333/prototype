@@ -55,13 +55,7 @@
         <main class="main-content">
             <div class="header">
                 <h1 class="page-title">Employees & Team Overview</h1>
-                <div class="sort-container">
-                    <select class="sort-select" id="sortSelect" onchange="sortEmployees()">
-                        <option value="name">Sort by Name</option>
-                        <option value="tasks">Sort by Tasks</option>
-                        <option value="team">Sort by Team</option>
-                    </select>
-                </div>
+                <!-- sorting UI removed -->
             </div>
 
             <!-- Employees Grid -->
@@ -275,8 +269,7 @@
             }
         ];
 
-        let currentEmployees = [...employeesData];
-        let currentSort = 'name';
+    let currentEmployees = [...employeesData];
         let currentEditingEmployee = null;
         let selectedEmployees = [];
         let taskTags = [];
@@ -308,7 +301,9 @@
         }
 
         function updateSortDropdownArrow() {
+            // No-op if sort dropdown removed
             const select = document.querySelector('.sort-select');
+            if (!select) return;
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             const arrowColor = isDark ? 'd1d5db' : '6b7280';
             select.style.backgroundImage = `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23${arrowColor}' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`;
@@ -752,25 +747,7 @@
             }
         });
 
-        // Sorting functionality
-        function sortEmployees() {
-            const sortValue = document.getElementById('sortSelect').value;
-            currentSort = sortValue;
-            
-            switch(sortValue) {
-                case 'name':
-                    currentEmployees.sort((a, b) => a.name.localeCompare(b.name));
-                    break;
-                case 'tasks':
-                    currentEmployees.sort((a, b) => b.tasksPending - a.tasksPending);
-                    break;
-                case 'team':
-                    currentEmployees.sort((a, b) => a.team.localeCompare(b.team));
-                    break;
-            }
-            
-            renderEmployees();
-        }
+        // Sorting removed - no-op (functionality intentionally disabled)
 
         // Task action handler
         function handleTaskAction(action, employeeId) {
@@ -824,12 +801,7 @@
             }
         });
 
-        // Update sort dropdown arrow on theme change
-        document.addEventListener('change', function(e) {
-            if (e.target.classList.contains('sort-select')) {
-                updateSortDropdownArrow();
-            }
-        });
+        // sort-select change listener removed (sorting UI disabled)
 
         // Avatar expansion function
         function expandAvatar(avatarElement, firstLetter, employeeId) {
