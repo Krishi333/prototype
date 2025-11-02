@@ -96,6 +96,8 @@ body{
 .UIborder, .card{
     border-radius: 1rem;
     border: var(--border-card);
+    border-top: var(--highlight);
+
 }
 
 .topbar{
@@ -218,6 +220,7 @@ a{
     flex-wrap: wrap;
     gap: var(--small-Gap);
     border: var(--border-card);
+    border-top: var(--highlight);
     transition: all 0.3s ease;
     padding: var(--small-Gap);
 
@@ -241,6 +244,7 @@ a{
 .sort-select {
     background-color: var(--bg-lightest);
     border: var(--border-card);
+    border-top: var(--highlight);
     border-radius: 0.5rem;
     padding: var(--tiny-Gap);
     font-size: 1rem;

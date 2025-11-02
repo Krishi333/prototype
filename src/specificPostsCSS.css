@@ -5,6 +5,8 @@
     color: var(--text-muted);
     border-radius: 1rem;
     border: var(--border-card);
+    border-top: var(--highlight);
+
     text-align: center;
     margin-bottom: var(--small-Gap);
     overflow-x: hidden;
@@ -46,4 +48,6 @@
 .enhanceStyle{
     box-shadow: var(--shadow-m);
     border: var(--border-card);
+    border-top: var(--highlight);
+
 }

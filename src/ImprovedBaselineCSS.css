@@ -96,6 +96,7 @@ body{
 .UIborder, .card{
     border-radius: 1rem;
     border: var(--border-card);
+    border-top: var(--highlight);
 }
 
 .topbar{
