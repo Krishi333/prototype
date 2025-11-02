@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employees & Team Overview</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Manager_Dashboard_EmployeeCSS.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 </head>
 <body>
     <!-- Dark Mode Toggle button -->
     <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
         🌙
     </button>
+
+    <!-- Task Details Modal -->
+    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="taskModalLabel">Task Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="taskModalBody">
+                    <!-- Task details will be inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <!-- Left Sidebar Navigation -->
@@ -317,6 +339,27 @@
                     sortContainer.style.display = 'block';
                 }
                 renderEmployees();
+            } else if (section === 'calendar') {
+                if (sortContainer) {
+                    sortContainer.style.display = 'none';
+                }
+                const mainContent = document.querySelector('.main-content');
+                mainContent.innerHTML = '<div id="calendar-root"></div>';
+                
+                // Create a new script element to load React
+                const script = document.createElement('script');
+                script.src = '/src/components/Calendar.jsx';
+                script.type = 'module';
+                document.body.appendChild(script);
+                
+                // Mount the Calendar component
+                import('/src/components/Calendar.jsx').then(module => {
+                    const Calendar = module.default;
+                    ReactDOM.render(
+                        React.createElement(Calendar),
+                        document.getElementById('calendar-root')
+                    );
+                });
             } else if (section === 'settings') {
                 if (sortContainer) {
                     sortContainer.style.display = 'none';

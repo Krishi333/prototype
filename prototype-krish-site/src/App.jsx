@@ -25,6 +25,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import EntryPage from "./components/LoginPages/EntryPage";
+import ManagerDashboard from "./components/ManagerDashboard";
 
 function App() {
   // minimal fields for the login form
@@ -47,18 +48,28 @@ function App() {
   };
 
   if (loggedIn) {
-    // choose iframe src by role; adjust paths if you add separate employee HTML
-    const src = role === "manager" ? "/Manager_Dashboard_Employee.html" : "/Manager_Dashboard_Employee.html";
     return (
       <div className="App" style={{ height: "100vh" }}>
-        <div style={{ padding: 8, background: "#f5f5f5" }}>
-          <button onClick={handleLogout}>Logout</button>
+        <div style={{ padding: 8, background: "#f5f5f5", position: 'relative', zIndex: 2 }}>
+          <button 
+            onClick={handleLogout}
+            style={{
+              padding: '8px 16px',
+              borderRadius: '4px',
+              border: 'none',
+              backgroundColor: '#dc3545',
+              color: 'white',
+              cursor: 'pointer'
+            }}
+          >
+            Logout
+          </button>
         </div>
-        <iframe
-          src={src}
-          title="Dashboard"
-          style={{ width: "100%", height: "calc(100vh - 40px)", border: "none" }}
-        />
+        {role === 'manager' ? (
+          <ManagerDashboard />
+        ) : (
+          <div>Employee Dashboard Coming Soon</div>
+        )}
       </div>
     );
   }
