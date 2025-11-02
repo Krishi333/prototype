@@ -1,38 +1,38 @@
 :root{
-    /*--primary-color: #28a745;
-    --primary-hover: #218838;
-    --secondary-color: #6c757d;
-    --secondary-hover: #545b62;
-    --success-color: #28a745;
-    --warning-color: #ffc107;
-    --danger-color: #dc3545;
-    --light-bg: #f8f9fa;
-    --card-bg: #ffffff;
-    --text-primary: #2c3e50;
-    --text-secondary: #6c757d;
-    --border-color: #e9ecef;
-    --shadow: 0 2px 10px rgba(0,0,0,0.1);
-    --shadow-hover: 0 4px 20px rgba(0,0,0,0.15); */
-
-    --bg-dark: oklch(0.1 0.005 74);
-    --bg: oklch(0.20 0.005 74);
-    --bg-light: oklch(0.30 0.005 74);
-
-    --text: oklch(0.96 0.01 74);
-    --text-muted: oklch(0.76 0.01 74);
-
-    --highlight: oklch(0.5 0.01 74);
-
+    --bg-dark: oklch(0.1 0.015 82);
+    --bg: oklch(0.15 0.015 82);
+    --bg-light: oklch(0.2 0.015 82);
+    --bg-lightest: oklch(0.25 0.015 82);
+    --text: oklch(0.96 0.03 82);
+    --text-muted: oklch(0.76 0.03 82);
+    --highlight: oklch(0.5 0.03 82);
+    --border: oklch(0.4 0.03 82);
+    --border-muted: oklch(0.3 0.03 82);
+    --primary: oklch(0.76 0.18 82);
+    --secondary: oklch(0.76 0.18 262);
+    --danger: oklch(0.7 0.16 30);
+    --warning: oklch(0.7 0.17 100);
+    --success: oklch(0.7 0.16 160);
+    --info: oklch(0.7 0.16 260);
+    
+    --bg-dark: oklch(0.80 0.015 82);
+    --bg: oklch(0.88 0.015 82);
+    --bg-light: oklch(0.94 0.015 82);
+    --bg-lightest: oklch(0.98 0.015 82);
+    --text: oklch(0.15 0.03 82);
+    --text-muted: oklch(0.4 0.03 82);
+    --highlight: oklch(1 0.03 82);
+    --border: oklch(0.6 0.03 82);
+    --border-muted: oklch(0.7 0.03 82);
+    --primary: oklch(61.917% 0.17872 44.211);
+    --secondary: oklch(0.52 0.18 262);
+    --danger: oklch(0.56 0.16 30);
+    --warning: oklch(0.58 0.17 100);
+    --success: oklch(0.52 0.16 160);
+    --info: oklch(0.54 0.16 260);
     /*--border-color: oklch(0.4 0.01 74);*/ /* Merger conflict */
-    --border-muted: oklch(0.3 0.01 74);
 
-    --primary: oklch(0.76 0.1 74);
-    --secondary: oklch(0.76 0.1 254);
 
-    --danger: oklch(0.7 0.05 30);
-    --warning: oklch(0.7 0.05 100);
-    --success: oklch(0.7 0.05 160);
-    --info: oklch(0.7 0.05 260);
 
     --border-size: 0.015rem; 
     --border-style: solid; 
@@ -52,7 +52,7 @@
 
     /* temp taking on my color scheme, can be switched either way */
 
-    /*--primary-color: var(--primary);
+    --primary-color: var(--primary);
     --primary-hover: #218838;
     --secondary-color: var(--secondary);
     --secondary-hover: #545b62;
@@ -60,29 +60,46 @@
     --warning-color: var(--warning);
     --danger-color: var(--danger);
     --light-bg: var(--bg-light);
-    --card-bg: var(--bg);
+    --card-bg: var(--bg-light);
     --text-primary: var(--text);
     --text-secondary: var(--text-muted);
     --shadow: var(--shadow-m);
-    --shadow-hover: 0 4px 20px rgba(0,0,0,0.15); */
+    --shadow-hover: 0 4px 20px rgba(0,0,0,0.15); 
 
     /* temp taking on Ryans color scheme, can be switched either way */
-    --primary-color: #4ade80;
-    --primary-hover: #22c55e;
-    --secondary-color: #9ca3af;
-    --secondary-hover: #6b7280;
-    --success-color: #4ade80;
-    --warning-color: #facc15;
-    --danger-color: #f87171;
-    --light-bg: #1f2937;
-    --card-bg: #374151;
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --border-color: #4b5563;
+    /*--primary-color: oklch(0.640 0.175 146.7);
+    --primary-hover: oklch(0.551 0.149 146.8);
+    --secondary-color: oklch(0.558 0.016 244.9);
+    --secondary-hover: oklch(0.468 0.014 248.1);
+    --success-color: oklch(0.640 0.175 146.7);
+    --warning-color: oklch(0.844 0.172 84.9);
+    --danger-color: oklch(0.592 0.202 21.2);
+    --light-bg: oklch(0.982 0.002 247.8);
+    --card-bg: oklch(1.000 0.000 89.9);
+    --text-primary: oklch(0.356 0.039 249.0);
+    --text-secondary: oklch(0.558 0.016 244.9);
+    --border-color: oklch(0.942 0.005 247.9);
+    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-hover: 0 4px 20px rgba(0,0,0,0.15);
+    --primary: var(--primary-color);
+
+    --primary-color: oklch(0.800 0.182 151.7);
+    --primary-hover: oklch(0.723 0.192 149.6);
+    --secondary-color: oklch(0.714 0.019 261.3);
+    --secondary-hover: oklch(0.551 0.023 264.4);
+    --success-color: oklch(0.800 0.182 151.7);
+    --warning-color: oklch(0.861 0.173 91.9);
+    --danger-color: oklch(0.711 0.166 22.2);
+    --light-bg: oklch(0.278 0.030 256.8);
+    --card-bg: oklch(0.373 0.031 259.7);
+    --text-primary: oklch(0.985 0.002 247.8);
+    --text-secondary: oklch(0.872 0.009 258.3);
+    --border-color: oklch(0.446 0.026 256.8);
     --shadow: 0 2px 10px rgba(0,0,0,0.3);
     --shadow-hover: 0 4px 20px rgba(0,0,0,0.4);
 
-    --primary: var(--primary-color);
+
+
     --secondary: var(--secondary-color);
     --success: var(--success-color);
     --warning: var(--warning-color);
@@ -95,12 +112,12 @@
     --border-card: var(--border-style) var(--border-size) var(--border-color);
     --shadow-s: var(--shadow);
     --shadow-m: var(--shadow);
-    --shadow-l: var(--shadow);
+    --shadow-l: var(--shadow);*/
 
 
 }
 /* Dark Mode Variables */
-[data-theme="dark"] {
+/*[data-theme="dark"] {
     --primary-color: #4ade80;
     --primary-hover: #22c55e;
     --secondary-color: #9ca3af;
@@ -115,7 +132,7 @@
     --border-color: #4b5563;
     --shadow: 0 2px 10px rgba(0,0,0,0.3);
     --shadow-hover: 0 4px 20px rgba(0,0,0,0.4);
-}
+}*/
 
 
 
@@ -158,6 +175,7 @@ body{
     justify-content: space-between;
     align-items: center;
     cursor: default;
+    background-color: var(--bg);
     box-shadow: var(--shadow-m);
 }
 
@@ -182,6 +200,7 @@ body{
     text-decoration: none;
     user-select: none;
     transition: width 0.5s;
+    background-color: var(--bg);
     box-shadow: var(--shadow-m);
 }
 
@@ -356,7 +375,7 @@ merger conflict*/
 } *//* considered removing the header in order to make the system look better, but new idea: leave it, personally reformat it, then make it so it can be used to add more options idk*/
 
 .header {
-    background-color: var(--gradient);
+    background-color: var(--bg);
     border-radius: 1rem;
     box-shadow: var(--shadow-s);
     display: flex;
