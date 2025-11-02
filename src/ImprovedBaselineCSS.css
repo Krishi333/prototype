@@ -43,7 +43,7 @@
 
 }
 /* Dark Mode Variables */
-[data-theme="dark"] {
+:root[data-theme="dark"] {
     --bg-dark: oklch(0.1 0.015 82);
     --bg: oklch(0.15 0.015 82);
     --bg-light: oklch(0.2 0.015 82);
@@ -96,7 +96,7 @@ body{
 .UIborder, .card{
     border-radius: 1rem;
     border: var(--border-card);
-    border-top: var(--highlight);
+    border-top-color: var(--highlight);
 }
 
 .topbar{

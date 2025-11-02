@@ -96,7 +96,7 @@ body{
 .UIborder, .card{
     border-radius: 1rem;
     border: var(--border-card);
-    border-top: var(--highlight);
+    border-top-color: var(--highlight);
 
 }
 
@@ -220,7 +220,7 @@ a{
     flex-wrap: wrap;
     gap: var(--small-Gap);
     border: var(--border-card);
-    border-top: var(--highlight);
+    border-top-color: var(--highlight);
     transition: all 0.3s ease;
     padding: var(--small-Gap);
 
@@ -244,7 +244,7 @@ a{
 .sort-select {
     background-color: var(--bg-lightest);
     border: var(--border-card);
-    border-top: var(--highlight);
+    border-top-color: var(--highlight);
     border-radius: 0.5rem;
     padding: var(--tiny-Gap);
     font-size: 1rem;
@@ -458,7 +458,7 @@ a{
 .supervisor-section {
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 1px solid var(--border-color);
+    border-top-color: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
