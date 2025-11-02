@@ -22,7 +22,7 @@ import Calendar from './components/Calendar';
   },
   {
     id: 2,
-    name: "Monica Geller",
+    name: "Sunghoon",
     team: "Team B",
     avatar: "Screaming-beaver.jpg",
     tasksPending: 1,
@@ -90,6 +90,7 @@ function ManagerDashboardFull() {
   
   const [employees, setEmployees] = useState(employeesData);
   const [currentView, setCurrentView] = useState('employees');
+  const [overviewData, setOverviewData] = useState(null);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
@@ -110,6 +111,19 @@ function ManagerDashboardFull() {
   
 
   function handleNav(view) {
+    
+    if (view === "overview") {
+      const data = employees.map((e) => ({
+        id: e.id,
+        name: e.name,
+        team: e.team,
+        tasks: e.tasks ? e.tasks.length : 0,
+  
+        tag: `Tag ${Math.floor(Math.random() * 3) + 1}`,
+      }));
+      setOverviewData(data);
+    }
+
     setCurrentView(view);
   }
 
@@ -301,6 +315,25 @@ function ManagerDashboardFull() {
             >
               <span className="icon-emoji" aria-hidden="true">📅</span>
             </div>
+            <div
+              className={`nav-icon topics-icon ${currentView === "topics" ? "active" : ""}`}
+              onClick={() => handleNav("topics")}
+              title="Topics"
+              role="button"
+              aria-label="Topics"
+            >
+              <span className="icon-emoji" aria-hidden="true">📚</span>
+            </div>
+            <div
+              className={`nav-icon overview-icon ${currentView === "overview" ? "active" : ""}`}
+              onClick={() => handleNav("overview")}
+              title="Overview"
+              role="button"
+              aria-label="Overview"
+            >
+              <span className="icon-emoji" aria-hidden="true">📊</span
+              >
+              </div>
           </div>
 
           <div className="sidebar-bottom-spacer" />
@@ -337,12 +370,83 @@ function ManagerDashboardFull() {
             <div className="employees-grid" id="employeesGrid">
               {employees.map(renderEmployeeCard)}
             </div>
+          ) : currentView === "overview" ? (
+            <div className="overview-content">
+              <h2>Overview</h2>
+                
+                {/* Overview stats: bigger labels showing counts */}
+                <div className="overview-stats" role="note" aria-label="Overview stats">
+                  <div className="stat-card stat-ongoing">
+                    <div className="stat-number">45</div>
+                    <div className="stat-label">Ongoing tasks</div>
+                  </div>
+                  <div className="stat-card stat-overdue">
+                    <div className="stat-number">12</div>
+                    <div className="stat-label">Overdue tasks</div>
+                  </div>
+                </div>
+
+                <div className="tag-legend" role="region" aria-label="Tag legend">
+                  <div className="legend-item">
+                    <span className="tag-badge tag-1">Tag 1</span>
+                    <span className="legend-text">Easiest</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="tag-badge tag-2">Tag 2</span>
+                    <span className="legend-text">Average</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="tag-badge tag-3">Tag 3</span>
+                    <span className="legend-text">Hardest</span>
+                  </div>
+                </div>
+
+                <div className="table-wrap">
+                <table className="overview-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Team</th>
+                      <th>Tasks</th>
+                      <th>Tag</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {overviewData && overviewData.length ? (
+                      overviewData.map((r) => (
+                        <tr key={r.id}>
+                          <td>{r.name}</td>
+                          <td>{r.team}</td>
+                          <td>{r.tasks}</td>
+                          <td>
+                            <span className={`tag-badge tag-${(r.tag || 'Tag 1').split(' ')[1]}`}>
+                              {r.tag}
+                            </span>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="4">No overview data available</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           ) : currentView === "settings" ? (
             <div className="settings-content">
               <h3>⚙️ Application Settings</h3>
               <button className="btn btn-primary" onClick={toggleDarkMode}>
                 {darkMode ? "☀️ Switch to Light Mode" : "🌙 Switch to Dark Mode"}
               </button>
+            </div>
+          ) : currentView === "topics" ? (
+            <div className="content-section">
+              <h2>Topics</h2>
+              <div className="topics-content">
+                <p>Topics content will be displayed here</p>
+              </div>
             </div>
           ) : (
             <div className="content-section">Content for {currentView}</div>

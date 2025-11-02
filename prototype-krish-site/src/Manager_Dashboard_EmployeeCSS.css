@@ -261,3 +261,49 @@ body{padding-left:16px !important;padding-right:16px !important}
 
 .manager-root .calendar-overlay { z-index: 2500 !important; }
 .manager-root .notification { right: 28px !important; top: 110px !important; }
+
+/* Overview table styles */
+.overview-content { padding: 12px 0 40px; }
+.overview-content .table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;box-shadow:var(--soft-shadow);overflow:auto}
+.overview-table{width:100%;border-collapse:collapse;min-width:600px;font-size:14px}
+.overview-table thead th{position:sticky;top:0;background:linear-gradient(180deg,rgba(255,255,255,0.95),var(--card));backdrop-filter:blur(4px);padding:12px 14px;text-align:left;border-bottom:1px solid var(--border);font-weight:700;color:var(--subtext)}
+.overview-table tbody td{padding:12px 14px;border-bottom:1px dashed var(--border);vertical-align:middle;color:var(--text)}
+.overview-table tbody tr:nth-child(odd){background:linear-gradient(180deg,rgba(0,0,0,0.01),transparent)}
+.overview-table tbody tr:hover{background:linear-gradient(90deg,rgba(59,130,246,0.03),transparent)}
+.overview-table .tag-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;color:#fff;font-size:13px}
+.overview-table .tag-1{background:linear-gradient(90deg,var(--primary),var(--primary-600))}
+.overview-table .tag-2{background:linear-gradient(90deg,var(--accent),#6d28d9)}
+.overview-table .tag-3{background:linear-gradient(90deg,var(--warning),#f59e0b);color:#000}
+
+/* Ensure tag classes apply globally (so legend badges also inherit colors) */
+.tag-1{background:linear-gradient(90deg,var(--primary),var(--primary-600))}
+.tag-2{background:linear-gradient(90deg,var(--accent),#6d28d9)}
+.tag-3{background:linear-gradient(90deg,var(--warning),#f59e0b);color:#000}
+
+/* Overview stat cards (bigger labels) */
+.overview-stats{display:flex;gap:18px;align-items:center;margin-bottom:12px}
+.stat-card{background:var(--card);border:1px solid var(--border);padding:14px 18px;border-radius:12px;box-shadow:var(--soft-shadow);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:160px}
+.stat-number{font-size:28px;font-weight:800;color:var(--text);line-height:1}
+.stat-label{font-size:13px;color:var(--subtext);margin-top:6px;font-weight:600}
+.stat-card.stat-ongoing .stat-number{color:var(--primary)}
+.stat-card.stat-overdue .stat-number{color:var(--danger)}
+
+@media (max-width:720px){
+  .overview-stats{flex-wrap:wrap}
+  .stat-card{min-width:140px;padding:12px}
+  .stat-number{font-size:22px}
+}
+
+
+@media (max-width:900px){
+  .overview-content .table-wrap{padding:8px}
+  .overview-table{min-width:520px}
+}
+
+
+.tag-legend{display:flex;gap:12px;align-items:center;margin:8px 0 12px}
+.tag-legend .legend-item{display:flex;gap:8px;align-items:center}
+.tag-legend .legend-text{font-size:13px;color:var(--subtext);margin-left:4px}
+.tag-legend .tag-badge{padding:6px 10px;border-radius:999px;font-weight:700;color:#ffe8a1;font-size:13px}
+
+
