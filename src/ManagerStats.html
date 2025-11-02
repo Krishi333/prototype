@@ -86,16 +86,26 @@
                 right: 0px;
             }
 
-            #teamSelect {
-                right: 0px;
+            #filterEmployee{
+                position: absolute;
+                top: -25px;
+                right: -10px;
+
             }
 
-           
+            #teamSelect {
+                right: 0px;
+            }       
+
+            .tableConatiner {
+                overflow-y: auto;
+                overflow-x: auto;
+            }
             
 
             @media (max-width: 800px) {
                 .box {
-                    width: 85%;
+                    width: 100%;
                 }
                 .taskNumberOverview {
                     flex-direction: column;
@@ -108,13 +118,13 @@
                     width: 100%;
                 }
 
-                .third, .twenty, .eighty {
+                .third, .twenty {
                     width: 100%;
                     gap: 5px;
                 }
 
-                .twoThird {
-                    width: 85%;
+                .twoThird, .eighty {
+                    width: 100%;
                 }
 
                 /* .eighty {
@@ -192,9 +202,6 @@
                         </div>
                     </div>
 
-
-                    
-
                     <div class="conatinerHorizontal halfContainer">
                         <div class="employeeTaskDistribution box" >
                             <div class="selector">
@@ -211,11 +218,12 @@
                             </div>
                         </div>
 
-                        <!-- <div class="halfContainer"> -->
                         <div class="overdueTaskOverview box" >
                             <div>
                                 <h3 class="title">Task Distribution</h3>
-                                <table id="ongoingTaskTable"></table>
+                                <div class="tableConatiner">
+                                    <table id="ongoingTaskTable"  style="height:auto; width:400px;"></table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -270,9 +278,18 @@
                             
                             <div class="box twoThird" style="height:350px;">
                                 <div>
-                                    <h3 class="title">Pie chart of Task Status</h3>
+                                    <h3 class="title">Task Status</h3>
                                     <!-- <p>Tasks completed, ongoing, overdue</p> -->
                                     <div>
+                                        <div class="selector">
+                                            <div class="sort-container">
+                                                <select class="sort-select" id="filterEmployee">
+                                                    <option value="All">All</option>
+                                                    <option value="Employee1">1</option>
+                                                    <option value="Employee2">2</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <canvas id="taskStatusPieChart" style="width:auto; height: 150px;"></canvas>
                                     </div>
                                 </div>
@@ -283,7 +300,7 @@
                             <div class="box" style="height:350px;">
                                 <div>
                                     <br>
-                                    <h3 class="title">Overdue task details </h3>
+                                    <h3 class="title">Overdue Task Details </h3>
                                     <br>
                                     <table id="overDueTaskTable"></table>
                                     <br>
@@ -293,14 +310,16 @@
                         </div>
                     </div>
 
-                    <div class="conatinerHorizontal halfContainer">
-                            <div class="box eighty" style="height:250px;">
+                    <!-- <div class="conatinerHorizontal halfContainer">
+                            <div class="box" style="height:250px;">
                                 <div>
                                     <h3>Overall Data</h3>
-                                    <table id="overallEmployeeTable"></table>
+                                    <div class="tableConatiner">
+                                        <table id="overallEmployeeTable" style="min-height:200px; max-width:800px;"></table>
+                                    </div>
                                 </div>
-                            </div>
-                        <div class="conatinerVertical twenty" style="margin-bottom:0px;">
+                            </div> -->
+                        <!-- <div class="conatinerVertical twenty" style="margin-bottom:0px;">
                             <div class="box" style="height:100px;">
                                 <div>
                                     Highest Priority Task  
@@ -313,7 +332,7 @@
                                     <h3>Task 5</h3>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                

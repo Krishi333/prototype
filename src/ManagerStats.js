@@ -47,12 +47,12 @@ function dataFormat(field){
 };
 
 let overallEmployee = [
-    {Employee: "Rachel Green", Ongoing: 16, Completed: 6, Overdue: 3, TaskID: "1, 2, 3", Tags:"tag1, tag2, tag3"},
-    {Employee: "Phoebe Buffay", Ongoing: 5, Completed: 14, Overdue: 1, TaskID: "4", Tags:"tag1"},
-    {Employee: "Ross Geller", Ongoing: 8, Completed: 9, Overdue: 2, TaskID: "5, 6", Tags:"tag1, tag2"},
-    {Employee: "Chandler Bing", Ongoing: 5, Completed: 16, Overdue: 0, TaskID: "", Tags:""},
-    {Employee: "Monica Geller", Ongoing: 8, Completed: 20, Overdue: 1, TaskID: "7", Tags:"tag1"},
-    {Employee: "Joey Tribbiani", Ongoing: 3, Completed: 11, Overdue: 5, TaskID: "8, 9, 10, 11, 12", Tags:"tag1"}
+    {Employee: "Rachel Green", Ongoing: 16, Completed: 6, Overdue: 3, TaskID: "xxx", Tags:"tag1, tag2, tag3"},
+    {Employee: "Phoebe Buffay", Ongoing: 5, Completed: 14, Overdue: 1, TaskID: "xxx", Tags:"tag1"},
+    {Employee: "Ross Geller", Ongoing: 8, Completed: 9, Overdue: 2, TaskID: "xxx", Tags:"tag1, tag2"},
+    {Employee: "Chandler Bing", Ongoing: 5, Completed: 16, Overdue: 0, TaskID: "xxx", Tags:""},
+    {Employee: "Monica Geller", Ongoing: 8, Completed: 20, Overdue: 1, TaskID: "xxx", Tags:"tag1"},
+    {Employee: "Joey Tribbiani", Ongoing: 3, Completed: 11, Overdue: 5, TaskID: "xxx", Tags:"tag1"}
 ];
 
 let ongoingTask = [
@@ -106,10 +106,10 @@ let overdueTaskData = Object.keys(overdueTask[0]);
 generateTableHead(overdueTaskTable, overdueTaskData);
 generateTable(overdueTaskTable, overdueTask);
 
-let overallEmployeeTable = document.getElementById("overallEmployeeTable");
-let overallEmployeeData = Object.keys(overallEmployee[0]);
-generateTableHead(overallEmployeeTable, overallEmployeeData);
-generateTable(overallEmployeeTable, overallEmployee);
+// let overallEmployeeTable = document.getElementById("overallEmployeeTable");
+// let overallEmployeeData = Object.keys(overallEmployee[0]);
+// generateTableHead(overallEmployeeTable, overallEmployeeData);
+// generateTable(overallEmployeeTable, overallEmployee);
 
 
 
@@ -140,8 +140,18 @@ new Chart(document.getElementById('taskDistributionNumber'), {
     },
     options: {
         scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: "Employee"
+                }
+            },
             y: {
-            beginAtZero: true
+            beginAtZero: true,
+            title: {
+                display: true,
+                text: "Number of Tasks Assigned"
+            }
             }
         }
     }
