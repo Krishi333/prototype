@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Manager_Dashboard_EmployeeCSS.css'
 import Calendar from './components/Calendar';
- 
+import Topics from './components/Topics';
 
 
 
@@ -443,7 +443,7 @@ function ManagerDashboardFull() {
             </div>
           ) : currentView === "topics" ? (
             <div className="content-section">
-              <h2>Topics</h2>
+              <Topics onClickPostPage={(topicName) => showNotification(`Open post page for "${topicName}"`)} />
               <div className="topics-content">
                 <p>Topics content will be displayed here</p>
               </div>
