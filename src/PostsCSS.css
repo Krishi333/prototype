@@ -1,6 +1,6 @@
 .backButton{
     padding: var(--small-Gap);
-    background-color: var(--bg-light);
+    background-color: var(--bg-lightest);
     color: var(--text);
     flex-shrink: 0;
     text-decoration: none;
