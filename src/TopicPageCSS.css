@@ -18,7 +18,7 @@
     flex-direction: column;
     gap: var(--small-Gap);
     padding: var(--small-Gap) var(--medium-Gap);
-    background-color: var(--bg);
+    background: var(--gradient);
     box-shadow: var(--shadow-s);
     border: none;
 }
@@ -96,12 +96,15 @@
 .topicResults{
     flex-shrink: 0;
     height: 5rem;
-    background-color: var(--bg-light);
+    background: var(--gradient-light);
     color: var(--text-muted);
     border-radius: 1rem;
     border: var(--border-card);
     text-align: center;
     box-shadow: var(--shadow-s);
+}
+.topicResults:hover{
+    background: var(--gradient-light-hover);
 }
 
 .topicResults a{

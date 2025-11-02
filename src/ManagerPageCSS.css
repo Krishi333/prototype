@@ -102,7 +102,7 @@
 }
 
 .employee-card {
-    background-color: var(--bg-light);
+    background: var(--gradient-light);
     border-radius: 12px;
     padding: 20px;
     box-shadow: var(--shadow);
@@ -369,7 +369,7 @@
 }
 
 .modal-content {
-    background-color: var(--bg-light);
+    background: var(--gradient-light);
     color: var(--text-muted);
     border-radius: 12px;
     padding: 0;

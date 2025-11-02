@@ -1,7 +1,7 @@
 .postDescription{
     height: 20rem;
     flex-shrink: 0;
-    background-color: var(--bg-light);
+    background: var(--gradient-light);
     color: var(--text-muted);
     border-radius: 1rem;
     border: var(--border-card);
@@ -15,6 +15,7 @@
     scrollbar-width: thin;
     scrollbar-color: var(--text-muted) transparent;
 }
+
 
 .postDescription p{ /*remember to add breakpoints with media queries later*/
     font-size: 1.2rem;    
@@ -38,7 +39,7 @@
 }
 
 .removeStyle{
-    background-color: var(--bg);
+    background: var(--gradient);
     border: none;
     box-shadow: none;
 }

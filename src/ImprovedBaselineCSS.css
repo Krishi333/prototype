@@ -32,10 +32,11 @@
     --shadow-m: 0 1px 2px #ffffff50, 0 2px 4px #00000030, 0 4px 8px #00000015;
     --shadow-l: 0 1px 2px #ffffff70, 0 4px 6px #00000030, 0 6px 10px #00000015;
 
-    /*--gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
-    --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));*/
-
-    /* temp taking on my color scheme, can be switched either way */
+    --gradient: linear-gradient(0deg, var(--bg) 85%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg) 75%, var(--bg-light));
+    
+    --gradient-light: linear-gradient(0deg, var(--bg-light) 85%, var(--bg-lightest));
+    --gradient-light-hover: linear-gradient(0deg, var(--bg-light) 75%, var(--bg-lightest));
 
     --shadow: var(--shadow-m);
     --shadow-hover: 0 4px 20px rgba(0,0,0,0.15); 
@@ -61,6 +62,13 @@
     --warning: oklch(0.7 0.17 100);
     --success: oklch(0.7 0.16 160);
     --info: oklch(0.7 0.16 260);
+    --gradient: linear-gradient(0deg, var(--bg) 85%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg) 75%, var(--bg-light));
+    
+    --gradient-light: linear-gradient(0deg, var(--bg-light) 85%, var(--bg-lightest));
+    --gradient-light-hover: linear-gradient(0deg, var(--bg-light) 75%, var(--bg-lightest));
+    
+
 }
 
 
@@ -90,8 +98,11 @@ body{
 }
 
 .card {
-    background-color: var(--bg);
+    background: var(--bg);
 }
+
+
+
 
 .UIborder, .card{
     border-radius: 1rem;
@@ -105,12 +116,13 @@ body{
     justify-content: space-between;
     align-items: center;
     cursor: default;
-    background-color: var(--bg);
+    background: var(--gradient);
     box-shadow: var(--shadow-m);
 }
 
 .topbar:hover{
     box-shadow: var(--shadow-l);
+    background: var(--gradient-hover);
 }
 
 .topbar-Text{
@@ -130,7 +142,7 @@ body{
     text-decoration: none;
     user-select: none;
     transition: width 0.5s;
-    background-color: var(--bg);
+    background: var(--gradient);
     box-shadow: var(--shadow-m);
 }
 
@@ -139,6 +151,7 @@ body{
     align-items: flex-start;
     transition: width 0.5s;
     box-shadow: var(--shadow-l);
+    background: var(--gradient-hover);
 }
 
 .childText {
