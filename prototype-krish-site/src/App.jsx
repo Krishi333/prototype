@@ -41,12 +41,27 @@ function App() {
     setUserRole(null);
   };
 
+  // BJs consts:
+ /*  const [TopicsVisible, setTopicsVisibility] = useState(true);
+  const [PostPageVisible, setPostPageVisibility] = useState(false);
+  const [PostVisible, setPostVisibility] = useState(false); */
+
   // Simple routing: show dashboard when authenticated, otherwise show login
   return isAuthenticated ? (
     <ManagerDashboard onLogout={handleLogout} userRole={userRole} />
   ) : (
     <EntryPage onLoginSuccess={handleLoginSuccess} />
   );
+
+  // BJs calling it, including background div colour
+  {/* <div style={{backgroundColor: "oklch(0.80 0.015 82)"}}>
+  {TopicsVisible && <Topics onClickPostPage={() => {setTopicsVisibility(false); setPostPageVisibility(true);}}/>}
+  // Change below to <PostPage for employee view
+  {PostPageVisible && <PostPage onClickBack={() => {setTopicsVisibility(true); setPostPageVisibility(false)}} 
+    onClickPost={() => {setPostPageVisibility(false); setPostVisibility(true)}}/>}
+  {PostVisible && <Post onClickBack={() => {setPostVisibility(false); setPostPageVisibility(true)}}/>}
+  </div> */}
+
 }
 
 export default App;
