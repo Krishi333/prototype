@@ -169,7 +169,7 @@
                         <div class="conatinerHorizontal">
 
                             <div class="taskNumberOverall miniCard">
-                                <h2 id="taskNumberOverall"></h2>
+                                <h2 id="taskNumberOverall">133</h2>
                                 <span> 
                                     <i class="fa-solid fa-clipboard-list"></i> 
                                     Overall Tasks
@@ -177,7 +177,7 @@
                             </div>
 
                             <div class="taskNumberCompleted miniCard">
-                                <h2 id="taskNumberCompleted"></h2>
+                                <h2 id="taskNumberCompleted">76</h2>
                                 <span>
                                     <i class="fa-solid fa-square-check"></i>
                                     Completed Tasks
@@ -186,14 +186,14 @@
                         </div>
                         <div class="conatinerHorizontal">
                             <div class="taskNumberOngoing miniCard">
-                                <h2 id="taskNumberOngoing"></h2>
+                                <h2 id="taskNumberOngoing">45</h2>
                                 <span>
                                     <i class="fa-solid fa-rotate-right"></i>
                                     Ongoing Tasks
                                 </span>
                             </div>
                             <div class="taskNumberOverdue miniCard">
-                                <h2 id="taskNumberOverdue"></h2>
+                                <h2 id="taskNumberOverdue">12</h2>
                                 <span>
                                 <i class="fa-solid fa-circle-exclamation"></i>
                                 Overdue Tasks
@@ -222,7 +222,54 @@
                             <div>
                                 <h3 class="title">Task Distribution</h3>
                                 <div class="tableConatiner">
-                                    <table id="ongoingTaskTable"  style="height:auto; width:400px;"></table>
+                                    <table id="ongoingTaskTable" style="height:auto; width:400px;">
+                                        <thead>
+                                            <tr>
+                                                <th>Employee</th>
+                                                <th>Ongoing</th>
+                                                <th>Task ID</th>
+                                                <th>Tags</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Rachel Green</td>
+                                                <td>16</td>
+                                                <td>xxx</td>
+                                                <td>tag1, tag2, tag3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phoebe Buffay</td>
+                                                <td>5</td>
+                                                <td>xxx</td>
+                                                <td>tag4, tag5, tag6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ross Geller</td>
+                                                <td>8</td>
+                                                <td>xxx</td>
+                                                <td>tag7, tag8, tag9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chandler Bing</td>
+                                                <td>5</td>
+                                                <td>xxx</td>
+                                                <td>tag1, tag2, tag3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Monica Geller</td>
+                                                <td>8</td>
+                                                <td>xxx</td>
+                                                <td>tag4, tag5, tag6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Joey Tribbiani</td>
+                                                <td>3</td>
+                                                <td>xxx</td>
+                                                <td>tag7, tag8, tag9</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -235,19 +282,22 @@
                         <div class="box" style="height:90px;">
                             <div>
                                 Most Ongoing
-                                <h3 id="MostOngoingEmployee"></h3>
+                                <h3 id="MostOverdueEmployee">ID: 1 </h3>
+                                <h3 id="MostOngoingEmployee">Rachel Green</h3>
                             </div>
                         </div>
                         <div class="box" style="height:90px;">
                             <div>
                                 Most Completed
-                                <h3 id="MostCompletedEmployee"></h3>
+                                <h3 id="MostOverdueEmployee">ID: 5</h3>
+                                <h3 id="MostCompletedEmployee">Monica Geller</h3>
                             </div>
                         </div>
                         <div class="box" style="height:90px;">
                             <div>
                                 Most Overdue
-                                <h3 id="MostOverdueEmployee"></h3>
+                                <h3 id="MostOverdueEmployee">ID: 6</h3>
+                                <h3 id="MostOverdueEmployee">Joey Tribi<h3>
                             </div>
                         </div>
                     </div>
@@ -302,7 +352,48 @@
                                     <br>
                                     <h3 class="title">Overdue Task Details </h3>
                                     <br>
-                                    <table id="overDueTaskTable"></table>
+                                    <table id="overDueTaskTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Employee</th>
+                                                <th>Overdue</th>
+                                                <th>Task ID</th>
+                                                <th>Tags</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Rachel Green</td>
+                                                <td>3</td>
+                                                <td>1, 2, 3</td>
+                                                <td>tag1, tag2, tag3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phoebe Buffay</td>
+                                                <td>1</td>
+                                                <td>4</td>
+                                                <td>tag1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ross Geller</td>
+                                                <td>2</td>
+                                                <td>5, 6</td>
+                                                <td>tag1, tag2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Monica Geller</td>
+                                                <td>1</td>
+                                                <td>7</td>
+                                                <td>tag1</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Joey Tribbiani</td>
+                                            <td>5</td>
+                                            <td>8, 9, 10, 11, 12</td>
+                                            <td>tag1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     <br>
                                     <p>Most Common Tag: tag1</p>
                                 </div>

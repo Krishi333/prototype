@@ -1,0 +1,125 @@
+.taskNumberOverview {
+    display:flex;
+    margin-bottom: 20px;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    border-radius: 12px;
+}
+
+.miniCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48%;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.conatinerHorizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.conatinerVertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.box {
+    background-color: var(--bg-light);
+    margin-bottom: 30px;
+    width: 100%;
+    border-radius: 12px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    text-align:center;
+    border: 1px solid red;
+}   
+
+.third {
+    width: 30%;
+}
+
+.twoThird {
+    width: 70%;
+}
+
+.eighty {
+    width: 80%;
+}
+
+.twenty {
+    width: 20%;
+}
+
+.selector {
+    position: relative;
+/* background-color: #2149A4; */
+}
+
+#filterTask {
+    position: absolute;
+    top: -25px;
+    right: 0px;
+}
+
+#filterEmployee{
+    position: absolute;
+    top: -25px;
+    right: -10px;
+
+}
+
+#teamSelect {
+    right: 0px;
+}       
+
+.tableConatiner {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+
+@media (max-width: 800px) {
+    .box {
+        width: 100%;
+    }
+    .taskNumberOverview {
+        flex-direction: column;
+    }
+
+    .halfContainer {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        width: 100%;
+    }
+
+    .third, .twenty {
+        width: 100%;
+        gap: 5px;
+    }
+
+    .twoThird, .eighty {
+        width: 100%;
+    }
+
+    /* .eighty {
+        width: 100
+    } */
+
+    .conatinerVertical {
+        flex-direction: row;
+    }
+}
