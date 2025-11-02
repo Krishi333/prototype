@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Topic</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        
+        <script src="https://kit.fontawesome.com/48d4d99c08.js" crossorigin="anonymous"></script> <!--importing icons-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <link rel="stylesheet" href="mergedManager+TemplateCSS.css">
+
+        <style>
+            .taskNumberOverview {
+                display:flex;
+                margin-bottom: 20px;
+                flex-direction: row;
+                width: 100%;
+                height: auto;
+                min-height: 80px;
+                border-radius: 12px;
+            }
+            
+            .miniCard {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 48%;
+                background-color: var(--bg-light);
+                border-radius: 10px;
+                margin: 5px;
+                text-align: center;
+            }
+
+            .conatinerHorizontal {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .conatinerVertical {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .box {
+                background-color: var(--bg-light);
+                margin-bottom: 30px;
+                width: 100%;
+                border-radius: 12px;
+                height: 250px;
+                display: flex;
+                justify-content: center;
+                /* align-items: center; */
+                text-align:center;
+            }   
+
+            .third {
+                width: 30%;
+            }
+
+            .twoThird {
+                width: 70%;
+            }
+
+            .eighty {
+                width: 80%;
+            }
+
+            .twenty {
+                width: 20%;
+            }
+
+            .selector {
+                position: relative;
+                /* background-color: #2149A4; */
+            }
+
+            #filterTask {
+                position: absolute;
+                top: -25px;
+                right: 0px;
+            }
+
+            #filterEmployee{
+                position: absolute;
+                top: -25px;
+                right: -10px;
+
+            }
+
+            #teamSelect {
+                right: 0px;
+            }       
+
+            .tableConatiner {
+                overflow-y: auto;
+                overflow-x: auto;
+            }
+            
+
+            @media (max-width: 800px) {
+                .box {
+                    width: 100%;
+                }
+                .taskNumberOverview {
+                    flex-direction: column;
+                }
+
+                .halfContainer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items:center;
+                    width: 100%;
+                }
+
+                .third, .twenty {
+                    width: 100%;
+                    gap: 5px;
+                }
+
+                .twoThird, .eighty {
+                    width: 100%;
+                }
+
+                /* .eighty {
+                    width: 100
+                } */
+
+                .conatinerVertical {
+                    flex-direction: row;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header class="topbar card">
+            <h1 class="topbar-Text">Team Statistics</h1>
+            <h1 class="topbar-Text">Make-It-All Productivity & Knowledge System </h1>
+        </header>
+        <div class="mainStuff">
+            <nav class="sidebar card"> <!--https://fontawesome.com to get the icons and find new ones-->
+                <a href="#" title="Home"><i class="fa-solid fa-house"></i></a> <!--home-->
+                <a href="#" title="Projects"><i class="fa-solid fa-folder-open"></i></a> <!--projects-->
+                <a href="#" title="Tasks"><i class="fa-solid fa-clipboard"></i></a> <!--tasks-->
+                <a href="#" title="Todo Lists"><i class="fa-solid fa-list-check"></i></a> <!--todo-->
+                <a href="Topic.html" title="Topics"><i class="fa-solid fa-file-pen"></i></a> <!--topics-->
+                <a href="#" title="Profile"><i class="fa-solid fa-user"></i></a> <!--profile-->
+                <a href="#" title="Settings"><i class="fa-solid fa-gear"></i></a> <!--settings-->
+                <a href="#" title="Sign Out"><i class="fa-solid fa-right-from-bracket"></i></a> <!--sign out-->
+            </nav>
+
+            <main class="testing " style="color:white;">
+                <!-- <main class="main-content"> -->
+
+                    <div class="sort-container selector">
+                        <select class="sort-select" id="teamSelect" onchange="findTeamSelected()">
+                            <option value="teamA">Team A</option>
+                            <option value="teamB">Team B</option>
+                        </select>
+                    </div>
+
+                    <div class="taskNumberOverview">  
+                        <div class="conatinerHorizontal">
+
+                            <div class="taskNumberOverall miniCard">
+                                <h2 id="taskNumberOverall"></h2>
+                                <span> 
+                                    <i class="fa-solid fa-clipboard-list"></i> 
+                                    Overall Tasks
+                                <span>
+                            </div>
+
+                            <div class="taskNumberCompleted miniCard">
+                                <h2 id="taskNumberCompleted"></h2>
+                                <span>
+                                    <i class="fa-solid fa-square-check"></i>
+                                    Completed Tasks
+                                </span>
+                            </div>
+                        </div>
+                        <div class="conatinerHorizontal">
+                            <div class="taskNumberOngoing miniCard">
+                                <h2 id="taskNumberOngoing"></h2>
+                                <span>
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                    Ongoing Tasks
+                                </span>
+                            </div>
+                            <div class="taskNumberOverdue miniCard">
+                                <h2 id="taskNumberOverdue"></h2>
+                                <span>
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                Overdue Tasks
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conatinerHorizontal halfContainer">
+                        <div class="employeeTaskDistribution box" >
+                            <div class="selector">
+                                <h3 class="title">Task Distribution</h3>
+                                <div class="sort-container ">
+                                    <select class="sort-select" id="filterTask">
+                                        <option value="taskNumber">No. of Tasks</option>
+                                        <option value="taskTime">Time of Tasks</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <canvas id="taskDistributionNumber" style="width:auto; height:200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="overdueTaskOverview box" >
+                            <div>
+                                <h3 class="title">Task Distribution</h3>
+                                <div class="tableConatiner">
+                                    <table id="ongoingTaskTable"  style="height:auto; width:400px;"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="conatinerHorizontal" style="gap:10px;">
+                        <div class="box" style="height:90px;">
+                            <div>
+                                Most Ongoing
+                                <h3 id="MostOngoingEmployee"></h3>
+                            </div>
+                        </div>
+                        <div class="box" style="height:90px;">
+                            <div>
+                                Most Completed
+                                <h3 id="MostCompletedEmployee"></h3>
+                            </div>
+                        </div>
+                        <div class="box" style="height:90px;">
+                            <div>
+                                Most Overdue
+                                <h3 id="MostOverdueEmployee"></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="conatinerHorizontal halfContainer">
+                        <div class="conatinerHorizontal halfContainer" >
+                            <div class="conatinerVertical third">
+                                <div class="box" style="height:90px;">
+                                    <div>
+                                        <h2>TAG 1</h2>
+                                        Average Tag
+                                    </div>
+                                </div>
+                                <div class="box" style="height:90px;">
+                                    <div>
+                                        <h2>TAG 2</h2>
+                                        Hardest Tag
+                                    </div>
+                                </div>
+                                <div class="box" style="height:90px;">
+                                    <div>
+                                        <h2>TAG 3</h2>
+                                        Easiest Tag
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="box twoThird" style="height:350px;">
+                                <div>
+                                    <h3 class="title">Task Status</h3>
+                                    <!-- <p>Tasks completed, ongoing, overdue</p> -->
+                                    <div>
+                                        <div class="selector">
+                                            <div class="sort-container">
+                                                <select class="sort-select" id="filterEmployee">
+                                                    <option value="All">All</option>
+                                                    <option value="Employee1">1</option>
+                                                    <option value="Employee2">2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <canvas id="taskStatusPieChart" style="width:auto; height: 150px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="conatinerHorizontal">
+                            <div class="box" style="height:350px;">
+                                <div>
+                                    <br>
+                                    <h3 class="title">Overdue Task Details </h3>
+                                    <br>
+                                    <table id="overDueTaskTable"></table>
+                                    <br>
+                                    <p>Most Common Tag: tag1</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="conatinerHorizontal halfContainer">
+                            <div class="box" style="height:250px;">
+                                <div>
+                                    <h3>Overall Data</h3>
+                                    <div class="tableConatiner">
+                                        <table id="overallEmployeeTable" style="min-height:200px; max-width:800px;"></table>
+                                    </div>
+                                </div>
+                            </div> -->
+                        <!-- <div class="conatinerVertical twenty" style="margin-bottom:0px;">
+                            <div class="box" style="height:100px;">
+                                <div>
+                                    Highest Priority Task  
+                                    <h3>Task 3</h3>
+                                </div>
+                            </div>
+                            <div class="box" style="height:100px;">
+                                <div>
+                                    Lowest Priority Task
+                                    <h3>Task 5</h3>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+               
+                <!-- </main> -->
+            </main>
+        </div>
+        <script src="sideBarExpand.js"></script>
+        <script src="ManagerStats.js"></script>
+        
+    </body>
+</html>
