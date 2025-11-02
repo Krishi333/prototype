@@ -129,3 +129,15 @@
 .topicResultContainer::-webkit-scrollbar-track{
     background: transparent;
 }
+.topicResults a p{
+    color: var(--text-muted);
+}
+.topicResults a h3{
+    color: var(--text);
+}
+.topicResults a .postCount {
+    align-self: flex-start;
+    justify-self: flex-end;
+    padding-left: var(--super-tiny-Gap);
+    padding-bottom: var(--super-tiny-Gap);
+}
