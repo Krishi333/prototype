@@ -1,7 +1,7 @@
 .postDescription{
     height: 20rem;
     flex-shrink: 0;
-    background-color: var(--gradient);
+    background-color: var(--bg-light);
     color: var(--text-muted);
     border-radius: 1rem;
     border: var(--border-card);
@@ -36,14 +36,12 @@
 }
 
 .removeStyle{
-    background-color: var(--gradient);
+    background-color: var(--bg);
     border: none;
     box-shadow: none;
 }
 
-.removeStyle:hover{
-    background-color: var(--gradient-hover);
-}
+
 
 .enhanceStyle{
     box-shadow: var(--shadow-m);
