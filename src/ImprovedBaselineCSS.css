@@ -24,6 +24,7 @@
 
     --border-card: var(--border-style) var(--border-size) var(--border);
 
+    --super-tiny-Gap: 0.25rem;
     --tiny-Gap: 0.5rem;
     --small-Gap: 1rem;
     --medium-Gap: 1.5rem;

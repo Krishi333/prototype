@@ -38,7 +38,8 @@
     padding: var(--small-Gap);
     width: 100%;
     color: var(--text);
-    box-shadow: var(--shadow-s);
+    box-shadow: var(--shadow-m);
+    border: none;
 }
 
 .searchContainer input{
@@ -50,6 +51,7 @@
     border: var(--border-card);
     border-top: none;
     border-left: none; /* for some reason it didnt like me using 0 for the border shorthand property */
+    padding: var(--super-tiny-Gap);
 }
 
 .searchContainer i{
@@ -111,9 +113,11 @@
     color: var(--text-muted);
     width: 100%;
     height: 100%;
-    display: block;
     border-radius: 1rem;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
