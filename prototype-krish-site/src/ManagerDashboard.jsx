@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Manager_Dashboard_EmployeeCSS.css'
 import Calendar from './components/Calendar';
 import Topics from './components/Topics';
-
+import ProfilePage from './profile';
 
 
 
