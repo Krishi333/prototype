@@ -53,6 +53,12 @@ function EntryFormContainer(props){
             return;
         }
 
+        const workEmailRegex = /^[^\s@]+@make-it-all\.com$/;
+        if (!workEmailRegex.test(email)) {
+            props.onError && props.onError('Please enter work email address');
+            return;
+        }
+
         // Check if email already exists
         if (validAccount.some(account => account.email === email)) {
             props.onError && props.onError('An account with this email already exists');
