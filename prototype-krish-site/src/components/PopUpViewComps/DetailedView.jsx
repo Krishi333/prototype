@@ -10,7 +10,7 @@ import Description from "./Description"
 function DetailedView({onClickDone}) {
     return (
         <div style={{marginLeft: "5%", marginRight: "5%", marginTop: "2%"}}>
-            <p style={{textAlign: "center"}}>Task 1 <span style={{marginLeft: "2%", backgroundColor: "orange"}}className="btn">Edit</span></p>
+            <p style={{textAlign: "center"}}>Task 1 <span style={{marginLeft: "2%", backgroundColor: "lightBlue"}}className="btn">Edit</span></p>
             <Description/>
             <br/>
             <Priority/>

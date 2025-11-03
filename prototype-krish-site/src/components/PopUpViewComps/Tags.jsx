@@ -2,9 +2,9 @@
 function Tags() {
     return (
         <div>
-            <button type="button" className="btn btn-primary" style={{marginRight: "2%"}}>Add Tags</button>
-            <button type="button" className="btn btn-primary" style={{marginRight: "2%"}}>Edit Description</button>
-            <button type="button" className="btn btn-primary">Update Progress Bar</button>
+            <button type="button" className="btn" style={{marginRight: "2%", backgroundColor: "lightBlue"}}>Add Tags</button>
+            <button type="button" className="btn" style={{marginRight: "2%", backgroundColor: "lightBlue"}}>Edit Description</button>
+            <button type="button" className="btn" style={{backgroundColor: "lightBlue"}}>Update Progress Bar</button>
         </div>
     )
 }
