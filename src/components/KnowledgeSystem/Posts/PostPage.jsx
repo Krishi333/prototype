@@ -5,7 +5,7 @@
 import Header from "../Header"
 import Posts from "./Posts"
 
-function PostPage({onClickBack, onClickPost}) {
+function PostPage({onClickBack, onClickPost, onClickManager}) {
 
     return (
         <div className="p-3">
@@ -17,7 +17,9 @@ function PostPage({onClickBack, onClickPost}) {
                         color: "oklch(0.15 0.03 82)", backgroundColor: "white"}}>Back</button>
                 </div>
                 <button className="btn border border-dark rounded" style={{marginBottom: "1%", marginLeft: "1%", marginRight: "1%", width: "98%", 
-                    color: "oklch(0.15 0.03 82)", backgroundColor: "white"}}>Change View</button>
+                    color: "oklch(0.15 0.03 82)", backgroundColor: "white", width: "76%"}}>Change View</button>
+                <button className="btn border border-dark rounded" style={{marginBottom: "1%", marginLeft: "1%", marginRight: "1%", width: "98%", 
+                    color: "oklch(0.15 0.03 82)", backgroundColor: "white", width: "20%"}} onClick={onClickManager}>Manager View</button>
             </div>
             <Posts postName="Post Name 1" onClickPost={onClickPost}/>
             <Posts postName="Post Name 2" onClickPost={onClickPost}/>

@@ -455,7 +455,9 @@ function ManagerDashboardFull() {
               {TopicsVisible && <Topics onClickPostPage={() => {setTopicsVisibility(false); setPostPageVisibility(true);}}/>}
               {/* Change below to <PostPage for employee view */}
               {PostPageVisible && <PostPage onClickBack={() => {setTopicsVisibility(true); setPostPageVisibility(false)}} 
-                onClickPost={() => {setPostPageVisibility(false); setPostVisibility(true)}}/>}
+                onClickPost={() => {setPostPageVisibility(false); setPostVisibility(true)}}
+                onClickManager={() => {setPostPageVisibility(false); setManagerVisibility(true)}}/>}
+              {ManagerVisible && <ManagerPostPages onClickEmployee={() => {setManagerVisibility(false); setPostPageVisibility(true)}}/>}
               {PostVisible && <Post onClickBack={() => {setPostVisibility(false); setPostPageVisibility(true)}}/>}
               <div className="topics-content">
                 <p>Topics content will be displayed here</p>
