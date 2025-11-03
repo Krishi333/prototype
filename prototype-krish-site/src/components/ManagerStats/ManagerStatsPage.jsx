@@ -1,15 +1,7 @@
 import "./ManagerStatsPageStyle.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-
-/* import all the icons in Free Solid, Free Regular, and Brands styles */
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
 import BarChart from "./Bar";
 import PieChart from "./Pie";
 
-library.add(fas, far, fab)
 function ManagerStatsPage(){
 
     const ongoingTaskData = {
@@ -116,14 +108,14 @@ function ManagerStatsPage(){
                         <h2 id="taskNumberOverall">133</h2>
                         <span> 
                             {/* <i className="fa-solid fa-clipboard-list"></i>  */}
-                            <FontAwesomeIcon icon="fa-solid fa-clipboard-list" />
+                            {/* <FontAwesomeIcon icon="fa-solid fa-clipboard-list" /> */}
                             Overall Tasks
                         </span>
                     </div>
                     <div className="taskNumberCompleted miniCard">
                         <h2 id="taskNumberCompleted">76</h2>
                         <span>
-                            <FontAwesomeIcon icon="fa-solid fa-square-check" />
+                            {/* <FontAwesomeIcon icon="fa-solid fa-square-check" /> */}
                             Completed Tasks
                         </span>
                     </div>
@@ -132,14 +124,14 @@ function ManagerStatsPage(){
                     <div className="taskNumberOngoing miniCard">
                         <h2 id="taskNumberOngoing">45</h2>
                         <span>
-                            <FontAwesomeIcon icon="fa-solid fa-arrow-rotate-right" />
+                            {/* <FontAwesomeIcon icon="fa-solid fa-arrow-rotate-right" /> */}
                             Ongoing Tasks
                         </span>
                     </div>
                     <div className="taskNumberOverdue miniCard">
                         <h2 id="taskNumberOverdue">12</h2>
                         <span>
-                        <FontAwesomeIcon icon="fa-solid fa-circle-exclamation" />
+                        {/* <FontAwesomeIcon icon="fa-solid fa-circle-exclamation" /> */}
                         Overdue Tasks
                         </span>
                     </div>
