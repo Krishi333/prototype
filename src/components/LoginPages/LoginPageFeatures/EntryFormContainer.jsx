@@ -33,12 +33,15 @@ function EntryFormContainer(props){
     // handleRegisterSubmit gets data from register form and checks if password match
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
+        console.log('=== REGISTRATION ATTEMPT ===');
         const formData = new FormData(e.currentTarget);
         const firstName = formData.get("firstName");
         const lastName = formData.get("lastName");
         const email = formData.get("emailAddress");
         const password = formData.get("password");
         const confirmPassword = formData.get("confirmPassword");
+        console.log('Email:', email);
+        console.log('Password:', password);
 
         // Validate all fields are filled
         if (!firstName || !lastName || !email || !password || !confirmPassword) {
@@ -58,6 +61,17 @@ function EntryFormContainer(props){
             props.onError && props.onError('Please enter work email address');
             return;
         }
+
+       
+        const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+        console.log('Checking password for special character:', password);
+        console.log('Special char test result:', specialCharRegex.test(password));
+        if (!specialCharRegex.test(password)) {
+            console.log('VALIDATION FAILED - No special character found');
+            props.onError && props.onError('Password must include at least one special character');
+            return;
+        }
+        console.log('VALIDATION PASSED - Special character found');
 
         // Check if email already exists
         if (validAccount.some(account => account.email === email)) {
@@ -93,6 +107,7 @@ function EntryFormContainer(props){
             return true;
         }
         console.log("Passwords don't match");
+        return false;
     };
 
     const textFields = props.textField;
