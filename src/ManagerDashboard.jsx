@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Manager_Dashboard_EmployeeCSS.css'
 import Calendar from './components/Calendar';
-import Topics from './components/Topics';
+import ManagerPostPages from "./components/KnowledgeSystem/Posts/ManagerPostPages";
+import PostPage from "./components/KnowledgeSystem/Posts/PostPage";
+import Post from "./components/KnowledgeSystem/Posts/Post";
+import Topics from "./components/Topics";
 import ProfilePage from './profile';
 import ManagerStatsPage from './components/ManagerStats/ManagerStatsPage';
 
