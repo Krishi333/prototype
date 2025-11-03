@@ -375,6 +375,40 @@ function ManagerDashboardFull() {
                 <Calendar />
               </div>
             </div>
+          ) : currentView === "tasks" ? (
+            <div className="manager-tasks-board" style={{display:'flex',gap:24,marginTop:32}}>
+              <div style={{flex:3,display:'grid',gridTemplateColumns:'1fr 1fr',gap:24}}>
+                {employees.map(emp => (
+                  <div key={emp.id} className="manager-task-card" style={{background:'#fff',border:'1px solid #ccc',borderRadius:12,padding:18,minHeight:180}}>
+                    <div style={{fontWeight:600,marginBottom:8}}>{emp.name} ({emp.team})</div>
+                    {emp.tasks && emp.tasks.length ? emp.tasks.map((task,i) => (
+                      <div key={i} style={{marginBottom:12,display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                        <div>
+                          <span style={{fontWeight:500}}>Name:</span> Task {i+1} &nbsp;
+                          <span style={{fontWeight:500}}>Priority:</span> {task.priority || ['High','Medium','Low'][i%3]} &nbsp;
+                          <span style={{fontWeight:500}}>Due Date:</span> 10-09-2026 &nbsp;
+                          <span style={{fontWeight:500}}>Project:</span> Project {4-i}
+                        </div>
+                        <div style={{display:'flex',gap:6}}>
+                          <button style={{background:'#3b82f6',color:'#fff',padding:'4px 12px',border:'none',borderRadius:4,fontSize:12}} disabled>Move Task</button>
+                          <button style={{background:'#ef4444',color:'#fff',padding:'4px 12px',border:'none',borderRadius:4,fontSize:12}} disabled>Delete Task</button>
+                        </div>
+                      </div>
+                    )) : <div>No tasks</div>}
+                  </div>
+                ))}
+              </div>
+              <div style={{flex:1,minWidth:260}}>
+                <div style={{marginBottom:12,fontWeight:600}}>Add new task</div>
+                <input type="text" placeholder="Add new task" style={{width:'60%',marginRight:8,padding:4}} disabled />
+                <select style={{padding:4,marginRight:8}} disabled>
+                  <option>High</option>
+                  <option>Medium</option>
+                  <option>Low</option>
+                </select>
+                <button style={{background:'#964B00',color:'#fff',padding:'4px 18px',border:'none',borderRadius:4}} disabled>Add</button>
+              </div>
+            </div>
           ) : currentView === "employees" ? (
             <div className="employees-grid" id="employeesGrid">
               {employees.map(renderEmployeeCard)}
