@@ -1,12 +1,14 @@
-import React from "react";
+import Header from "./EmployeeComponents/Header.jsx";
+import TabGroup from "./EmployeeComponents/Toggles.jsx";
+import Navbar from "./EmployeeComponents/Navbar.jsx";
 
-function EmployeeDashboard({ onLogout, userRole }) {
+function EmployeeDashboard() {
   return (
-    <div style={{ padding: 24 }}>
-      <h1>Employee Dashboard</h1>
-      <p>Welcome — you are logged in as: <strong>{userRole}</strong></p>
-      <button onClick={onLogout}>Logout</button>
-    </div>
+    <>
+      <Header />
+      <TabGroup />
+      <Navbar />
+    </>
   );
 }
 
