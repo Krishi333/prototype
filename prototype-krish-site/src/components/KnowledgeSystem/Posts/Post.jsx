@@ -6,12 +6,12 @@ function Post({onClickBack}) {
     return (
         <div className="p-3">
             <Header heading="Specific Post"/>
-            <div style={{textAlign: "center", marginTop: "1%", marginBottom: "1%", backgroundColor: "oklch(0.88 0.015 82)"}} className="border border-dark rounded">
+            <div style={{textAlign: "center", marginTop: "1%", marginBottom: "1%", backgroundColor: "white"}} className="border border-dark rounded">
                 <span className="fw-bold fs-1" style={{color: "oklch(0.15 0.03 82)"}}>Post Name</span>
                 <button className="btn border border-dark rounded" onClick={onClickBack} style={{float: "left", marginTop: "0.75%", marginLeft: "1%", 
-                    color: "oklch(0.15 0.03 82)", backgroundColor: "oklch(0.94 0.015 82)"}}>Back</button>
+                    color: "oklch(0.15 0.03 82)", backgroundColor: "white"}}>Back</button>
             </div>
-            <div className="border border-dark rounded" style={{marginBottom: "2%", backgroundColor: "oklch(0.88 0.015 82)"}}>
+            <div className="border border-dark rounded" style={{marginBottom: "2%", backgroundColor: "white"}}>
                 <p style={{margin: "1%", color: "oklch(0.4 0.03 82)"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis enim orci,
                      at scelerisque augue imperdiet non.
                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a cursus orci. Donec mattis nisl et sapien tempus, sit
@@ -29,7 +29,7 @@ function Post({onClickBack}) {
                      Morbi facilisis ipsum id placerat porttitor. Vestibulum vitae urna in nunc posuere mollis. Cras et sapien nisi.
                 </p>
                 <button style={{float: "right", marginRight: "1%", marginBottom: "1%", color: "oklch(0.15 0.03 82)",
-                     backgroundColor: "oklch(0.94 0.015 82)"}} className="btn btn-primary border border-dark rounded">Edit</button>
+                     backgroundColor: "lightBlue"}} className="btn border border-dark rounded">Edit</button>
                 <div style={{clear: "both"}}/>
             </div>
 

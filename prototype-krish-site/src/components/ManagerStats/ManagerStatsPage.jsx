@@ -277,8 +277,9 @@ function ManagerStatsPage(){
                                 <div className="sort-container">
                                     <select className="sort-select" id="filterEmployee">
                                         <option value="All">All</option>
-                                        <option value="Employee1">1</option>
-                                        <option value="Employee2">2</option>
+                                        <option value="Employee1">Rachel</option>
+                                        <option value="Employee2">Phoebe</option>
+                                        <option value="Employee2">Ross</option>
                                     </select>
                                 </div>
                             </div>
