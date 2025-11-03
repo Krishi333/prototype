@@ -70,6 +70,7 @@ function ManagerDashboardFull() {
   const [TopicsVisible, setTopicsVisibility] = useState(true);
   const [PostPageVisible, setPostPageVisibility] = useState(false);
   const [PostVisible, setPostVisibility] = useState(false);
+  const [ManagerVisible, setManagerVisibility] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
