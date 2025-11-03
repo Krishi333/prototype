@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Manager_Dashboard_EmployeeCSS.css'
 import Calendar from './components/Calendar';
-import Topics from './components/Topics';
+import ManagerPostPages from "./components/KnowledgeSystem/Posts/ManagerPostPages";
+import PostPage from "./components/KnowledgeSystem/Posts/PostPage";
+import Post from "./components/KnowledgeSystem/Posts/Post";
+import Topics from "./components/Topics";
 
 
 
@@ -62,6 +65,10 @@ import Topics from './components/Topics';
 
 function ManagerDashboardFull() {
   const [darkMode, setDarkMode] = useState(false);
+
+  const [TopicsVisible, setTopicsVisibility] = useState(true);
+  const [PostPageVisible, setPostPageVisibility] = useState(false);
+  const [PostVisible, setPostVisibility] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
@@ -443,7 +450,11 @@ function ManagerDashboardFull() {
             </div>
           ) : currentView === "topics" ? (
             <div className="content-section">
-              <Topics onClickPostPage={(topicName) => showNotification(`Open post page for "${topicName}"`)} />
+              {TopicsVisible && <Topics onClickPostPage={() => {setTopicsVisibility(false); setPostPageVisibility(true);}}/>}
+              {/* Change below to <PostPage for employee view */}
+              {PostPageVisible && <PostPage onClickBack={() => {setTopicsVisibility(true); setPostPageVisibility(false)}} 
+                onClickPost={() => {setPostPageVisibility(false); setPostVisibility(true)}}/>}
+              {PostVisible && <Post onClickBack={() => {setPostVisibility(false); setPostPageVisibility(true)}}/>}
               <div className="topics-content">
                 <p>Topics content will be displayed here</p>
               </div>
