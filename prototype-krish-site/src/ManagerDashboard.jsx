@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './Manager_Dashboard_EmployeeCSS.css'
 import Calendar from './components/Calendar';
 import Topics from './components/Topics';
+import ProfilePage from "./profile";
+
 
 
 
@@ -447,6 +449,10 @@ function ManagerDashboardFull() {
               <div className="topics-content">
                 <p>Topics content will be displayed here</p>
               </div>
+            </div>
+          ) : currentView === "profile" ? (
+            <div className="profile-section">
+              <ProfilePage user={{ name: "Yuki", email: "manager@make-it-all.com", role: "Manager" }} />
             </div>
           ) : (
             <div className="content-section">Content for {currentView}</div>
