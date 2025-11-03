@@ -38,6 +38,7 @@ import "./App.css";
 import EntryPage from "./components/LoginPages/EntryPage";
 import ManagerDashboard from "./ManagerDashboard";
 import EmployeeDashboard from "./EmployeeDashboard"; // add this file/component
+import "./EmployeeComponents/tabs.css"
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
