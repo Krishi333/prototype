@@ -3,6 +3,7 @@ import './Manager_Dashboard_EmployeeCSS.css'
 import Calendar from './components/Calendar';
 import Topics from './components/Topics';
 import ProfilePage from './profile';
+import ManagerStatsPage from './components/ManagerStats/ManagerStatsPage';
 
 
 
@@ -375,69 +376,70 @@ function ManagerDashboardFull() {
               {employees.map(renderEmployeeCard)}
             </div>
           ) : currentView === "overview" ? (
-            <div className="overview-content">
-              <h2>Overview</h2>
+            <ManagerStatsPage/>
+            // <div className="overview-content">
+            //   <h2>Overview</h2>
                 
-                {/* Overview stats: bigger labels showing counts */}
-                <div className="overview-stats" role="note" aria-label="Overview stats">
-                  <div className="stat-card stat-ongoing">
-                    <div className="stat-number">45</div>
-                    <div className="stat-label">Ongoing tasks</div>
-                  </div>
-                  <div className="stat-card stat-overdue">
-                    <div className="stat-number">12</div>
-                    <div className="stat-label">Overdue tasks</div>
-                  </div>
-                </div>
+            //     {/* Overview stats: bigger labels showing counts */}
+            //     <div className="overview-stats" role="note" aria-label="Overview stats">
+            //       <div className="stat-card stat-ongoing">
+            //         <div className="stat-number">45</div>
+            //         <div className="stat-label">Ongoing tasks</div>
+            //       </div>
+            //       <div className="stat-card stat-overdue">
+            //         <div className="stat-number">12</div>
+            //         <div className="stat-label">Overdue tasks</div>
+            //       </div>
+            //     </div>
 
-                <div className="tag-legend" role="region" aria-label="Tag legend">
-                  <div className="legend-item">
-                    <span className="tag-badge tag-1">Tag 1</span>
-                    <span className="legend-text">Easiest</span>
-                  </div>
-                  <div className="legend-item">
-                    <span className="tag-badge tag-2">Tag 2</span>
-                    <span className="legend-text">Average</span>
-                  </div>
-                  <div className="legend-item">
-                    <span className="tag-badge tag-3">Tag 3</span>
-                    <span className="legend-text">Hardest</span>
-                  </div>
-                </div>
+            //     <div className="tag-legend" role="region" aria-label="Tag legend">
+            //       <div className="legend-item">
+            //         <span className="tag-badge tag-1">Tag 1</span>
+            //         <span className="legend-text">Easiest</span>
+            //       </div>
+            //       <div className="legend-item">
+            //         <span className="tag-badge tag-2">Tag 2</span>
+            //         <span className="legend-text">Average</span>
+            //       </div>
+            //       <div className="legend-item">
+            //         <span className="tag-badge tag-3">Tag 3</span>
+            //         <span className="legend-text">Hardest</span>
+            //       </div>
+            //     </div>
 
-                <div className="table-wrap">
-                <table className="overview-table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Team</th>
-                      <th>Tasks</th>
-                      <th>Tag</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {overviewData && overviewData.length ? (
-                      overviewData.map((r) => (
-                        <tr key={r.id}>
-                          <td>{r.name}</td>
-                          <td>{r.team}</td>
-                          <td>{r.tasks}</td>
-                          <td>
-                            <span className={`tag-badge tag-${(r.tag || 'Tag 1').split(' ')[1]}`}>
-                              {r.tag}
-                            </span>
-                          </td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td colSpan="4">No overview data available</td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            //     <div className="table-wrap">
+            //     <table className="overview-table">
+            //       <thead>
+            //         <tr>
+            //           <th>Name</th>
+            //           <th>Team</th>
+            //           <th>Tasks</th>
+            //           <th>Tag</th>
+            //         </tr>
+            //       </thead>
+            //       <tbody>
+            //         {overviewData && overviewData.length ? (
+            //           overviewData.map((r) => (
+            //             <tr key={r.id}>
+            //               <td>{r.name}</td>
+            //               <td>{r.team}</td>
+            //               <td>{r.tasks}</td>
+            //               <td>
+            //                 <span className={`tag-badge tag-${(r.tag || 'Tag 1').split(' ')[1]}`}>
+            //                   {r.tag}
+            //                 </span>
+            //               </td>
+            //             </tr>
+            //           ))
+            //         ) : (
+            //           <tr>
+            //             <td colSpan="4">No overview data available</td>
+            //           </tr>
+            //         )}
+            //       </tbody>
+            //     </table>
+            //   </div>
+            // </div>
           ) : currentView === "settings" ? (
             <div className="settings-content">
               <h3>⚙️ Application Settings</h3>

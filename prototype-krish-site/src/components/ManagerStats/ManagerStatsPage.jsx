@@ -109,14 +109,14 @@ function ManagerStatsPage(){
                         <span> 
                             {/* <i className="fa-solid fa-clipboard-list"></i>  */}
                             {/* <FontAwesomeIcon icon="fa-solid fa-clipboard-list" /> */}
-                            Overall Tasks
+                            📋 Overall Tasks
                         </span>
                     </div>
                     <div className="taskNumberCompleted miniCard">
                         <h2 id="taskNumberCompleted">76</h2>
                         <span>
                             {/* <FontAwesomeIcon icon="fa-solid fa-square-check" /> */}
-                            Completed Tasks
+                            ✅ Completed Tasks
                         </span>
                     </div>
                 </div>
@@ -125,14 +125,14 @@ function ManagerStatsPage(){
                         <h2 id="taskNumberOngoing">45</h2>
                         <span>
                             {/* <FontAwesomeIcon icon="fa-solid fa-arrow-rotate-right" /> */}
-                            Ongoing Tasks
+                            🔁 Ongoing Tasks
                         </span>
                     </div>
                     <div className="taskNumberOverdue miniCard">
                         <h2 id="taskNumberOverdue">12</h2>
                         <span>
                         {/* <FontAwesomeIcon icon="fa-solid fa-circle-exclamation" /> */}
-                        Overdue Tasks
+                        ❗️ Overdue Tasks
                         </span>
                     </div>
                 </div>
@@ -160,6 +160,7 @@ function ManagerStatsPage(){
                 </div>
                 <div className=" box" style={{display:"flex", flexDirection:"row", width:"100%"}}>
                     <div style={{width:"95%"}}>
+                        <h4>Ongoing Task Overview</h4>
                         <div className="tableConatiner table-responsive">
                             <table className="table table-hover table-sm caption-top" id="ongoingTaskTable">
                                 {/* <caption>Task Distribution</caption> */}
@@ -354,13 +355,14 @@ function ManagerStatsPage(){
             <div className="conatinerHorizontal halfContainer">
                 <div className="employeeTaskDistribution box" >
                             <div style={{width:"90%",height:"250px"}}>
+                                <h4>Tag Overview</h4>
                                 <BarChart data={tagDistributionData} options={tagDistributionOptions}/>
                             </div>
                     
                 </div>
                 <div className="ongoingTaskOverview box" >
                     <div style={{width:"95%"}}>
-                        {/* <h4 className="title">Task Distribution</h4> */}
+                        <h4 className="title">Employee Overview</h4>
                             <div className="tableConatiner table-responsive">
                                 <table className="table table-hover table-sm caption-top" id="overallEmployeeTable">
                                     {/* <caption>Overall Employee Task Data</caption> */}
